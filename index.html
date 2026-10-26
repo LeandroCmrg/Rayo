@@ -34,6 +34,70 @@ nav.bottom{display:none}.notice{padding:11px 14px;border-radius:12px;font-size:1
 .card{box-shadow:var(--shadow)}
 .btn:focus-visible,nav button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:740px){.add-icon-btn{width:40px;min-width:40px;height:40px}.main-head .head-title{margin-bottom:0}}
+
+/* RAYO 2.0 — Aparência independente por usuário */
+.brand-mark{background:var(--primary-card,#1B3044)}.tile.main-tile{background:var(--primary-card,#233f5c);border-color:var(--primary-card,#233f5c)}
+.tile.main-tile .sub,.tile.main-tile .tiny-note{color:var(--primary-card-sub,#bed2e1)}
+.appearance-reset{margin-top:15px;display:flex;justify-content:flex-end}.dashboard-tools{display:flex;justify-content:flex-end;gap:7px;margin:-4px 0 12px}
+.emoji-ico{font-size:19px;display:inline-flex;align-items:center;justify-content:center;line-height:1;width:21px;height:21px;flex-shrink:0}
+.emoji-ico.sm{font-size:15px;width:17px;height:17px}.emoji-ico.lg{font-size:23px;width:25px;height:25px}
+.item-symbol[style*=--cat-tint]{color:var(--cat-tint)}
+.nav-btn .emoji-ico{font-size:19px}.fav .emoji-ico{margin-bottom:10px}
+.settings-page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.settings-page>.card:first-child{grid-column:1/-1}
+.palette-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0 23px}
+.palette-option{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 7px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+.palette-option.selected{border:2px solid var(--accent);padding:9px 6px;background:var(--accentLight)}
+.palette-blob{background:var(--swatch);width:100%;height:43px;border-radius:9px;color:#fff;display:flex;justify-content:center;align-items:center}
+.palette-option small{text-align:center;font-size:11px;min-height:26px;line-height:1.2}
+.appearance-caption{font-weight:690;font-size:12px;margin:18px 0 8px}.appearance-caption:first-child{margin-top:0}
+.option-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.option-pair button{padding:16px 12px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--muted);display:flex;justify-content:center;align-items:center;gap:10px;font-weight:650}
+.option-pair button.chosen{color:var(--accent);background:var(--accentLight);border-color:var(--accent)}
+.appearance-segment{width:100%;display:flex}.appearance-segment button{flex:1;padding:10px 6px;font-size:12px}
+.personalize-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);gap:12px}
+.personalize-row:last-child{border-bottom:0}.personal-check{margin:0;display:flex;align-items:center;gap:10px;font-weight:600;min-width:0}
+.personal-check input{margin:0;flex-shrink:0}.shortcut-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.shortcut-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:11px;padding:10px;color:var(--muted);margin:0;font-size:12px;cursor:pointer;font-weight:610}
+.shortcut-chip.chosen{border-color:var(--accent);background:var(--accentLight);color:var(--accent)}
+.shortcut-chip input{width:15px;min-height:15px;margin:0}.category-mini{display:flex;align-items:center;gap:7px;min-width:0;flex-wrap:wrap}.category-mini i{width:11px;height:11px;border-radius:99px}
+.mobile-more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:7px 0 19px}
+.more-menu-item{min-width:0;min-height:84px;background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:10px 5px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:var(--ink)}
+.more-menu-item.current{border-color:var(--accent);color:var(--accent);background:var(--accentLight)}
+.more-menu-item span:last-child{font-size:11px;text-align:center;overflow-wrap:anywhere;line-height:1.2}
+.more-menu-footer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.more-menu-footer .btn{font-size:12px;min-width:0}
+:root[data-density="compact"] .card{padding:14px}:root[data-density="compact"] .tile{min-height:96px}
+:root[data-density="compact"] .list-row{padding:8px 0;gap:9px}:root[data-density="compact"] .settings-row{padding:8px 0}
+:root[data-density="compact"] .columns,:root[data-density="compact"] .stack{gap:10px}
+.sim-intro{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;margin-bottom:14px;gap:12px}
+.sim-intro span{display:flex;align-items:center;gap:5px}.sim-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,1fr);gap:15px;align-items:start}
+.sim-segment{display:flex;width:100%;margin-bottom:14px}.sim-segment button{flex:1;display:flex;justify-content:center;align-items:center;gap:5px}
+.sim-display{display:flex;align-items:center;border-bottom:1px solid var(--line);padding:17px 0 12px;gap:9px}
+.sim-display span{font-size:18px;color:var(--muted)}.sim-display input{border:0;background:transparent;text-align:right;font-size:34px;font-weight:800;letter-spacing:-.04em;padding:0;min-height:45px;outline:0}
+.sim-label{margin:13px 0;border-radius:10px;font-size:12px}.sim-keys{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.sim-keys button{min-height:59px;border-radius:13px;background:var(--surface2);color:var(--ink);font-size:21px;font-weight:650;border:1px solid var(--line)}
+.sim-keys button:active{transform:scale(.98)}.sim-keys button.clear{color:var(--bad)}.sim-keys button.sim-back{font-size:16px}.sim-keys button.sim-equal{grid-column:2/span 2;background:var(--accent);color:white;font-size:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+.sim-results{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:15px}
+.sim-total{display:flex;flex-direction:column;gap:6px}.sim-total small,.sim-pair small{color:var(--muted);font-size:11px}
+.sim-total strong{font-size:30px;letter-spacing:-.04em}.sim-pair{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:17px;padding-top:17px;gap:10px}
+.sim-pair>div{display:flex;flex-direction:column;gap:5px}.sim-item{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:12px 0}
+.sim-item:last-child{border:0}.sim-item .sim-symbol{color:var(--accent)}.sim-item b{font-size:12px;white-space:nowrap}
+@media(max-width:920px){.settings-page{grid-template-columns:1fr}.settings-page>.card:first-child{grid-column:auto}}
+@media(max-width:740px){.sim-layout{grid-template-columns:1fr}.settings-page{gap:12px}.palette-grid{gap:7px}.palette-option{padding:7px 4px}.palette-option.selected{padding:6px 3px}.palette-option small{font-size:10px}.palette-blob{height:36px}.mobile-more-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ nav.bottom{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;justify-content:stretch;padding-left:4px;padding-right:4px}
+ nav.bottom button{min-width:0;min-height:43px;padding:5px 1px;font-size:9px;gap:4px}
+ nav.bottom .bottom button{min-width:0}
+ nav.bottom button.quick{margin: -14px auto 0;min-width:45px;width:45px;height:45px;border-radius:15px}
+ nav.bottom .emoji-ico{font-size:18px}
+ .sim-display input{font-size:30px}
+ .main-head{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"title user user" "month month add";align-items:center;row-gap:13px;column-gap:9px}
+ .main-head .head-title{grid-area:title;min-width:0;flex-basis:auto}
+ .main-head .head-user{grid-area:user;justify-self:end;margin-left:0}
+ .main-head .month-control{grid-area:month;min-width:0}
+ .main-head #quickHeader{grid-area:add;justify-self:end}
+ .main-head .head-user .user-name{display:none}
+}
+@media(max-width:365px){nav.bottom button{font-size:8.5px}.palette-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style></head><body class="auth-locked">
 <section id="loginScreen" class="login-screen" aria-label="Login"><div class="login-box"><div class="login-mark"><svg viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true" fill="none"><path d="M166 360V147h111c72 0 109 36 109 91 0 53-40 87-110 87H166" stroke="currentColor" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/><path d="M274 326 367 391" stroke="currentColor" stroke-width="39" stroke-linecap="round"/><circle cx="378" cy="145" r="20" fill="#A8CDDA"/></svg></div><h1>rayo<span class="brand-dot">.</span></h1><p>Suas finanças, sem complicar.</p><form id="loginForm"><label for="loginWho">Usuário</label><input id="loginWho" type="text" minlength="3" maxlength="32" autocomplete="username" placeholder="Seu nome de usuário" required><label for="loginPassword">Senha</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" required><button class="btn" id="loginButton" type="submit">Entrar</button></form><div id="loginMessage" aria-live="polite"></div></div></section>
 <aside aria-label="Navegação"><div class="brand"><span class="brand-mark"><svg viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true" fill="none"><path d="M166 360V147h111c72 0 109 36 109 91 0 53-40 87-110 87H166" stroke="currentColor" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/><path d="M274 326 367 391" stroke="currentColor" stroke-width="39" stroke-linecap="round"/><circle cx="378" cy="145" r="20" fill="#A8CDDA"/></svg></span><span class="brand-name">rayo<span class="brand-dot">.</span></span></div><div id="sn"></div><div class="side-bottom" aria-hidden="true"></div></aside>
@@ -68,15 +132,13 @@ async function authActivate(token){
   const stored=await apiRequest('/state');
   stateRevision=stored.revision||0;
   const loaded=normalizeS(stored.data);
-  S=loaded.__appVersion===APP_VERSION?loaded:freshState();
+  S=loaded; // Preserve all existing account data; never wipe it on version changes.
   authUser=me.user?.login||'';authDisplayName=me.user?.nome||authUser;authIsAdmin=!!me.user?.isAdmin;saveConflict=false;dirty=false;
   sessionStorage.setItem(SESSION_KEY,token);
   document.body.classList.remove('auth-locked');document.getElementById('loginScreen').hidden=true;
   document.getElementById('sessionName').textContent=authDisplayName;document.getElementById('manageUsersButton').hidden=!authIsAdmin;
+  applyAppearance();
   go();
-  if(S.__appVersion!==loaded.__appVersion){
-   queueStateSave();
-  }
   // Nunca importa os dados antigos do navegador sem autorização explícita.
   if(authIsAdmin)offerLegacyImport();
  }catch(e){authToken='';sessionStorage.removeItem(SESSION_KEY);throw e;}
@@ -189,6 +251,7 @@ async function changeMyPassword(event){
   document.getElementById('manageUsersButton').hidden=true;
   document.getElementById('loginWho').value=loginToKeep;
   document.getElementById('loginPassword').value='';
+  resetVisualIdentity();
   document.body.classList.add('auth-locked');
   document.getElementById('loginScreen').hidden=false;
   const msg=document.getElementById('loginMessage');
@@ -228,7 +291,7 @@ async function logoutUser(){
  if(dirty||saveInProgress||saveConflict){alert('Existem alterações sem salvar. Exporte o backup JSON antes de sair.');return;}
  try{await apiRequest('/auth/logout',{method:'POST'})}catch{}
  authToken='';authUser='';authDisplayName='';authIsAdmin=false;document.getElementById('manageUsersButton').hidden=true;S=freshState();sessionStorage.removeItem(SESSION_KEY);
- document.body.classList.add('auth-locked');document.getElementById('loginScreen').hidden=false;document.getElementById('loginPassword').value='';
+ resetVisualIdentity();document.body.classList.add('auth-locked');document.getElementById('loginScreen').hidden=false;document.getElementById('loginPassword').value='';
 }
 async function authBoot(){
  document.getElementById('loginForm').addEventListener('submit',performLogin);
@@ -239,7 +302,8 @@ async function authBoot(){
 
 function resetAllUserData(){
  if(!confirm('Tem certeza que deseja zerar todos os dados deste perfil? Esta ação limpa ganhos, gastos, cartões, dívidas, metas, orçamentos e favoritos.'))return;
- S=freshState();
+ const keepSettings={appearance:S.settings?.appearance,customCategories:S.settings?.customCategories};
+ S=freshState();S.settings={...keepSettings};
  saveConflict=false;
  save();
  close_();
@@ -252,7 +316,8 @@ const loc=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
 const localDate=d=>`${loc(d)}-${String(d.getDate()).padStart(2,'0')}`;
 const today=localDate(now);
 const $=s=>document.querySelector(s);
-const R=v=>(Number(v)||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const moneyBRL=v=>(Number(v)||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const R=v=>appearance().privacy?'R$ •••••':moneyBRL(v);
 const D=d=>d?String(d).slice(0,10).split('-').reverse().join('/'):'—';
 const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const uid=()=>crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2);
@@ -263,11 +328,86 @@ const MN=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez
 const sum=a=>a.reduce((v,x)=>v+Number(x.valor||0),0);
 const CATS={rec:['Salário','Comissão','Hora extra','Benefício','Renda extra','Outros ganhos'],fix:['Aluguel','Condomínio','Água','Energia','Internet','Telefone','Assinatura','Mensalidade','Seguro','Outra fixa'],var:['Mercado','Alimentação','Transporte','Combustível','Farmácia','Lazer','Compras','Delivery','Saúde','Educação','Outros']};
 const COLORS={rec:'good',fix:'bad',var:'bad',car:'bad',div:'bad'};
-const GLYPHS={home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',wallet:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M16 12h5M3 9h18"/>',trendup:'<path d="m3 17 7-7 4 4 7-7"/><path d="M15 7h6v6"/>',trenddown:'<path d="m3 7 7 7 4-4 7 7"/><path d="M15 17h6v-6"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',chart:'<path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/>',plus:'<path d="M12 5v14M5 12h14"/>',check:'<path d="m4 12 5 5L20 6"/>',checkcircle:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',circle:'<circle cx="12" cy="12" r="9"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',edit:'<path d="M12 20h9"/><path d="M16 4a2 2 0 0 1 4 4L9 19l-5 1 1-5z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/><path d="M10 10v7M14 10v7"/>',copy:'<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/>',chevronleft:'<path d="m15 18-6-6 6-6"/>',chevronright:'<path d="m9 18 6-6-6-6"/>',down:'<path d="m6 9 6 6 6-6"/>',arrowup:'<path d="M12 19V5M5 12l7-7 7 7"/>',arrowdown:'<path d="M12 5v14M5 12l7 7 7-7"/>',credit:'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/>',piggy:'<path d="M6 8c-3 1-4 5-2 8l-1 3h4l1-2h8l1 2h3v-5a6 6 0 0 0-5-8H9l-2-2-2 3"/><path d="M14 10h.01"/>',settings:'<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/><path d="m19 13 2 1-2 4-2-1-2 2v2H9v-2l-2-2-2 1-2-4 2-1v-2l-2-1 2-4 2 1 2-2V3h6v2l2 2 2-1 2 4-2 1z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',users:'<path d="M16 20a7 7 0 0 0-8-7 7 7 0 0 0-5 7"/><circle cx="10" cy="7" r="4"/><path d="M17 3a4 4 0 0 1 0 8M20 20a7 7 0 0 0-4-6"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',store:'<path d="M3 10h18v11H3zM2 10l3-7h14l3 7"/><path d="M9 21v-8h6v8"/>',car:'<path d="m4 14 2-7h12l2 7M4 14h16v5H4zM7 19v2M17 19v2"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/>',food:'<path d="M4 3v8M7 3v8M10 3v8M7 11v10M17 3v18M17 3c-6 3-6 9 0 11"/>',star:'<path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>',pause:'<path d="M8 5v14M16 5v14"/>',play:'<path d="m7 4 13 8-13 8z"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',close:'<path d="M5 5l14 14M19 5 5 19"/>',filter:'<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',receipt:'<path d="M5 3h14v18l-3-2-4 2-4-2-3 2z"/><path d="M8 8h8M8 12h6"/>',shield:'<path d="m12 2 9 4v6c0 6-4 9-9 10-5-1-9-4-9-10V6z"/><path d="m8 12 3 3 5-6"/>',sliders:'<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/>'};
-function I(name,cls=''){return `<svg class="ico ${cls}" viewBox="0 0 24 24" aria-hidden="true">${GLYPHS[name]||GLYPHS.circle}</svg>`}
+
+// Preferências ficam NO PERFIL, via /state do Cloudflare, não em localStorage compartilhado.
+const PALETTES={
+ azul:{label:'Azul',main:'#315774',dark:'#9DC2D8',light:'#EAF0F5'},
+ rosa:{label:'Rosa',main:'#B85886',dark:'#F0A7C7',light:'#FAEAF1'},
+ mono:{label:'Preto e branco',main:'#303640',dark:'#E9EDF2',light:'#ECEEF0'},
+ vermelho:{label:'Vermelho',main:'#B94B57',dark:'#F0A4A9',light:'#FBEDEF'},
+ verde:{label:'Verde',main:'#277769',dark:'#9BDBCD',light:'#E8F5F1'},
+ roxo:{label:'Roxo',main:'#7855A5',dark:'#C4A6F1',light:'#F1EBF8'},
+ laranja:{label:'Laranja',main:'#A76837',dark:'#EBC090',light:'#FCF1E6'},
+ areia:{label:'Areia',main:'#827054',dark:'#E4CFAC',light:'#F4F0E8'}
+};
+const DEFAULT_HOME=['saldo','ganhos','gastos','projecao'];
+const HOME_NAMES={saldo:'Disponível',ganhos:'Ganhos',gastos:'Gastos',projecao:'Projeção'};
+const DEFAULT_SHORTCUTS=['dash','rec','spend','calendar'];
+const PRIMARY_PAGES=['dash','rec','spend','calendar'];
+const APPEARANCE_DEFAULTS={palette:'azul',mode:'light',iconStyle:'minimal',density:'comfortable',privacy:false,homeCards:DEFAULT_HOME,hiddenSections:[],quickTabs:DEFAULT_SHORTCUTS};
+function appearance(){return {...APPEARANCE_DEFAULTS,...(S.settings?.appearance||{})}}
+function themeIsDark(){const m=appearance().mode;return m==='dark'||(m==='auto'&&window.matchMedia?.('(prefers-color-scheme: dark)').matches)}
+function applyAppearance(){
+ const a=appearance(),p=PALETTES[a.palette]||PALETTES.azul,root=document.documentElement,dark=themeIsDark();
+ root.dataset.theme=dark?'dark':'light';root.dataset.density=a.density==='compact'?'compact':'comfortable';root.dataset.icons=a.iconStyle==='emoji'?'emoji':'minimal';
+ root.style.setProperty('--accent',dark?p.dark:p.main);root.style.setProperty('--accentLight',dark?'#293747':p.light);
+ root.style.setProperty('--primary-card',dark?'#233546':p.main);
+ root.style.setProperty('--primary-card-sub',dark?'#B9CEDC':'#ECF2F8');
+ document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#111923':p.main);
+}
+function resetVisualIdentity(){
+ const root=document.documentElement;root.dataset.theme='light';root.dataset.density='comfortable';root.dataset.icons='minimal';
+ for(const x of ['--accent','--accentLight','--primary-card','--primary-card-sub'])root.style.removeProperty(x);
+ document.querySelector('meta[name="theme-color"]')?.setAttribute('content','#1B3044');
+}
+function setAppearanceOption(field,value){
+ const a=appearance();
+ if(field==='palette'&&!PALETTES[value])return;
+ if(field==='mode'&&!['light','dark','auto'].includes(value))return;
+ if(field==='iconStyle'&&!['minimal','emoji'].includes(value))return;
+ if(field==='density'&&!['comfortable','compact'].includes(value))return;
+ if(field==='privacy')value=!a.privacy;
+ S.settings={...S.settings,appearance:{...a,[field]:value}};
+ applyAppearance();save();go();
+}
+function updateAppearanceList(field,value,action){
+ const a=appearance();let arr=(Array.isArray(a[field])?a[field]:[]).slice();
+ if(field==='homeCards'){
+  if(action==='toggle'){arr=arr.includes(value)?arr.filter(x=>x!==value):[...arr,value];if(!arr.length)return alert('Mantenha pelo menos um cartão no início.');}
+  else {const i=arr.indexOf(value),j=i+(action==='up'?-1:1);if(i<0||j<0||j>=arr.length)return;[arr[i],arr[j]]=[arr[j],arr[i]];}
+ }else if(field==='hiddenSections')arr=arr.includes(value)?arr.filter(x=>x!==value):[...arr,value];
+ else if(field==='quickTabs'){
+  if(arr.includes(value)){if(arr.length<=1)return;arr=arr.filter(x=>x!==value)}
+  else {if(arr.length>=4)return alert('Você pode selecionar até quatro atalhos.');arr.push(value)}
+ }
+ S.settings={...S.settings,appearance:{...a,[field]:arr}};save();go();
+}
+function restoreAppearance(){if(!confirm('Restaurar a aparência padrão deste usuário? Seus lançamentos não serão alterados.'))return;S.settings={...S.settings,appearance:{...APPEARANCE_DEFAULTS,homeCards:[...DEFAULT_HOME],quickTabs:[...DEFAULT_SHORTCUTS],hiddenSections:[]}};applyAppearance();save();go()}
+function getCats(kind){return [...CATS[kind],...((S.settings?.customCategories?.[kind]||[]).map(x=>x.name).filter(x=>!CATS[kind].includes(x)))];}
+const EMOJI_GLYPHS={home:'🏠',trendup:'💰',trenddown:'🛍️',calendar:'📅',wallet:'💳',repeat:'🔁',target:'🎯',chart:'📊',piggy:'🐷',credit:'💳',receipt:'🧾',search:'🔎',settings:'⚙️',dots:'•••',store:'🛒',car:'🚗',food:'🍽️',star:'⭐',shield:'🛡️',users:'👥',calculator:'🧮',palette:'🎨',clock:'🕒',checkcircle:'✅',arrowup:'↗️',arrowdown:'↙️'};
+const CATEGORY_EMOJI={'Salário':'💰','Mercado':'🛒','Transporte':'🚗','Farmácia':'💊','Alimentação':'🍽️','Lazer':'🎟️','Aluguel':'🏠','Assinatura':'🎧','Internet':'🌐','Energia':'💡'};
+function categoryEmoji(cat,kind){const custom=S.settings?.customCategories?.[kind]?.find(x=>x.name===cat);return custom?.emoji||CATEGORY_EMOJI[cat]||''}
+function categoryColor(cat,kind){const custom=S.settings?.customCategories?.[kind]?.find(x=>x.name===cat);return /^#[0-9a-fA-F]{6}$/.test(custom?.color||'')?custom.color:null}
+function openAddCategory(){open_(`${modalHeader('Nova categoria')}<div class="field-grid">${FIELD('Tipo',`<select id="newCatKind"><option value="var">Gasto variável</option><option value="fix">Gasto fixo</option><option value="rec">Ganho</option></select>`)}${FIELD('Nome',`<input id="newCatName" maxlength="36" placeholder="Ex.: Pets">`)}${FIELD('Emoji <span class="optional">(opcional)</span>',`<input id="newCatEmoji" maxlength="8" placeholder="Ex.: 🐾">`)}${FIELD('Cor',`<input id="newCatColor" type="color" value="#315774" aria-label="Cor da categoria">`)}</div><div class="modal-footer"><button class="btn light" onclick="close_()">Cancelar</button><button class="btn" onclick="saveCategory()">Salvar</button></div>`)}
+function saveCategory(){
+ const kind=$('#newCatKind').value,name=$('#newCatName').value.trim(),emoji=$('#newCatEmoji').value.trim(),color=$('#newCatColor').value;
+ if(!CATS[kind]||name.length<2||!/^[\p{L}\p{N} ._-]{2,36}$/u.test(name))return er('Use letras, números, espaços, ponto, hífen ou sublinhado.');
+ if(getCats(kind).some(x=>x.toLowerCase()===name.toLowerCase()))return er('Esta categoria já existe.');
+ const all={...(S.settings.customCategories||{})};all[kind]=[...(all[kind]||[]),{name,emoji,color}];S.settings={...S.settings,customCategories:all};save();close_();go();
+}
+function removeCategory(kind,index){
+ if(!confirm('Remover esta categoria da lista? Os lançamentos antigos continuarão com o nome original.'))return;
+ const all={...(S.settings.customCategories||{})};all[kind]=(all[kind]||[]).filter((x,i)=>i!==index);S.settings={...S.settings,customCategories:all};save();go();
+}
+const GLYPHS={calculator:'<rect x=5 y=2 width=14 height=20 rx=3 /><path d="M8 6h8M8 11h2m4 0h2M8 15h2m4 0h2M8 19h2m4 0h2"/>',palette:'<circle cx=12 cy=12 r=9 /><circle cx=7 cy=10 r=1 /><circle cx=12 cy=7 r=1 /><circle cx=17 cy=11 r=1 /><path d="M14 20c-2-2-1-4 1-4h2"/>',eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx=12 cy=12 r=3 />',eyeoff:'<path d="m3 3 18 18M10 5c6-2 11 7 11 7s-2 3-5 5M5 8c-2 2-3 4-3 4s4 7 10 7c1 0 2 0 3-1"/>',home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',wallet:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M16 12h5M3 9h18"/>',trendup:'<path d="m3 17 7-7 4 4 7-7"/><path d="M15 7h6v6"/>',trenddown:'<path d="m3 7 7 7 4-4 7 7"/><path d="M15 17h6v-6"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',chart:'<path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/>',plus:'<path d="M12 5v14M5 12h14"/>',check:'<path d="m4 12 5 5L20 6"/>',checkcircle:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',circle:'<circle cx="12" cy="12" r="9"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',edit:'<path d="M12 20h9"/><path d="M16 4a2 2 0 0 1 4 4L9 19l-5 1 1-5z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/><path d="M10 10v7M14 10v7"/>',copy:'<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/>',chevronleft:'<path d="m15 18-6-6 6-6"/>',chevronright:'<path d="m9 18 6-6-6-6"/>',down:'<path d="m6 9 6 6 6-6"/>',arrowup:'<path d="M12 19V5M5 12l7-7 7 7"/>',arrowdown:'<path d="M12 5v14M5 12l7 7 7-7"/>',credit:'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/>',piggy:'<path d="M6 8c-3 1-4 5-2 8l-1 3h4l1-2h8l1 2h3v-5a6 6 0 0 0-5-8H9l-2-2-2 3"/><path d="M14 10h.01"/>',settings:'<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/><path d="m19 13 2 1-2 4-2-1-2 2v2H9v-2l-2-2-2 1-2-4 2-1v-2l-2-1 2-4 2 1 2-2V3h6v2l2 2 2-1 2 4-2 1z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',users:'<path d="M16 20a7 7 0 0 0-8-7 7 7 0 0 0-5 7"/><circle cx="10" cy="7" r="4"/><path d="M17 3a4 4 0 0 1 0 8M20 20a7 7 0 0 0-4-6"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',store:'<path d="M3 10h18v11H3zM2 10l3-7h14l3 7"/><path d="M9 21v-8h6v8"/>',car:'<path d="m4 14 2-7h12l2 7M4 14h16v5H4zM7 19v2M17 19v2"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/>',food:'<path d="M4 3v8M7 3v8M10 3v8M7 11v10M17 3v18M17 3c-6 3-6 9 0 11"/>',star:'<path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>',pause:'<path d="M8 5v14M16 5v14"/>',play:'<path d="m7 4 13 8-13 8z"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',close:'<path d="M5 5l14 14M19 5 5 19"/>',filter:'<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',receipt:'<path d="M5 3h14v18l-3-2-4 2-4-2-3 2z"/><path d="M8 8h8M8 12h6"/>',shield:'<path d="m12 2 9 4v6c0 6-4 9-9 10-5-1-9-4-9-10V6z"/><path d="m8 12 3 3 5-6"/>',sliders:'<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/>'};
+function I(name,cls=''){
+ const action=['plus','check','edit','trash','copy','pause','play','close','chevronleft','chevronright','down','download','filter','sliders','logout','info','user'];
+ if(appearance().iconStyle==='emoji'&&!action.includes(name)&&EMOJI_GLYPHS[name])return `<span class="emoji-ico ${cls}" aria-hidden="true">${EMOJI_GLYPHS[name]}</span>`;
+ return `<svg class="ico ${cls}" viewBox="0 0 24 24" aria-hidden="true">${GLYPHS[name]||GLYPHS.circle}</svg>`;
+}
 let ym=loc(now),tab='dash',calendarSelected=today,expenseFilter='all',expenseSearch='',expenseStatus='all',gainStatus='all',historySearch='',historyKind='all',historyStatus='all';
-const NAV=[['dash','home','Início'],['rec','trendup','Ganhos'],['spend','trenddown','Gastos'],['calendar','calendar','Calendário'],['history','search','Histórico'],['recurr','repeat','Recorrências'],['budgets','target','Orçamentos'],['res','piggy','Metas e reserva'],['car','credit','Cartões'],['div','receipt','Dívidas'],['rel','chart','Relatórios'],['settings','settings','Ajustes']];
-const T={dash:'Visão geral',rec:'Meus ganhos',spend:'Meus gastos',calendar:'Calendário financeiro',history:'Pesquisar lançamentos',recurr:'Recorrências',budgets:'Meus orçamentos',res:'Metas e reserva',car:'Cartões',div:'Dívidas',rel:'Relatórios',settings:'Ajustes'};
+const NAV=[['dash','home','Início'],['rec','trendup','Ganhos'],['spend','trenddown','Gastos'],['calendar','calendar','Calendário'],['history','search','Histórico'],['recurr','repeat','Recorrências'],['budgets','target','Orçamentos'],['res','piggy','Metas e reserva'],['car','credit','Cartões'],['div','receipt','Dívidas'],['rel','chart','Relatórios'],['sim','calculator','Simulador'],['settings','settings','Ajustes']];
+const T={dash:'Visão geral',rec:'Meus ganhos',spend:'Meus gastos',calendar:'Calendário financeiro',history:'Pesquisar lançamentos',recurr:'Recorrências',budgets:'Meus orçamentos',res:'Metas e reserva',car:'Cartões',div:'Dívidas',rel:'Relatórios',sim:'Calculadora',settings:'Ajustes'};
 const has=(o,k)=>Object.prototype.hasOwnProperty.call(o||{},k);
 const utcDate=s=>new Date(s+'T12:00:00Z');
 const validDate=s=>/^\d{4}-\d\d-\d\d$/.test(String(s||''))&&!Number.isNaN(Date.parse(s+'T12:00:00Z'));
@@ -315,22 +455,31 @@ function setMonth(y){ym=y;calendarSelected=ym===loc(new Date())?today:ym+'-01';$
 function moveMonth(n){setMonth(fm(mi(ym)+n))}
 function openPage(p){tab=p;go();window.scrollTo({top:0,behavior:'smooth'})}
 function nav(){
- const primary=NAV.slice(0,5),other=NAV.slice(5);
- $('#sn').innerHTML=`<div class="nav-heading">Principal</div><div class="nav-group">${primary.map(n=>navButton(n)).join('')}</div><div class="nav-heading">Planejamento</div><div class="nav-group">${other.map(n=>navButton(n)).join('')}</div>`;
- $('#bn').innerHTML=[['dash','home','Início'],['rec','trendup','Ganhos'],['plus','plus','Adicionar'],['spend','trenddown','Gastos'],['more','dots','Mais']].map(n=>`<button class="${n[0]===tab?'on':''} ${n[0]==='plus'?'quick':''}" aria-label="${E(n[2])}" title="${E(n[2])}" onclick="${n[0]==='plus'?'openQuick()':n[0]==='more'?"openPage('settings')":`openPage('${n[0]}')`}">${I(n[1])}${n[0]==='plus'?'':`<span>${E(n[2])}</span>`}</button>`).join('');
+ const a=appearance(),hidden=a.hiddenSections||[],primary=NAV.slice(0,5).filter(n=>!hidden.includes(n[0])),others=NAV.slice(5).filter(n=>!hidden.includes(n[0]));
+ $('#sn').innerHTML=`<div class="nav-heading">Principal</div><div class="nav-group">${primary.map(n=>navButton(n)).join('')}</div><div class="nav-heading">Mais opções</div><div class="nav-group">${others.map(n=>navButton(n)).join('')}</div>`;
+ const quick=(Array.isArray(a.quickTabs)&&a.quickTabs.length?a.quickTabs:DEFAULT_SHORTCUTS).filter(k=>NAV.some(n=>n[0]===k)).slice(0,4);
+ const before=quick.slice(0,2),after=quick.slice(2);
+ const parts=[...before.map(p=>NAV.find(n=>n[0]===p)),['plus','plus',''],...after.map(p=>NAV.find(n=>n[0]===p)),['more','dots','Mais']];
+ $('#bn').innerHTML=parts.map(n=>`<button class="${n[0]===tab?'on':''} ${n[0]==='plus'?'quick':''} ${n[0]==='more'&&!quick.includes(tab)?'on':''}" aria-label="${E(n[0]==='plus'?'Adicionar':n[2])}" title="${E(n[0]==='plus'?'Adicionar':n[2])}" onclick="${n[0]==='plus'?'openQuick()':n[0]==='more'?'openMoreMenu()':`openPage('${n[0]}')`}">${I(n[1])}${n[0]==='plus'?'':`<span>${E(n[2])}</span>`}</button>`).join('');
 }
 function navButton(n){return `<button class="nav-btn ${tab===n[0]?'on':''}" onclick="openPage('${n[0]}')">${I(n[1])}${E(n[2])}</button>`}
+function openMoreMenu(){
+ const list=NAV.filter(n=>n[0]!=='dash');
+ open_(`${modalHeader('Mais opções','Todas as áreas do RAYO')}<div class="mobile-more-grid">${list.map(n=>`<button class="more-menu-item ${tab===n[0]?'current':''}" onclick="close_();openPage('${n[0]}')">${I(n[1])}<span>${E(n[2])}</span></button>`).join('')}</div><div class="more-menu-footer"><button class="btn light" onclick="close_();openPage('settings')">${I('palette','sm')} Personalizar</button><button class="btn light" onclick="close_();openPage('sim')">${I('calculator','sm')} Simular</button></div>`);
+}
 function go(){if(!authToken)return;nav();$('#ti').textContent=T[tab]||'RAYO';$('#eyebrow').textContent=tab==='dash'?`Olá, ${authDisplayName}`:monthLabel(ym);$('#ym').value=ym;$('#userBadge').textContent=(authDisplayName||'U').slice(0,1).toUpperCase();$('#manageUsersButton').hidden=!authIsAdmin;$('#v').innerHTML=V[tab]();$('#quickHeader').style.display='inline-flex';}
 function card(title,body,right=''){return `<section class="card"><div class="subhead"><h2>${title}</h2>${right}</div>${body}</section>`}
 function stat(label,value,ico,cl='',caption=''){return `<div class="card tile ${cl==='main'?'main-tile':''}"><div class="tile-icon">${I(ico)}</div><div class="sub">${E(label)}</div><strong>${R(value)}</strong>${caption?`<div class="tiny-note">${E(caption)}</div>`:''}</div>`}
 function statCount(label,value,ico){return `<div class="card tile"><div class="tile-icon">${I(ico)}</div><div class="sub">${E(label)}</div><strong>${Math.max(0,Number(value)||0)}</strong></div>`}
 function badge(x){return `<span class="chip ${x.paid?'paid':x.date<today&&x.type==='out'?'overdue':'pending'}">${x.paid?(x.type==='in'?'Recebido':'Pago'):(x.type==='in'?'Previsto':x.date<today?'Vencido':'Pendente')}</span>`}
-function miniList(x,{actions=true,compact=false}={}){return `<div class="list-row"><span class="item-symbol">${I(x.type==='in'?'arrowdown':x.cat==='Cartões'?'credit':x.kind==='fix'?'repeat':x.cat==='Transporte'?'car':x.cat==='Mercado'?'store':'arrowup')}</span><span class="item-middle"><strong>${E(x.desc||x.cat)}</strong><small>${E(x.cat)} · ${D(x.date)}${x.item?.method?' · '+E(x.item.method):''}${x.freq&&x.freq!=='unica'?' · '+freqName[x.freq]:''}</small></span><div class="item-amount ${x.type==='in'?'good':''}">${x.type==='in'?'+':'−'} ${R(x.valor)}<small>${badge(x)}</small></div>${actions?`<div class="row-actions"><button class="mini-action is-primary" title="${x.paid?'Desfazer confirmação':'Confirmar'}" onclick="togglePaid('${x.kind}','${x.id}','${x.date}')">${I(x.paid?'checkcircle':'check','sm')} ${x.paid?'Desfazer':x.type==='in'?'Receber':'Pagar'}</button>${x.source==='entry'?`<button class="mini-action" title="Repetir lançamento" onclick="repeatEntry('${x.kind}','${x.id}')">${I('copy','sm')}</button><button class="mini-action" title="Editar lançamento" onclick="editEntry('${x.kind}','${x.id}')">${I('edit','sm')}</button><button class="mini-action" title="Excluir lançamento" onclick="deleteEntry('${x.kind}','${x.id}','${x.date}')">${I('trash','sm')}</button>`:''}</div>`:''}</div>`}
+function miniList(x,{actions=true,compact=false}={}){return `<div class="list-row"><span class="item-symbol" style="${categoryColor(x.cat,x.kind)?'--cat-tint:'+categoryColor(x.cat,x.kind)+';':''}">${appearance().iconStyle==='emoji'&&categoryEmoji(x.cat,x.kind)?`<span class="emoji-ico" aria-hidden="true">${E(categoryEmoji(x.cat,x.kind))}</span>`:I(x.type==='in'?'arrowdown':x.cat==='Cartões'?'credit':x.kind==='fix'?'repeat':x.cat==='Transporte'?'car':x.cat==='Mercado'?'store':'arrowup')}</span><span class="item-middle"><strong>${E(x.desc||x.cat)}</strong><small>${E(x.cat)} · ${D(x.date)}${x.item?.method?' · '+E(x.item.method):''}${x.freq&&x.freq!=='unica'?' · '+freqName[x.freq]:''}</small></span><div class="item-amount ${x.type==='in'?'good':''}">${x.type==='in'?'+':'−'} ${R(x.valor)}<small>${badge(x)}</small></div>${actions?`<div class="row-actions"><button class="mini-action is-primary" title="${x.paid?'Desfazer confirmação':'Confirmar'}" onclick="togglePaid('${x.kind}','${x.id}','${x.date}')">${I(x.paid?'checkcircle':'check','sm')} ${x.paid?'Desfazer':x.type==='in'?'Receber':'Pagar'}</button>${x.source==='entry'?`<button class="mini-action" title="Repetir lançamento" onclick="repeatEntry('${x.kind}','${x.id}')">${I('copy','sm')}</button><button class="mini-action" title="Editar lançamento" onclick="editEntry('${x.kind}','${x.id}')">${I('edit','sm')}</button><button class="mini-action" title="Excluir lançamento" onclick="deleteEntry('${x.kind}','${x.id}','${x.date}')">${I('trash','sm')}</button>`:''}</div>`:''}</div>`}
 function miniBudget(b,y){const spent=monthSummary(y).out.filter(x=>x.cat===b.cat).reduce((s,x)=>s+x.valor,0),pct=Math.min(100,Math.max(0,spent/(Number(b.valor)||1)*100));return `<div class="budget-line"><div class="values"><strong>${E(b.cat)}</strong><small>${R(spent)} / ${R(b.valor)}</small></div><div class="progress"><span class="${spent>Number(b.valor)?'exceeded':pct>=85?'warning':''}" style="width:${pct}%"></span></div><div class="quiet" style="margin-top:5px">${spent>Number(b.valor)?'Acima do limite em '+R(spent-b.valor):'Restam '+R(b.valor-spent)}</div></div>`}
 function favorites(){if(!S.favs.length)return `<p class="muted" style="font-size:12px;margin:0">Seus lançamentos favoritos aparecerão aqui.</p>`;return `<div class="favs">${S.favs.map(f=>`<button class="fav" onclick="openQuick('${f.kind}',null,'${f.id}')">${I(f.kind==='rec'?'trendup':f.cat==='Mercado'?'store':f.kind==='fix'?'repeat':'wallet')}<span>${E(f.name||f.cat)}</span></button>`).join('')}</div>`}
 function dashboard(){const t=monthSummary(ym),f=financialBalance(ym),reserv=goalTotal(),upcoming=t.out.filter(x=>!x.paid).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,4),latest=[...t.a].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
  const reserved=f.configured?`<div class="divider"></div><div class="settings-row"><span class="muted">Separado em metas</span><strong>${R(reserv)}</strong></div><div class="settings-row"><span>Estimativa livre após reservas</span><strong>${R(f.available-reserv)}</strong></div>`:'';
- return `<div class="cards">${stat(f.configured?'Saldo estimado':'Resultado registrado',f.available,'wallet','main',f.configured?'Saldo inicial + movimentações':'Configure um saldo inicial para maior precisão')}${stat('Ganhos recebidos',t.received,'trendup','',`A receber: ${R(t.forecast)}`)}${stat('Gastos pagos',t.paid,'trenddown','',`Pendentes: ${R(t.pending)}`)}${stat('Projeção do mês',f.projected,'chart','', 'Inclui valores previstos')}</div>
+ const tiles={saldo:stat(f.configured?'Saldo estimado':'Resultado registrado',f.available,'wallet','main',f.configured?'Saldo inicial + movimentações':'Informe saldo inicial para maior precisão'),ganhos:stat('Ganhos recebidos',t.received,'trendup','',`A receber: ${R(t.forecast)}`),gastos:stat('Gastos pagos',t.paid,'trenddown','',`Pendentes: ${R(t.pending)}`),projecao:stat('Projeção do mês',f.projected,'chart','','Inclui previstos')};
+ const show=(appearance().homeCards||DEFAULT_HOME).filter(k=>tiles[k]);
+ return `<div class="dashboard-tools"><button class="mini-action" onclick="setAppearanceOption('privacy',null)" title="${appearance().privacy?'Mostrar':'Ocultar'} valores" aria-label="${appearance().privacy?'Mostrar':'Ocultar'} valores">${I(appearance().privacy?'eyeoff':'eye','sm')}</button><button class="mini-action" onclick="openPage('settings')" title="Personalizar início" aria-label="Personalizar início">${I('sliders','sm')}</button></div><div class="cards">${show.map(k=>tiles[k]).join('')}</div>
  <div class="columns"><div class="stack">${card('Favoritos',favorites(),`<button class="btn light tiny square-action" onclick="openQuick()" aria-label="Novo lançamento" title="Novo lançamento">${I('plus','sm')}</button>`)}${card('Movimentações recentes',latest.length?latest.map(x=>miniList(x,{actions:false})).join(''):`<div class="empty">${I('receipt')}<div>Ainda não há lançamentos neste mês.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('spend')">Ver tudo ${I('chevronright','sm')}</button>`)}${card('Fechamento do mês',`<div class="settings-row"><span class="muted">Ganhos confirmados</span><strong class="good">${R(t.received)}</strong></div><div class="settings-row"><span class="muted">Gastos confirmados</span><strong class="bad">${R(t.paid)}</strong></div><div class="settings-row"><span>Resultado confirmado</span><strong>${R(t.net)}</strong></div><div class="settings-row"><span class="muted">Valores ainda pendentes</span><strong>${R(t.forecast+t.pending)}</strong></div>`,`<button class="btn ghost tiny" onclick="openPage('rel')">Relatórios ${I('chevronright','sm')}</button>`)}${card('Saldo e planejamento',`<div class="settings-row"><span class="muted">Já recebido − pago</span><strong>${R(t.net)}</strong></div><div class="settings-row"><span class="muted">Previsto a receber</span><strong class="good">+ ${R(t.forecast)}</strong></div><div class="settings-row"><span class="muted">Contas a pagar</span><strong class="bad">− ${R(t.pending)}</strong></div><div class="settings-row"><span>Projeção final</span><strong>${R(f.projected)}</strong></div>${reserved}`,`<button class="btn light tiny" onclick="openInitialBalance()">${I('sliders','sm')} Saldo inicial</button>`)}</div>
  <div class="stack">${card('Pendências e próximos vencimentos',upcoming.length?upcoming.map(x=>miniList(x,{actions:false})).join(''):`<div class="empty">${I('checkcircle')}<div>Nenhum compromisso futuro pendente.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('calendar')">Calendário ${I('chevronright','sm')}</button>`)}${card('Orçamentos',S.budgets.length?S.budgets.slice(0,4).map(x=>miniBudget(x,ym)).join(''):`<div class="empty">${I('target')}<div>Organize limites por categoria.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('budgets')">Gerenciar ${I('chevronright','sm')}</button>`)}${card('Minhas metas',S.res.length?S.res.slice(0,2).map(goalCard).join(''):`<div class="empty">${I('piggy')}<div>Crie sua primeira meta de economia.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('res')">Ver metas ${I('chevronright','sm')}</button>`)}</div></div>`;
 }
@@ -371,8 +520,69 @@ function debts(){const left=S.div.reduce((s,d)=>s+Math.max(0,(Number(d.total)||0
 function reports(){const year=ym.slice(0,4),arr=Array.from({length:12},(_,i)=>{const y=year+'-'+String(i+1).padStart(2,'0'),t=monthSummary(y);return{name:MN[i],...t}}),max=Math.max(1,...arr.map(x=>Math.max(x.received,x.paid)));const totalIn=arr.reduce((s,a)=>s+a.received,0),totalOut=arr.reduce((s,a)=>s+a.paid,0),t=monthSummary(ym),byCat={};t.out.forEach(x=>byCat[x.cat]=(byCat[x.cat]||0)+x.valor);const f=financialBalance(ym);
  const closing=card('Fechamento de '+monthLabel(ym),`<div class="settings-row"><span class="muted">Ganhos recebidos</span><strong>${R(t.received)}</strong></div><div class="settings-row"><span class="muted">Gastos pagos</span><strong>${R(t.paid)}</strong></div><div class="settings-row"><span class="muted">Ganhos previstos</span><strong>${R(t.forecast)}</strong></div><div class="settings-row"><span class="muted">Despesas pendentes</span><strong>${R(t.pending)}</strong></div><div class="settings-row"><span class="muted">Reserva informada</span><strong>${R(goalTotal())}</strong></div><div class="settings-row"><span>Projeção do mês</span><strong>${R(f.projected)}</strong></div>`);
  return `<div class="stat-strip">${stat('Recebido em '+year,totalIn,'trendup')}${stat('Pago em '+year,totalOut,'trenddown')}${stat('Resultado em '+year,totalIn-totalOut,'wallet')}</div>${closing}<div class="columns">${card('Evolução mensal',arr.map(x=>`<div class="budget-line"><div class="values"><strong>${x.name}</strong><small>${R(x.received)} / ${R(x.paid)}</small></div><div style="display:grid;gap:4px"><div class="progress"><span style="background:var(--good);width:${x.received/max*100}%"></span></div><div class="progress"><span style="background:var(--bad);width:${x.paid/max*100}%"></span></div></div></div>`).join(''))}${card('Despesas por categoria',Object.keys(byCat).length?Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([cat,val])=>`<div class="budget-line"><div class="values"><strong>${E(cat)}</strong><small>${R(val)}</small></div><div class="progress"><span style="width:${val/Math.max(...Object.values(byCat))*100}%"></span></div></div>`).join(''):`<div class="empty">Ainda não há dados para comparar.</div>`,`<button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Exportar CSV</button>`)}</div>`}
-function settings(){const s=S.settings||{};return `<div class="columns"><div class="stack">${card('Meu perfil',`<div class="settings-row"><span class="muted">Usuário conectado</span><strong>${E(authDisplayName)}</strong></div><div class="settings-row"><span class="muted">Conta</span><strong>${authIsAdmin?'Administrador':'Pessoal'}</strong></div><div class="row-actions" style="justify-content:flex-start;margin-top:14px"><button class="btn light" onclick="openMyProfile()">${I('user','sm')} Meu perfil</button>${authIsAdmin?`<button class="btn light" onclick="openManageUsers()">${I('users','sm')} Usuários</button>`:''}<button class="btn light" onclick="logoutUser()">${I('logout','sm')} Sair</button></div>`)}${card('Saldo inicial',`<div class="settings-row"><span class="muted">Valor cadastrado</span><strong>${s.startBalance===undefined?'Não informado':R(s.startBalance)}</strong></div><div class="settings-row"><span class="muted">A partir do mês</span><strong>${s.baseMonth?E(monthLabel(s.baseMonth)):'—'}</strong></div><p class="mini-summary">O valor é manual. Defina o saldo no início de um mês para calcular sua disponibilidade estimada.</p>`,`<button class="btn tiny" onclick="openInitialBalance()">${I('edit','sm')} Configurar</button>`)}</div><div class="stack">${card('Instalar no celular',`<p class="muted">No iPhone, abra o site no Safari, toque em Compartilhar e escolha <b>Adicionar à Tela de Início</b>. No Android, use a opção <b>Instalar app</b> ou <b>Adicionar à tela inicial</b> no navegador.</p><p class="mini-summary">Você continua precisando de internet para entrar e sincronizar seus registros no Cloudflare.</p>`)}${card('Dados e aparência',`<div class="settings-row"><div><strong>Tema do site</strong><br><small>Escolha a aparência.</small></div><select style="max-width:160px" onchange="setTheme(this.value)"><option value="auto" ${!localStorage.getItem('mcf_theme')||localStorage.getItem('mcf_theme')==='auto'?'selected':''}>Automático</option><option value="light" ${localStorage.getItem('mcf_theme')==='light'?'selected':''}>Claro</option><option value="dark" ${localStorage.getItem('mcf_theme')==='dark'?'selected':''}>Escuro</option></select></div><div class="settings-row"><div><strong>Cópia de segurança</strong><br><small>Salve seus dados em JSON.</small></div><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Backup</button></div><div class="settings-row"><div><strong>Exportar lançamentos</strong><br><small>Arquivo CSV para Excel.</small></div><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} CSV</button></div><div class="settings-row"><div><strong>Zerar meus dados</strong><br><small>Limpa ganhos, gastos, cartões, dívidas, metas e orçamentos deste perfil.</small></div><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}${card('Favoritos',S.favs.length?S.favs.map(f=>`<div class="settings-row"><div><strong>${E(f.name||f.cat)}</strong><br><small>${E(f.cat)} · ${R(f.valor)}</small></div><button class="mini-action" onclick="removeFavorite('${f.id}')">${I('trash','sm')} Remover</button></div>`).join(''):'<p class="muted">Você ainda não criou favoritos.</p>')}${card('No celular',`<p class="mini-summary" style="margin-top:0">Para abrir como aplicativo: no iPhone, toque em Compartilhar → Adicionar à Tela de Início. No Android, abra o menu do navegador → Instalar ou Adicionar à tela inicial.</p><p class="quiet">É um atalho para o site, com seus dados sincronizados quando conectado à internet.</p>`)}${card('Outras páginas',NAV.slice(5,11).map(n=>`<button class="nav-btn" onclick="openPage('${n[0]}')">${I(n[1])} ${n[2]} ${I('chevronright','sm')}</button>`).join(''))}</div></div>`}
-const V={dash:dashboard,rec:gains,spend:expenses,calendar,history,recurr:recurrence,budgets,res:goals,car:cardsPage,div:debts,rel:reports,settings};
+function settings(){
+ const opts=appearance(),custom=S.settings.customCategories||{},kindNames={rec:'Ganhos',fix:'Gastos fixos',var:'Gastos variáveis'};
+ const themeSwatches=Object.entries(PALETTES).map(([id,p])=>`<button class="palette-option ${opts.palette===id?'selected':''}" style="--swatch:${p.main}" onclick="setAppearanceOption('palette','${id}')" title="${E(p.label)}" aria-pressed="${opts.palette===id}"><span class="palette-blob">${opts.palette===id?I('check','sm'):''}</span><small>${E(p.label)}</small></button>`).join('');
+ const iconModes=`<div class="option-pair"><button class="${opts.iconStyle==='minimal'?'chosen':''}" onclick="setAppearanceOption('iconStyle','minimal')">${I('sliders')}<span>Minimalista</span></button><button class="${opts.iconStyle==='emoji'?'chosen':''}" onclick="setAppearanceOption('iconStyle','emoji')"><span class="emoji-ico">✨</span><span>Emojis</span></button></div>`;
+ const themeModes=`<div class="segmented appearance-segment">${[['light','Claro'],['dark','Escuro'],['auto','Automático']].map(([v,l])=>`<button class="${opts.mode===v?'active':''}" onclick="setAppearanceOption('mode','${v}')">${l}</button>`).join('')}</div>`;
+ const densityModes=`<div class="segmented appearance-segment">${[['comfortable','Confortável'],['compact','Compacto']].map(([v,l])=>`<button class="${opts.density===v?'active':''}" onclick="setAppearanceOption('density','${v}')">${l}</button>`).join('')}</div>`;
+ const home=[...(opts.homeCards||DEFAULT_HOME),...DEFAULT_HOME.filter(id=>!(opts.homeCards||DEFAULT_HOME).includes(id))].map(id=>`<div class="personalize-row"><label class="personal-check"><input type="checkbox" ${opts.homeCards.includes(id)?'checked':''} onchange="updateAppearanceList('homeCards','${id}','toggle')"> ${HOME_NAMES[id]}</label><div class="row-actions"><button class="mini-action" title="Mover para cima" aria-label="Mover ${HOME_NAMES[id]} para cima" onclick="updateAppearanceList('homeCards','${id}','up')">${I('chevronleft','sm')}</button><button class="mini-action" title="Mover para baixo" aria-label="Mover ${HOME_NAMES[id]} para baixo" onclick="updateAppearanceList('homeCards','${id}','down')">${I('chevronright','sm')}</button></div></div>`).join('');
+ const quick=PRIMARY_PAGES.concat(['sim','history','budgets','res','car','rel','recurr','div']).map(id=>{const n=NAV.find(x=>x[0]===id);return `<label class="shortcut-chip ${opts.quickTabs.includes(id)?'chosen':''}"><input type="checkbox" ${opts.quickTabs.includes(id)?'checked':''} onchange="updateAppearanceList('quickTabs','${id}','toggle')">${I(n[1],'sm')} ${E(n[2])}</label>`}).join('');
+ const hide=NAV.filter(n=>!['dash','settings'].includes(n[0])).map(n=>`<label class="shortcut-chip"><input type="checkbox" ${!opts.hiddenSections.includes(n[0])?'checked':''} onchange="updateAppearanceList('hiddenSections','${n[0]}','toggle')"> ${E(n[2])}</label>`).join('');
+ const customList=['rec','fix','var'].flatMap(kind=>(custom[kind]||[]).map((c,idx)=>`<div class="settings-row"><span class="category-mini"><i style="background:${E(c.color||'#315774')}"></i> ${E(c.emoji||'')} ${E(c.name)} <small>${kindNames[kind]}</small></span><button class="mini-action" aria-label="Excluir categoria ${E(c.name)}" onclick="removeCategory('${kind}',${idx})">${I('trash','sm')}</button></div>`)).join('');
+ return `<div class="settings-page">
+ ${card('Aparência',`<div class="appearance-caption">Cor do RAYO</div><div class="palette-grid">${themeSwatches}</div><div class="appearance-caption">Ícones</div>${iconModes}<div class="appearance-caption">Modo</div>${themeModes}<div class="appearance-caption">Espaçamento</div>${densityModes}<div class="appearance-reset"><button class="btn light tiny" onclick="restoreAppearance()">${I('repeat','sm')} Restaurar padrão</button></div>`)}
+ ${card('Página inicial',`<p class="quiet">Escolha os cartões e a ordem em que aparecem.</p><div class="home-options">${home}</div>`)}
+ ${card('Navegação do celular',`<p class="quiet">Escolha até quatro atalhos. Os três pontos sempre mostram todas as páginas.</p><div class="shortcut-grid">${quick}</div>`)}
+ ${card('Privacidade',`<div class="settings-row"><div><strong>Ocultar valores</strong><br><small>Mostrar valores como •••••.</small></div><button class="btn light tiny" onclick="setAppearanceOption('privacy',null)">${I(opts.privacy?'eyeoff':'eye','sm')} ${opts.privacy?'Mostrar':'Ocultar'}</button></div>`)}
+ ${card('Categorias',`${customList||'<p class="quiet">Use suas próprias categorias para novos lançamentos.</p>'}<button class="btn light tiny" onclick="openAddCategory()">${I('plus','sm')} Nova categoria</button>`)}
+ ${card('Menu lateral',`<p class="quiet">Marque o que deseja mostrar no computador. Todas as abas seguem disponíveis em “Mais”.</p><div class="shortcut-grid">${hide}</div>`)}
+ ${card('Conta',`<div class="settings-row"><span class="muted">Usuário</span><strong>${E(authDisplayName)}</strong></div><div class="row-actions" style="justify-content:flex-start;margin-top:12px"><button class="btn light" onclick="openMyProfile()">${I('user','sm')} Perfil</button>${authIsAdmin?`<button class="btn light" onclick="openManageUsers()">${I('users','sm')} Usuários</button>`:''}<button class="btn light" onclick="logoutUser()">${I('logout','sm')} Sair</button></div>`)}
+ ${card('Saldo inicial',`<div class="settings-row"><span class="muted">Valor</span><strong>${S.settings.startBalance===undefined?'Não informado':R(S.settings.startBalance)}</strong></div><div class="settings-row"><span class="muted">A partir de</span><strong>${S.settings.baseMonth?E(monthLabel(S.settings.baseMonth)):'—'}</strong></div>`,`<button class="btn tiny" onclick="openInitialBalance()">${I('edit','sm')} Editar</button>`)}
+ ${card('Dados e segurança',`<div class="settings-row"><span>Backup JSON</span><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Exportar CSV</span><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Limpar registros deste perfil</span><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}
+ ${card('Favoritos',S.favs.length?S.favs.map(f=>`<div class="settings-row"><div><strong>${E(f.name||f.cat)}</strong><br><small>${E(f.cat)} · ${R(f.valor)}</small></div><button class="mini-action" onclick="removeFavorite('${f.id}')">${I('trash','sm')}</button></div>`).join(''):'<p class="muted">Nenhum favorito cadastrado.</p>')}
+ ${card('Instalar no celular',`<p class="quiet">iPhone: Safari → Compartilhar → Adicionar à Tela de Início. Android: menu do navegador → Instalar.</p>`)}
+ </div>`;
+}
+
+// Simulador isolado: os dados existem apenas na memória desta aba e NUNCA entram no estado financeiro.
+let simValue='0',simKind='out',simLabel='',simItems=[];
+function simPushKey(k){
+ if(k==='C')simValue='0';else if(k==='back')simValue=simValue.slice(0,-1)||'0';
+ else if(k===','){if(!simValue.includes(','))simValue+=','}
+ else if(/^\d$/.test(k)){
+  const decimals=simValue.split(',')[1];if(decimals!==undefined&&decimals.length>=2)return;
+  if(simValue.replace(/\D/g,'').length>=12)return;
+  simValue=simValue==='0'?k:simValue+k;
+ }
+ go();
+}
+function simType(v){const clean=String(v).replace(/[^\d,]/g,'').replace(/(,.*),/g,'$1');const m=clean.match(/^(\d{0,10})(?:,(\d{0,2}))?/);simValue=(m?.[1]||'0')+(m?.[2]!==undefined?','+m[2]:'');}
+function simSelect(k){simKind=k;go()}
+function simAdd(){
+ const amount=Number(simValue.replace(',','.'));
+ if(!Number.isFinite(amount)||amount<=0)return alert('Informe um valor maior que zero.');
+ simItems.push({id:uid(),type:simKind,amount:Math.round(amount*100)/100,label:simLabel.trim()||(simKind==='in'?'Ganho':'Gasto')});
+ simValue='0';simLabel='';go();
+}
+function simDelete(id){simItems=simItems.filter(i=>i.id!==id);go()}
+function simClear(){simValue='0';simKind='out';simLabel='';simItems=[];go()}
+function simulator(){
+ const ins=simItems.filter(x=>x.type==='in').reduce((s,x)=>s+x.amount,0),outs=simItems.filter(x=>x.type==='out').reduce((s,x)=>s+x.amount,0);
+ const keys=['7','8','9','4','5','6','1','2','3','C','0',','];
+ return `<div class="sim-intro"><span>${I('shield','sm')} Área de teste</span><span>Nenhum valor é salvo</span></div><div class="sim-layout">
+ <section class="card sim-calc"><div class="subhead"><h2>Calculadora</h2><button class="mini-action" onclick="simPushKey('back')" aria-label="Apagar dígito">${I('close','sm')}</button></div>
+ <div class="segmented sim-segment"><button class="${simKind==='in'?'active':''}" onclick="simSelect('in')">${I('trendup','sm')} Ganho</button><button class="${simKind==='out'?'active':''}" onclick="simSelect('out')">${I('trenddown','sm')} Gasto</button></div>
+ <div class="sim-display"><span>R$</span><input id="simAmount" aria-label="Valor para simular" inputmode="decimal" value="${E(simValue)}" oninput="simType(this.value)" onblur="go()"></div>
+ <input class="sim-label" aria-label="Descrição fictícia" maxlength="50" placeholder="Descrição (opcional)" value="${E(simLabel)}" oninput="simLabel=this.value">
+ <div class="sim-keys">${keys.map(k=>`<button onclick="simPushKey('${k}')" class="${k==='C'?'clear':''}">${k}</button>`).join('')}<button class="sim-back" onclick="simPushKey('back')" aria-label="Apagar último número">${I('chevronleft')}</button><button class="sim-equal" onclick="simAdd()">${I('plus')} Adicionar</button></div>
+ </section>
+ <div class="sim-right"><div class="sim-results"><div class="sim-total"><small>Resultado da simulação</small><strong class="${ins-outs>=0?'good':'bad'}">${moneyBRL(ins-outs)}</strong></div><div class="sim-pair"><div><small>Ganhos</small><b>${moneyBRL(ins)}</b></div><div><small>Gastos</small><b>${moneyBRL(outs)}</b></div></div></div>
+ ${card('Valores simulados',simItems.length?simItems.slice().reverse().map(x=>`<div class="sim-item"><span class="sim-symbol">${I(x.type==='in'?'trendup':'trenddown')}</span><span class="item-middle"><strong>${E(x.label)}</strong><small>${x.type==='in'?'Ganho':'Gasto'} fictício</small></span><b class="${x.type==='in'?'good':''}">${x.type==='in'?'+':'−'} ${moneyBRL(x.amount)}</b><button class="mini-action" aria-label="Remover simulação" onclick="simDelete('${x.id}')">${I('trash','sm')}</button></div>`).join(''):`<div class="empty">${I('calculator')}<div>Adicione valores para simular.</div></div>`,`<button class="mini-action" onclick="simClear()" title="Limpar calculadora" aria-label="Limpar calculadora">${I('trash','sm')}</button>`)}
+ </div></div>`;
+}
+
+const V={dash:dashboard,rec:gains,spend:expenses,calendar,history,recurr:recurrence,budgets,res:goals,car:cardsPage,div:debts,rel:reports,sim:simulator,settings};
 function open_(html){$('#mb').innerHTML=html;$('#m').classList.add('open');$('#m').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
 function close_(){$('#m').classList.remove('open');$('#m').setAttribute('aria-hidden','true');document.body.style.overflow='';}
 function er(t){let n=$('#er');if(!n){n=document.createElement('p');n.id='er';n.className='login-error';$('#mb').append(n)}n.textContent=t}
@@ -380,18 +590,18 @@ const modalHeader=(title,sub='')=>`<div class="modal-top"><div><h2>${E(title)}</
 const selectOpts=(values,selected)=>values.map(val=>{const k=Array.isArray(val)?val[0]:val,n=Array.isArray(val)?val[1]:val;return `<option value="${E(k)}" ${String(selected)===String(k)?'selected':''}>${E(n)}</option>`}).join('');
 const FIELD=(label,control,extra='')=>`<div class="field"><label>${label}</label>${control}${extra?`<small class="hint">${E(extra)}</small>`:''}</div>`;
 function recommendCategory(text,kind){const n=String(text||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();if(kind==='rec')return /salario|pagamento|empresa/.test(n)?'Salário':/extra|freela|servico/.test(n)?'Renda extra':'Outros ganhos';if(/mercado|supermercado|atacadao|assai/.test(n))return 'Mercado';if(/uber|onibus|metro|99|trem/.test(n))return 'Transporte';if(/farmacia|drogaria/.test(n))return 'Farmácia';if(/ifood|entrega|delivery/.test(n))return 'Delivery';if(/comida|restaurante|lanchonete/.test(n))return 'Alimentação';if(/aluguel/.test(n))return 'Aluguel';if(/energia|luz/.test(n))return 'Energia';if(/internet/.test(n))return 'Internet';if(/spotify|netflix|assinatura|prime/.test(n))return 'Assinatura';return ''}
-function guessQuickCategory(){const d=$('#qDesc')?.value||'',k=$('#qKind')?.value||'var',c=recommendCategory(d,k);if(c&&CATS[k]?.includes(c))$('#qCat').value=c}
+function guessQuickCategory(){const d=$('#qDesc')?.value||'',k=$('#qKind')?.value||'var',c=recommendCategory(d,k);if(c&&getCats(k)?.includes(c))$('#qCat').value=c}
 function openQuick(kind='var',dateOverride=null,favId=null,editId=null){
  const fav=favId?S.favs.find(f=>f.id===favId):null;let source=editId?S[kind]?.find(x=>x.id===editId):null;
  kind=fav?.kind||kind||'var';if(!CATS[kind])kind='var';
- const isNew=!source,selectedDate=source?.data||dateOverride||today,selectedCat=source?.cat||fav?.cat||CATS[kind][0],freq=source?.freq||'unica';
+ const isNew=!source,selectedDate=source?.data||dateOverride||today,selectedCat=source?.cat||fav?.cat||getCats(kind)[0],freq=source?.freq||'unica';
  const price=source?.valor??fav?.valor??'',description=source?.desc||fav?.desc||'';
  const checked=source?statusOf(kind,source,selectedDate):true;
  const title=editId?'Editar lançamento':'Novo lançamento';
  open_(`${modalHeader(title,'Preencha apenas o essencial.')}
  <div class="segmented" style="display:flex;margin-bottom:17px"><button class="${kind==='var'||kind==='fix'?'active':''}" style="flex:1" onclick="openQuick('var','${selectedDate}')">${I('arrowup','sm')} Gasto</button><button class="${kind==='rec'?'active':''}" style="flex:1" onclick="openQuick('rec','${selectedDate}')">${I('arrowdown','sm')} Ganho</button></div>
  <div class="field-grid"><div class="field full">${FIELD('Valor (R$)',`<input id="qValor" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0,00" autofocus value="${E(price)}" required>` )}</div>
- ${FIELD('Categoria',`<select id="qCat">${selectOpts(CATS[kind],selectedCat)}</select>`)}
+ ${FIELD('Categoria',`<select id="qCat">${selectOpts(getCats(kind),selectedCat)}</select>`)}
  ${FIELD('Data',`<input id="qDate" type="date" value="${E(selectedDate)}" required>`)}
  <div class="field full">${FIELD('Descrição <span class="optional">(opcional)</span>',`<input id="qDesc" type="text" maxlength="120" value="${E(description)}" placeholder="Adicionar uma observação, se quiser" oninput="guessQuickCategory()">`)}</div>
  <div class="field full"><button class="btn light tiny" onclick="document.getElementById('qExtra').classList.toggle('hidden')">${I('sliders','sm')} Mais opções ${I('down','sm')}</button></div>
@@ -436,7 +646,7 @@ function deleteEntry(kind,id,date){const x=S[kind]?.find(v=>v.id===id);if(!x)ret
 function deleteOccurrence(kind,id,date){const x=S[kind]?.find(v=>v.id===id);if(!x)return;x.skip=x.skip||{};x.skip[x.freq==='semanal'?date:date.slice(0,7)]=true;save();close_();go()}
 function deleteForever(kind,id){S[kind]=S[kind].filter(x=>x.id!==id);if(kind==='car')S.cmp=S.cmp.filter(x=>x.cid!==id);save();close_();go()}
 function pauseRecurrence(kind,id){const x=S[kind]?.find(v=>v.id===id);if(!x)return;if(!x.paused){x.paused=true;x.pausedFrom=today;}else{x.paused=false;x.pausedRanges=x.pausedRanges||[];x.pausedRanges.push({from:x.pausedFrom||today,to:today});delete x.pausedFrom;}save();go()}
-function openBudget(cat=''){const b=S.budgets.find(x=>x.cat===cat);const cats=[...new Set([...CATS.var,...CATS.fix,'Cartões','Dívidas'])];open_(`${modalHeader(b?'Editar orçamento':'Novo orçamento','Defina quanto pretende gastar por mês.')}<div class="field-grid">${FIELD('Categoria',`<select id="budgetCat" ${b?'disabled':''}>${selectOpts(cats,b?.cat||'Mercado')}</select>`)}${FIELD('Limite mensal (R$)',`<input id="budgetValue" type="number" step="0.01" min="0.01" value="${b?.valor||''}" placeholder="Ex.: 600,00">`)}</div><div class="modal-footer"><button class="btn light" onclick="close_()">Cancelar</button><button class="btn" onclick="saveBudget('${E(cat)}')">Salvar</button></div>`)}
+function openBudget(cat=''){const b=S.budgets.find(x=>x.cat===cat);const cats=[...new Set([...getCats('var'),...getCats('fix'),'Cartões','Dívidas'])];open_(`${modalHeader(b?'Editar orçamento':'Novo orçamento','Defina quanto pretende gastar por mês.')}<div class="field-grid">${FIELD('Categoria',`<select id="budgetCat" ${b?'disabled':''}>${selectOpts(cats,b?.cat||'Mercado')}</select>`)}${FIELD('Limite mensal (R$)',`<input id="budgetValue" type="number" step="0.01" min="0.01" value="${b?.valor||''}" placeholder="Ex.: 600,00">`)}</div><div class="modal-footer"><button class="btn light" onclick="close_()">Cancelar</button><button class="btn" onclick="saveBudget('${E(cat)}')">Salvar</button></div>`)}
 function saveBudget(previous=''){const cat=$('#budgetCat').value,value=Number($('#budgetValue').value);if(!Number.isFinite(value)||value<=0)return er('Informe um limite maior que zero.');const found=S.budgets.find(x=>x.cat===cat);if(found&&previous!==cat)return er('Já existe um orçamento para esta categoria.');if(found)found.valor=value;else S.budgets.push({cat,valor:value});save();close_();go()}
 function removeFavorite(id){S.favs=S.favs.filter(x=>x.id!==id);save();go()}
 function deleteBudget(cat){if(!confirm('Excluir o limite da categoria '+cat+'?'))return;S.budgets=S.budgets.filter(x=>x.cat!==cat);save();go()}
@@ -451,10 +661,10 @@ function saveGeneric(k,id=''){const fields=GENERIC[k],x=S[k]?.find(v=>v.id===id)
 function openInitialBalance(){const s=S.settings||{};open_(`${modalHeader('Saldo inicial','Informe quanto havia disponível no início do mês escolhido.')}<div class="field-grid">${FIELD('Valor (R$)',`<input id="baseAmount" type="number" step="0.01" value="${E(s.startBalance??'')}" placeholder="0,00">`)}${FIELD('A partir de',`<input id="baseMonth" type="month" value="${E(s.baseMonth||ym)}">`)}</div><p class="mini-summary">Não temos acesso a contas bancárias. O saldo será estimado a partir de seus lançamentos registrados, mês a mês, desde esta data.</p><div class="modal-footer"><button class="btn light" onclick="close_()">Cancelar</button>${s.startBalance!==undefined?`<button class="btn d" onclick="deleteInitialBalance()">Remover</button>`:''}<button class="btn" onclick="saveInitialBalance()">Salvar</button></div>`)}
 function saveInitialBalance(){const balance=Number($('#baseAmount').value),month=$('#baseMonth').value;if($('#baseAmount').value.trim()===''||!Number.isFinite(balance)||!/^\d{4}-(0[1-9]|1[0-2])$/.test(month))return er('Informe valor e mês válidos.');S.settings={...S.settings,startBalance:balance,baseMonth:month};save();close_();go()}
 function deleteInitialBalance(){delete S.settings.startBalance;delete S.settings.baseMonth;save();close_();go()}
-function setTheme(theme){if(theme==='auto'){document.documentElement.removeAttribute('data-theme');localStorage.setItem('mcf_theme','auto')}else{document.documentElement.dataset.theme=theme;localStorage.setItem('mcf_theme',theme)}}
+function setTheme(theme){setAppearanceOption('mode',theme)}
 function backupDados(){const data={versao:2,exportadoEm:new Date().toISOString(),perfil:authUser,dados:S};downloadFile('backup-meu-controle-'+authUser+'.json',JSON.stringify(data,null,2),'application/json')}
 function downloadFile(name,contents,type){const blob=new Blob([contents],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 function exportCSV(){const rows=[['Tipo','Descrição','Valor','Data','Categoria','Recorrência']];for(const kind of ['rec','fix','var'])for(const i of S[kind])rows.push([kind==='rec'?'Ganho':kind==='fix'?'Gasto fixo':'Gasto variável',i.desc,i.valor,i.data,i.cat,i.freq||'Única']);for(const i of S.cmp)rows.push(['Compra no cartão',i.desc,i.valor,i.data,'Cartão',i.parc+'x']);for(const i of S.res)rows.push(['Reserva',i.nome,i.atual,'','Meta: '+i.meta,'']);const cell=v=>{let x=String(v??'');if(/^\s*[=+@\-]/.test(x))x="'"+x;return '"'+x.replace(/"/g,'""')+'"'};downloadFile('meu-controle-financeiro.csv','\ufeff'+rows.map(r=>r.map(cell).join(';')).join('\n'),'text/csv;charset=utf-8')}
-function startUI(){const theme=localStorage.getItem('mcf_theme');if(theme==='light'||theme==='dark')setTheme(theme);$('#ym').onchange=e=>e.target.value&&setMonth(e.target.value);$('#m').onclick=e=>{if(e.target.id==='m')close_()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#m').classList.contains('open'))close_()});authBoot()}
+function startUI(){resetVisualIdentity();$('#ym').onchange=e=>e.target.value&&setMonth(e.target.value);$('#m').onclick=e=>{if(e.target.id==='m')close_()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#m').classList.contains('open'))close_()});window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(authToken&&appearance().mode==='auto')applyAppearance()});authBoot()}
 startUI();
 </script></body></html>
