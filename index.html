@@ -131,25 +131,21 @@ input:not([type=checkbox]):not([type=color]),select,textarea{border-radius:14px}
 .profile-section form label,.profile-section label:not(:first-child){margin-top:14px}.profile-section input:not([type=checkbox]){margin-bottom:9px}.profile-section .profile-inline-actions{margin-top:16px}
 aside::-webkit-scrollbar{width:9px}aside::-webkit-scrollbar-thumb{background:var(--line);border:2px solid var(--surface);border-radius:100px}
 @media(max-width:740px){.modal-panel{border-radius:26px 26px 0 0}.profile-settings-row .btn{flex:0 0 auto}}
-
-/* RAYO · entrada e cadastro individual */
-#loginForm[hidden],#registerForm[hidden],#authSwitchLogin[hidden],#authSwitchRegister[hidden]{display:none!important}
-.login-box{max-width:430px;border-radius:28px}
-.login-box .auth-mode-title{font-size:16px;font-weight:760;margin:12px 0 0;color:var(--ink)}
-.login-box .auth-hint{font-size:11px;color:var(--muted);line-height:1.45;margin:6px 0 0}
-.login-box .auth-switch{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
-.login-box .auth-switch button{border:0;background:transparent;color:var(--accent);font-weight:760;padding:6px 4px;cursor:pointer;border-radius:8px}
-.login-box .auth-switch button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.login-box #registrationMessage:empty,.login-box #loginMessage:empty{display:none}
-.login-box .auth-hint.error{color:var(--bad)}
+.login-box form[hidden]{display:none!important}
+.auth-switch{text-align:center!important;margin:17px 0 0!important;font-size:13px;color:var(--muted)}
+.auth-link{border:0;background:transparent;color:var(--accent);font:inherit;font-weight:750;text-decoration:underline;cursor:pointer;padding:6px}
+.register-lede{margin:0 0 16px!important;font-size:13px!important;line-height:1.5}
+.form-hint{display:block;color:var(--muted);font-size:11px;line-height:1.55;margin:9px 0 12px}
+.cloud-status{font-size:11px;color:var(--good);background:var(--goodLight);border-radius:999px;padding:6px 10px;white-space:nowrap;font-weight:650}
+.cloud-status[data-status="saving"],.cloud-status[data-status="updating"]{color:var(--warn);background:var(--warnLight)}
+.cloud-status[data-status="error"],.cloud-status[data-status="migration-error"]{color:var(--bad);background:var(--badLight)}
+@media(max-width:740px){.cloud-status{font-size:10px;padding:5px 7px}.head-user{gap:4px}.user-name{max-width:62px;overflow:hidden;text-overflow:ellipsis}}
 </style></head><body class="auth-locked">
-<section id="loginScreen" class="login-screen" aria-label="Acesso ao RAYO"><div class="login-box"><div class="login-mark"><svg viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true" fill="none"><path d="M166 360V147h111c72 0 109 36 109 91 0 53-40 87-110 87H166" stroke="currentColor" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/><path d="M274 326 367 391" stroke="currentColor" stroke-width="39" stroke-linecap="round"/><circle cx="378" cy="145" r="20" fill="#A8CDDA"/></svg></div><h1>rayo<span class="brand-dot">.</span></h1><p>Suas finanças, sem complicar.</p>
-<form id="loginForm"><label for="loginWho">Usuário</label><input id="loginWho" type="text" minlength="3" maxlength="32" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Seu nome de usuário" required><label for="loginPassword">Senha</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" required><button class="btn" id="loginButton" type="submit">Entrar</button></form><div id="loginMessage" role="status" aria-live="polite"></div>
-<form id="registerForm" hidden><div class="auth-mode-title">Criar sua conta</div><label for="signupWho">Nome de usuário</label><input id="signupWho" name="username" type="text" minlength="3" maxlength="32" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Ex.: RayaneMoraes" required><div class="auth-hint">Exemplo: Rayane Moraes → RayaneMoraes. Use 3 a 32 caracteres, sem espaços.</div><label for="signupPassword">Crie uma senha</label><input id="signupPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" placeholder="Mínimo de 12 caracteres" required><label for="signupConfirm">Confirmar senha</label><input id="signupConfirm" type="password" minlength="12" maxlength="128" autocomplete="new-password" placeholder="Digite novamente" required><p id="signupMatch" class="auth-hint" aria-live="polite">Use uma senha única e segura.</p><button class="btn" id="registerButton" type="submit">Criar minha conta</button></form><div id="registrationMessage" role="status" aria-live="polite"></div>
-<div class="auth-switch" id="authSwitchLogin">Não tem conta? <button type="button" onclick="switchAuthMode('register')">Criar conta</button></div><div class="auth-switch" id="authSwitchRegister" hidden>Já tem uma conta? <button type="button" onclick="switchAuthMode('login')">Entrar</button></div></div></section>
+<section id="loginScreen" class="login-screen" aria-label="Login"><div class="login-box"><div class="login-mark"><svg viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true" fill="none"><path d="M166 360V147h111c72 0 109 36 109 91 0 53-40 87-110 87H166" stroke="currentColor" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/><path d="M274 326 367 391" stroke="currentColor" stroke-width="39" stroke-linecap="round"/><circle cx="378" cy="145" r="20" fill="#A8CDDA"/></svg></div><h1>rayo<span class="brand-dot">.</span></h1><p>Suas finanças, sem complicar.</p><form id="loginForm"><label for="loginWho">Usuário</label><input id="loginWho" type="text" minlength="3" maxlength="32" autocomplete="username" placeholder="Seu nome de usuário" required><label for="loginPassword">Senha</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" required><button class="btn" id="loginButton" type="submit">Entrar</button><p class="auth-switch">Ainda não tem uma conta? <button type="button" class="auth-link" onclick="switchAuthView('register')">Criar minha conta</button></p></form><form id="registerForm" hidden><p class="register-lede">Seu espaço financeiro privado, com dados salvos na nuvem.</p><label for="registerWho">Escolha seu usuário</label><input id="registerWho" type="text" minlength="3" maxlength="32" autocomplete="username" placeholder="Ex.: leandro.silva" required><small class="form-hint">3 a 32 caracteres, sem espaços. Letras, números, ponto, hífen e _.</small><label for="registerPassword">Crie uma senha</label><input id="registerPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" placeholder="Pelo menos 12 caracteres" required oninput="checkPasswordConfirmation('registerPassword','registerConfirmation','registerMatch')"><label for="registerConfirmation">Confirme sua senha</label><input id="registerConfirmation" type="password" minlength="12" maxlength="128" autocomplete="new-password" placeholder="Digite a senha novamente" required oninput="checkPasswordConfirmation('registerPassword','registerConfirmation','registerMatch')"><p class="pw-hint" id="registerMatch" aria-live="polite">As duas senhas devem ser iguais.</p><button class="btn" type="submit" id="registerButton">Criar minha conta</button><p class="auth-switch">Já tem uma conta? <button class="auth-link" type="button" onclick="switchAuthView('login')">Fazer login</button></p></form><div id="loginMessage" aria-live="polite"></div></div></section>
 <aside aria-label="Navegação"><div class="brand"><span class="brand-mark"><svg viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true" fill="none"><path d="M166 360V147h111c72 0 109 36 109 91 0 53-40 87-110 87H166" stroke="currentColor" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/><path d="M274 326 367 391" stroke="currentColor" stroke-width="39" stroke-linecap="round"/><circle cx="378" cy="145" r="20" fill="#A8CDDA"/></svg></span><span class="brand-name">rayo<span class="brand-dot">.</span></span></div><div id="sn"></div><div class="side-bottom" aria-hidden="true"></div></aside>
-<main><header class="main-head"><div class="head-title"><div class="eyebrow" id="eyebrow"></div><h1 id="ti">Visão geral</h1></div><div class="month-control"><button class="mini-action" aria-label="Mês anterior" onclick="moveMonth(-1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><input type="month" id="ym" aria-label="Mês selecionado"><button class="mini-action" aria-label="Próximo mês" onclick="moveMonth(1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button></div><button class="btn add-icon-btn" id="quickHeader" onclick="openQuick()" aria-label="Novo lançamento" title="Novo lançamento"><svg class="ico lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="head-user"><span class="user-badge" id="userBadge">U</span><span id="sessionName" class="user-name" style="font-weight:650"></span><button class="mini-action" title="Meu perfil" onclick="openMyProfile()"><svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button></div></header><div id="v"></div></main>
-<nav id="bn" class="bottom" aria-label="Navegação inferior"></nav><div id="m" class="modal" role="dialog" aria-modal="true" aria-hidden="true"><div id="mb" class="modal-panel"></div></div><script>const APP_VERSION="kelo-reset-20261026-1";
+<main><header class="main-head"><div class="head-title"><div class="eyebrow" id="eyebrow"></div><h1 id="ti">Visão geral</h1></div><div class="month-control"><button class="mini-action" aria-label="Mês anterior" onclick="moveMonth(-1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><input type="month" id="ym" aria-label="Mês selecionado"><button class="mini-action" aria-label="Próximo mês" onclick="moveMonth(1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button></div><button class="btn add-icon-btn" id="quickHeader" onclick="openQuick()" aria-label="Novo lançamento" title="Novo lançamento"><svg class="ico lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="head-user"><span class="user-badge" id="userBadge">U</span><span id="sessionName" class="user-name" style="font-weight:650"></span><span class="cloud-status" id="cloudStatus" role="status" aria-live="polite" title="Situação dos dados na nuvem">☁ Nuvem conectada</span><button class="mini-action" title="Meu perfil" onclick="openMyProfile()"><svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button></div></header><div id="v"></div></main>
+<nav id="bn" class="bottom" aria-label="Navegação inferior"></nav><div id="m" class="modal" role="dialog" aria-modal="true" aria-hidden="true"><div id="mb" class="modal-panel"></div></div><script>const KEY="mcf_v1"; // Os dados anteriores continuam guardados no navegador como backup.
+const APP_VERSION="rayo-auto-legacy-cloud-20261027";
 const def=()=>({rec:[],fix:[],var:[],car:[],cmp:[],div:[],res:[],budgets:[],favs:[],reserveHistory:[],settings:{}});
 const normalizeS=data=>{
  const a=Object.assign(def(),data&&typeof data==='object'?data:{});
@@ -160,7 +156,7 @@ const normalizeS=data=>{
 const freshState=()=>normalizeS({__appVersion:APP_VERSION,settings:{}});
 let S=freshState(); // Somente os dados da conta autenticada são carregados.
 const API_BASE='https://meu-controle-financeiro-api.leandrocmrg001.workers.dev';
-let authToken='',authUser='',authDisplayName='',stateRevision=0,saveTimer=null,saveInProgress=false,dirty=false,saveConflict=false;
+let authToken='',authUser='',authDisplayName='',stateRevision=0,saveTimer=null,saveInProgress=false,dirty=false,saveConflict=false,cloudLoading=false,legacyImportPending=false;
 const SESSION_KEY='mcf_auth_token';
 async function apiRequest(path,options={}){
  const headers={'Content-Type':'application/json',...(authToken?{'Authorization':'Bearer '+authToken}:{}),...(options.headers||{})};
@@ -171,18 +167,57 @@ async function apiRequest(path,options={}){
  return out;
 }
 function showLoginError(err){const box=document.getElementById('loginMessage');box.textContent=String(err?.message||err||'');box.className='login-error';}
+// Os registros mcf_v1 são de uma versão anterior sem contas individuais.
+// Essa versão só oferecia a migração ao administrador original (Leandro).
+// Nunca atribuir esses dados a um visitante novo ou à conta da Ray.
+const LEGACY_OWNER_LOGIN='leandro';
+function hasLegacyFinancialData(s){
+ return ['rec','fix','var','car','cmp','div','res','budgets','reserveHistory'].some(k=>Array.isArray(s?.[k])&&s[k].length>0);
+}
+async function autoImportLegacyData(stored,me){
+ const login=String(me?.user?.login||'').trim().normalize('NFKC').toLocaleLowerCase('pt-BR');
+ if(login!==LEGACY_OWNER_LOGIN)return {stored,failed:false};
+ // Apenas no primeiro carregamento de uma conta sem dados na nuvem.
+ // Nunca sobrescreve dados existentes, mesmo que a conta tenha sido zerada depois.
+ if(Number(stored?.revision||0)!==0)return {stored,failed:false};
+ const current=stored?.data;
+ if(current&&typeof current==='object'&&!Array.isArray(current)&&Object.keys(current).length)return {stored,failed:false};
+ let old;
+ try{
+  const raw=localStorage.getItem(KEY);
+  if(!raw)return {stored,failed:false};
+  old=JSON.parse(raw);
+  if(!old||typeof old!=='object'||Array.isArray(old)||!hasLegacyFinancialData(old))return {stored,failed:false};
+ }catch(e){console.warn('Backup local antigo indisponível para a migração automática.',e);return {stored,failed:false};}
+ const migrated=normalizeS(old);
+ migrated.__appVersion=APP_VERSION;
+ migrated.__legacyImported=true;
+ // A gravação é atômica e exige a revisão 0: outra aba não poderá ser sobrescrita.
+ try{
+  const result=await apiRequest('/state',{method:'PUT',body:JSON.stringify({revision:0,data:migrated})});
+  // Não apagar mcf_v1: permanece como cópia de recuperação neste navegador.
+  return {stored:{data:migrated,revision:result.revision},failed:false};
+ }catch(e){
+  console.warn('Migração automática não concluída; backup local e nuvem foram preservados.',e);
+  // Não interromper o login, nem usar os dados locais como se estivessem salvos.
+  return {stored,failed:true};
+ }
+}
 async function authActivate(token){
  authToken=token;
  try{
   const me=await apiRequest('/auth/me');
-  const stored=await apiRequest('/state');
+  const remoteState=await apiRequest('/state');
+  const migrated=await autoImportLegacyData(remoteState,me);
+  const stored=migrated.stored;
+  legacyImportPending=migrated.failed;
   stateRevision=stored.revision||0;
-  const loaded=normalizeS(stored.data);
-  S=loaded; // Preserve all existing account data; never wipe it on version changes.
+  S=normalizeS(stored.data); // Nunca substituir o histórico que já está na conta.
   authUser=me.user?.login||'';authDisplayName=me.user?.nome||authUser;saveConflict=false;dirty=false;
   sessionStorage.setItem(SESSION_KEY,token);
   document.body.classList.remove('auth-locked');document.getElementById('loginScreen').hidden=true;
   document.getElementById('sessionName').textContent=authDisplayName;
+  setCloudStatus(migrated.failed?'migration-error':'saved');
   applyAppearance();
   go();
  }catch(e){authToken='';sessionStorage.removeItem(SESSION_KEY);throw e;}
@@ -194,43 +229,59 @@ async function performLogin(event){
   document.getElementById('loginPassword').value='';await authActivate(r.token);
  }catch(e){showLoginError(e)}finally{btn.disabled=false;}
 }
-// Cadastro público usa /auth/register no Worker; cada conta possui seus próprios dados.
+// Cadastro livre: cada pessoa cria e acessa sua conta própria.
 const usernameValid = v => /^[\p{L}\p{N}][\p{L}\p{N}._-]{2,31}$/u.test(String(v||'').trim());
-function switchAuthMode(mode){
- const register=mode==='register';
- document.getElementById('loginForm').hidden=register;
- document.getElementById('registerForm').hidden=!register;
- document.getElementById('authSwitchLogin').hidden=register;
- document.getElementById('authSwitchRegister').hidden=!register;
+function switchAuthView(view){
+ const registering=view==='register';
+ document.getElementById('loginForm').hidden=registering;
+ document.getElementById('registerForm').hidden=!registering;
  document.getElementById('loginMessage').textContent='';
- document.getElementById('registrationMessage').textContent='';
- document.getElementById(register?'signupWho':'loginWho')?.focus();
+ document.getElementById('loginMessage').className='';
+ document.getElementById(registering?'registerWho':'loginWho').focus();
 }
-function updateSignupMatch(){
- const pass=document.getElementById('signupPassword').value;
- const confirm=document.getElementById('signupConfirm').value;
- const el=document.getElementById('signupMatch');
- el.className='auth-hint'+(confirm&&pass!==confirm?' error':'');
- el.textContent=!confirm?'Use uma senha única e segura.':pass===confirm?'As senhas coincidem.':'As senhas precisam ser iguais.';
-}
-async function performRegister(event){
+async function registerAccount(event){
  event.preventDefault();
- const username=document.getElementById('signupWho').value.trim();
- const password=document.getElementById('signupPassword').value;
- const confirmPassword=document.getElementById('signupConfirm').value;
- const box=document.getElementById('registrationMessage');
- box.textContent='';box.className='';
- if(!usernameValid(username)){box.textContent='Use de 3 a 32 caracteres, sem espaços.';box.className='login-error';return}
- if(password.length<12||password.length>128){box.textContent='Use uma senha de 12 a 128 caracteres.';box.className='login-error';return}
- if(password!==confirmPassword){box.textContent='As senhas não coincidem.';box.className='login-error';return}
- const button=document.getElementById('registerButton');button.disabled=true;
+ const login=document.getElementById('registerWho').value.trim();
+ const password=document.getElementById('registerPassword').value;
+ const confirmPassword=document.getElementById('registerConfirmation').value;
+ if(!usernameValid(login))return showLoginError('Escolha um usuário de 3 a 32 caracteres sem espaços.');
+ if(password.length<12||password.length>128)return showLoginError('A senha deve ter de 12 a 128 caracteres.');
+ if(password!==confirmPassword)return showLoginError('As senhas não coincidem.');
+ const btn=document.getElementById('registerButton');btn.disabled=true;
  try{
-  const result=await apiRequest('/auth/register',{method:'POST',body:JSON.stringify({login:username,password,confirmPassword})});
-  document.getElementById('signupPassword').value='';document.getElementById('signupConfirm').value='';
-  if(result.token){await authActivate(result.token)}
-  else{switchAuthMode('login');document.getElementById('loginWho').value=username;const msg=document.getElementById('loginMessage');msg.textContent='Conta criada! Entre com sua senha.';msg.className='login-success'}
- }catch(err){box.textContent=err.message||'Não foi possível criar a conta.';box.className='login-error'}
- finally{button.disabled=false}
+  const result=await apiRequest('/auth/register',{method:'POST',body:JSON.stringify({login,password,confirmPassword})});
+  if(!result.token)throw new Error('A conta foi criada, mas não foi possível abrir a sessão. Entre com sua senha.');
+  document.getElementById('registerPassword').value='';
+  document.getElementById('registerConfirmation').value='';
+  await authActivate(result.token);
+ }catch(e){showLoginError(e)}finally{btn.disabled=false;}
+}
+function setCloudStatus(status){
+ const el=document.getElementById('cloudStatus');if(!el)return;
+ const text={saved:'☁ Nuvem atualizada',saving:'☁ Salvando…',error:'☁ Erro ao sincronizar',updating:'☁ Atualizando…','migration-error':'☁ Importação pendente'};
+ el.textContent=text[status]||text.saved;el.dataset.status=status;
+}
+async function refreshFromCloud(force=false){
+ if(force&&(dirty||saveInProgress||saveConflict)){alert('Você tem dados pendentes ou conflito de sincronização. Baixe um backup antes de atualizar.');return;}
+ if(!authToken||cloudLoading||dirty||saveInProgress||saveConflict||(!force&&document.hidden)||(!force&&document.getElementById('m')?.classList.contains('open')))return;
+ const activeToken=authToken;cloudLoading=true;
+ try{
+  let remote=await apiRequest('/state');
+  if(activeToken!==authToken||dirty||saveInProgress)return;
+  // Se a rede falhou no login, repetir a tentativa discretamente, sem abrir avisos.
+  if(legacyImportPending&&authUser===LEGACY_OWNER_LOGIN&&Number(remote.revision)===0){
+   const result=await autoImportLegacyData(remote,{user:{login:authUser}});
+   if(activeToken!==authToken||dirty||saveInProgress)return;
+   remote=result.stored;legacyImportPending=result.failed;
+  }
+  if(Number(remote.revision)>stateRevision){
+   stateRevision=Number(remote.revision);S=normalizeS(remote.data);
+   legacyImportPending=false;
+   setCloudStatus('updating');applyAppearance();go();
+  }
+  setCloudStatus(legacyImportPending?'migration-error':'saved');
+ }catch(e){if(activeToken===authToken)setCloudStatus('error');}
+ finally{cloudLoading=false;}
 }
 function checkPasswordConfirmation(passwordId,confirmId,hintId){
  const password=document.getElementById(passwordId)?.value||'';
@@ -251,7 +302,7 @@ function openMyProfile(){
  <section class="profile-hero"><div class="profile-avatar">${E(first)}</div><div class="profile-meta"><strong>${E(authDisplayName||authUser)}</strong><small>@${E(authUser||'usuario')}</small><div class="profile-pills"><span class="profile-pill">${I('shield','sm')} Perfil privado</span></div></div></section>
  <section class="profile-section"><h4>Informações da conta</h4><div class="profile-settings-row"><div><strong>Nome de usuário</strong><small>${E(authDisplayName||authUser)}</small></div><button class="btn light" onclick="openEditUsername()">${I('edit','sm')} Alterar nome</button></div></section>
  <section class="profile-section"><h4>Segurança</h4><div class="profile-settings-row"><div><strong>Senha</strong><small>Atualize sua senha com segurança</small></div><button class="btn light" onclick="openChangePassword()">${I('shield','sm')} Alterar senha</button></div></section>
- <section class="profile-section"><h4>Seus dados</h4><div class="profile-secondary"><button class="btn light" onclick="backupDados()">${I('download','sm')} Baixar backup</button></div></section>
+ <section class="profile-section"><h4>Seus dados na nuvem</h4><p class="quiet">Seus lançamentos e preferências são armazenados separadamente no Cloudflare D1 e vinculados a este usuário. Entre com a mesma conta em outro dispositivo.</p><div class="profile-secondary"><button class="btn light" onclick="refreshFromCloud(true)">${I('repeat','sm')} Atualizar da nuvem</button><button class="btn light" onclick="backupDados()">${I('download','sm')} Baixar backup</button></div></section>
  </div>`);
 }
 function openEditUsername(){
@@ -300,14 +351,14 @@ async function changeMyPassword(event){
   close_();
   // O servidor revogou todas as sessões, inclusive esta.
   authToken='';authUser='';authDisplayName='';
-  stateRevision=0;dirty=false;saveConflict=false;
+  stateRevision=0;dirty=false;saveConflict=false;legacyImportPending=false;
   S=freshState();sessionStorage.removeItem(SESSION_KEY);
   
   document.getElementById('loginWho').value=loginToKeep;
   document.getElementById('loginPassword').value='';
   resetVisualIdentity();
   document.body.classList.add('auth-locked');
-  document.getElementById('loginScreen').hidden=false;switchAuthMode('login');
+  document.getElementById('loginScreen').hidden=false;switchAuthView('login');
   const msg=document.getElementById('loginMessage');
   msg.textContent='Senha alterada com sucesso! Entre novamente com a nova senha.';
   msg.className='login-success';
@@ -315,29 +366,26 @@ async function changeMyPassword(event){
 }
 async function flushSave(){
  if(saveInProgress||!dirty||!authToken||saveConflict)return;
- saveInProgress=true;dirty=false;
+ saveInProgress=true;dirty=false;setCloudStatus('saving');
  const snapshot=JSON.stringify(S);
  try{
   const result=await apiRequest('/state',{method:'PUT',body:JSON.stringify({revision:stateRevision,data:JSON.parse(snapshot)})});
-  stateRevision=result.revision;
+  stateRevision=result.revision;setCloudStatus('saved');
  }catch(e){
-  saveConflict=true;dirty=true;
+  saveConflict=true;dirty=true;setCloudStatus('error');
   alert('Os dados não foram salvos na nuvem: '+e.message+' Faça um backup JSON e não feche a página até resolver.');
  }finally{saveInProgress=false;if(dirty&&!saveConflict)setTimeout(flushSave,120);}
 }
-function queueStateSave(){if(!authToken)return;dirty=true;clearTimeout(saveTimer);saveTimer=setTimeout(flushSave,450);}
+function queueStateSave(){if(!authToken)return;dirty=true;setCloudStatus('saving');clearTimeout(saveTimer);saveTimer=setTimeout(flushSave,450);}
 async function logoutUser(){
  if(dirty||saveInProgress){clearTimeout(saveTimer);await flushSave();for(let n=0;n<40&&saveInProgress;n++)await new Promise(r=>setTimeout(r,50));}
  if(dirty||saveInProgress||saveConflict){alert('Existem alterações sem salvar. Exporte o backup JSON antes de sair.');return;}
  try{await apiRequest('/auth/logout',{method:'POST'})}catch{}
- authToken='';authUser='';authDisplayName='';S=freshState();sessionStorage.removeItem(SESSION_KEY);
- resetVisualIdentity();document.body.classList.add('auth-locked');document.getElementById('loginScreen').hidden=false;switchAuthMode('login');document.getElementById('loginPassword').value='';
+ authToken='';authUser='';authDisplayName='';legacyImportPending=false;S=freshState();sessionStorage.removeItem(SESSION_KEY);
+ resetVisualIdentity();document.body.classList.add('auth-locked');document.getElementById('loginScreen').hidden=false;switchAuthView('login');document.getElementById('loginPassword').value='';
 }
 async function authBoot(){
- document.getElementById('loginForm').addEventListener('submit',performLogin);
- document.getElementById('registerForm').addEventListener('submit',performRegister);
- document.getElementById('signupPassword').addEventListener('input',updateSignupMatch);
- document.getElementById('signupConfirm').addEventListener('input',updateSignupMatch);
+ document.getElementById('loginForm').addEventListener('submit',performLogin);document.getElementById('registerForm').addEventListener('submit',registerAccount);
  const token=sessionStorage.getItem(SESSION_KEY);
  if(token){try{await authActivate(token)}catch(e){showLoginError(e);}}
 }
@@ -603,7 +651,7 @@ function settings(){
  ${card('Privacidade',`<div class="settings-row"><div><strong>Ocultar valores</strong><br><small>Mostrar valores como •••••.</small></div><button class="btn light tiny" onclick="setAppearanceOption('privacy',null)">${I(opts.privacy?'eyeoff':'eye','sm')} ${opts.privacy?'Mostrar':'Ocultar'}</button></div>`)}
  ${card('Categorias',`${customList||'<p class="quiet">Use suas próprias categorias para novos lançamentos.</p>'}<button class="btn light tiny" onclick="openAddCategory()">${I('plus','sm')} Nova categoria</button>`)}
  ${card('Menu lateral',`<p class="quiet">Marque o que deseja mostrar no computador. Todas as abas seguem disponíveis em “Mais”.</p><div class="shortcut-grid">${hide}</div>`)}
- ${card('Conta',`<div class="settings-row"><span class="muted">Usuário</span><strong>${E(authDisplayName)}</strong></div><div class="row-actions" style="justify-content:flex-start;margin-top:12px"><button class="btn light" onclick="openMyProfile()">${I('user','sm')} Perfil</button><button class="btn light" onclick="logoutUser()">${I('logout','sm')} Sair</button></div>`)}
+ ${card('Conta',`<div class="settings-row"><span class="muted">Usuário</span><strong>${E(authDisplayName)}</strong></div><div class="row-actions" style="justify-content:flex-start;margin-top:12px"><button class="btn light" onclick="openMyProfile()">${I('user','sm')} Perfil e nuvem</button><button class="btn light" onclick="logoutUser()">${I('logout','sm')} Sair</button></div>`)}
  ${card('Saldo inicial',`<div class="settings-row"><span class="muted">Valor</span><strong>${S.settings.startBalance===undefined?'Não informado':R(S.settings.startBalance)}</strong></div><div class="settings-row"><span class="muted">A partir de</span><strong>${S.settings.baseMonth?E(monthLabel(S.settings.baseMonth)):'—'}</strong></div>`,`<button class="btn tiny" onclick="openInitialBalance()">${I('edit','sm')} Editar</button>`)}
  ${card('Dados e segurança',`<div class="settings-row"><span>Backup JSON</span><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Exportar CSV</span><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Limpar registros deste perfil</span><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}
  ${card('Favoritos',S.favs.length?S.favs.map(f=>`<div class="settings-row"><div><strong>${E(f.name||f.cat)}</strong><br><small>${E(f.cat)} · ${R(f.valor)}</small></div><button class="mini-action" onclick="removeFavorite('${f.id}')">${I('trash','sm')}</button></div>`).join(''):'<p class="muted">Nenhum favorito cadastrado.</p>')}
@@ -731,6 +779,6 @@ function setTheme(theme){setAppearanceOption('mode',theme)}
 function backupDados(){const data={versao:2,exportadoEm:new Date().toISOString(),perfil:authUser,dados:S};downloadFile('backup-meu-controle-'+authUser+'.json',JSON.stringify(data,null,2),'application/json')}
 function downloadFile(name,contents,type){const blob=new Blob([contents],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 function exportCSV(){const rows=[['Tipo','Descrição','Valor','Data','Categoria','Recorrência']];for(const kind of ['rec','fix','var'])for(const i of S[kind])rows.push([kind==='rec'?'Ganho':kind==='fix'?'Gasto fixo':'Gasto variável',i.desc,i.valor,i.data,i.cat,i.freq||'Única']);for(const i of S.cmp)rows.push(['Compra no cartão',i.desc,i.valor,i.data,'Cartão',i.parc+'x']);for(const i of S.res)rows.push(['Reserva',i.nome,i.atual,'','Meta: '+i.meta,'']);const cell=v=>{let x=String(v??'');if(/^\s*[=+@\-]/.test(x))x="'"+x;return '"'+x.replace(/"/g,'""')+'"'};downloadFile('meu-controle-financeiro.csv','\ufeff'+rows.map(r=>r.map(cell).join(';')).join('\n'),'text/csv;charset=utf-8')}
-function startUI(){resetVisualIdentity();$('#ym').onchange=e=>e.target.value&&setMonth(e.target.value);$('#m').onclick=e=>{if(e.target.id==='m')close_()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#m').classList.contains('open'))close_()});window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(authToken&&appearance().mode==='auto')applyAppearance()});authBoot()}
+function startUI(){resetVisualIdentity();setInterval(refreshFromCloud,30000);window.addEventListener('focus',refreshFromCloud);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFromCloud()});$('#ym').onchange=e=>e.target.value&&setMonth(e.target.value);$('#m').onclick=e=>{if(e.target.id==='m')close_()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#m').classList.contains('open'))close_()});window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(authToken&&appearance().mode==='auto')applyAppearance()});authBoot()}
 startUI();
 </script></body></html>
