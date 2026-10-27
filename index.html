@@ -26,7 +26,9 @@ nav.bottom{display:none}.notice{padding:11px 14px;border-radius:12px;font-size:1
 .login-box h1{font-size:32px;letter-spacing:-.07em}
 .login-box p{margin:4px 0 25px}
 .login-screen{background:linear-gradient(145deg,#152A3D,#273E53)}
-.add-icon-btn{width:43px;min-width:43px;height:43px;padding:0;border-radius:13px;background:var(--fab-bg);color:var(--fab-fg);border:1px solid var(--fab-border)}
+.add-icon-btn{width:43px;min-width:43px;height:43px;padding:0;border-radius:13px;background:var(--fab-bg);color:var(--fab-fg);border:1px solid var(--fab-border);box-shadow:var(--fab-shadow,0 12px 26px rgba(20,32,50,.16));transition:transform .15s,box-shadow .2s,filter .2s}
+.add-icon-btn:hover{transform:translateY(-1px);box-shadow:var(--fab-shadow-hover,0 15px 30px rgba(20,32,50,.22));filter:brightness(1.03)}
+#quickHeader .ico,nav.bottom button.quick .ico{stroke-width:2.35}
 .square-action{min-width:31px;width:31px;padding:0}
 .nav-heading{font-size:10px;letter-spacing:.095em}
 .nav-btn{min-height:41px}
@@ -110,7 +112,7 @@ nav.bottom{display:none}.notice{padding:11px 14px;border-radius:12px;font-size:1
  background:var(--surface2);color:var(--ink);border-color:var(--line)}
 :root[data-theme="dark"] .btn.ghost{background:transparent;color:var(--accent)}
 .btn.add-icon-btn:not(.light):not(.s):not(.ghost):not(.d){background:var(--fab-bg);color:var(--fab-fg);border:1px solid var(--fab-border)}
-nav.bottom button.quick{background:var(--fab-bg);color:var(--fab-fg);border:1px solid var(--fab-border)}
+nav.bottom button.quick{background:var(--fab-bg);color:var(--fab-fg);border:1px solid var(--fab-border);box-shadow:var(--fab-shadow,0 12px 26px rgba(20,32,50,.16))}
 :root[data-theme="dark"] .segmented button.active{color:var(--ink);background:var(--surface);border:1px solid var(--line)}
 :root[data-theme="dark"] .option-pair button.chosen{color:var(--accent);background:var(--accentLight)}
 :root[data-theme="dark"] .palette-option.selected{color:var(--ink)}
@@ -430,14 +432,14 @@ function contrastRatio(a,b){const x=relativeLuminance(a),y=relativeLuminance(b);
 function accessibleDarkButton(hex){let color=hex;for(let i=0;i<14&&contrastRatio(color,'#ffffff')<4.6;i++)color=mixHex(color,'#000000',.15);return color}
 
 const PALETTES={
- azul:{label:'Azul',main:'#315774',dark:'#9DC2D8',light:'#EAF0F5'},
- rosa:{label:'Rosa',main:'#B85886',dark:'#F0A7C7',light:'#FAEAF1'},
- mono:{label:'Preto',main:'#303640',dark:'#E9EDF2',light:'#ECEEF0'},
- vermelho:{label:'Vermelho',main:'#B94B57',dark:'#F0A4A9',light:'#FBEDEF'},
- verde:{label:'Verde',main:'#277769',dark:'#9BDBCD',light:'#E8F5F1'},
- roxo:{label:'Roxo',main:'#7855A5',dark:'#C4A6F1',light:'#F1EBF8'},
- laranja:{label:'Laranja',main:'#A76837',dark:'#EBC090',light:'#FCF1E6'},
- areia:{label:'Areia',main:'#827054',dark:'#E4CFAC',light:'#F4F0E8'}
+ azul:{label:'Azul',main:'#315774',dark:'#9DC2D8',light:'#EAF0F5',lightBg:'#EAF1F6',lightSurface:'#F8FBFD',lightSurface2:'#DDE8F2',lightLine:'#C8D8E5',fab:'#2E5677'},
+ rosa:{label:'Rosa',main:'#B85886',dark:'#F0A7C7',light:'#FAEAF1',lightBg:'#FBEAF2',lightSurface:'#FFF7FA',lightSurface2:'#F5D7E4',lightLine:'#E8C3D3',fab:'#AA4E7B'},
+ mono:{label:'Preto',main:'#2F3135',dark:'#D7DADF',light:'#EFF1F3',lightBg:'#E7E8EB',lightSurface:'#F8F8F9',lightSurface2:'#ECEDEF',lightLine:'#D7DADF',fab:'#202124'},
+ vermelho:{label:'Vermelho',main:'#B94B57',dark:'#F0A4A9',light:'#FBEDEF',lightBg:'#FBEDEF',lightSurface:'#FFF8F8',lightSurface2:'#F6DDE0',lightLine:'#E6C2C8',fab:'#A8444F'},
+ verde:{label:'Verde',main:'#277769',dark:'#9BDBCD',light:'#E8F5F1',lightBg:'#E8F5F1',lightSurface:'#F7FCFA',lightSurface2:'#D9EEE7',lightLine:'#BFDCD3',fab:'#21695C'},
+ roxo:{label:'Roxo',main:'#7855A5',dark:'#C4A6F1',light:'#F1EBF8',lightBg:'#F1EBF8',lightSurface:'#FBF8FE',lightSurface2:'#E7DDF4',lightLine:'#D4C2EA',fab:'#6B4999'},
+ laranja:{label:'Laranja',main:'#A76837',dark:'#EBC090',light:'#FCF1E6',lightBg:'#FCF1E6',lightSurface:'#FFF9F4',lightSurface2:'#F4E2D0',lightLine:'#E6CCB4',fab:'#965B2F'},
+ areia:{label:'Areia',main:'#827054',dark:'#E4CFAC',light:'#F4F0E8',lightBg:'#F4F0E8',lightSurface:'#FBF9F5',lightSurface2:'#EAE2D5',lightLine:'#D9CFBF',fab:'#756449'}
 };
 const DEFAULT_HOME=['saldo','ganhos','gastos','projecao'];
 const HOME_NAMES={saldo:'Disponível',ganhos:'Ganhos',gastos:'Gastos',projecao:'Projeção'};
@@ -448,28 +450,32 @@ function appearance(){return {...APPEARANCE_DEFAULTS,...(S.settings?.appearance|
 function themeIsDark(){const m=appearance().mode;return m==='dark'||(m==='auto'&&window.matchMedia?.('(prefers-color-scheme: dark)').matches)}
 function applyAppearance(){
  const a=appearance(),p=PALETTES[a.palette]||PALETTES.azul,root=document.documentElement,dark=themeIsDark();
- const colored=a.backgroundStyle!=='standard',accent=dark?p.dark:p.main,buttonBg=a.palette==='mono'?'#121212':accessibleDarkButton(p.main);
+ const colored=a.backgroundStyle!=='standard',accent=dark?p.dark:p.main;
+ const buttonBase=a.palette==='mono'?(p.fab||'#202124'):(p.fab||accessibleDarkButton(p.main));
+ const buttonBg=dark?mixHex(buttonBase,'#000000',.08):mixHex(buttonBase,'#ffffff',.04);
  root.dataset.theme=dark?'dark':'light';root.dataset.density=a.density==='compact'?'compact':'comfortable';root.dataset.icons=a.iconStyle==='emoji'?'emoji':'minimal';root.dataset.backgroundStyle=colored?'colored':'standard';
- const bg=colored?(dark?mixHex(p.main,'#071018',.88):mixHex(p.main,'#f7f9fc',.93)):(dark?'#0e0e10':'#ffffff');
- const surface=colored?(dark?mixHex(p.main,'#121d28',.82):mixHex(p.main,'#ffffff',.95)):(dark?'#1b1b1e':'#ffffff');
- const surface2=colored?(dark?mixHex(p.main,'#1d2a37',.73):mixHex(p.main,'#eef3f8',.87)):(dark?'#29292e':'#f2f2f5');
- const ink=dark?'#f1f2f5':'#17283a';
- const muted=colored?(dark?mixHex(p.main,'#c5d0db',.66):mixHex(p.main,'#718397',.78)):(dark?'#b4b4c0':'#657184');
- const line=colored?(dark?mixHex(p.main,'#34485a',.56):mixHex(p.main,'#d7e0ea',.76)):(dark?'#414147':'#dfe0e5');
+ const bg=colored?(dark?mixHex(p.main,'#0B0F14',.84):(p.lightBg||mixHex(p.main,'#ffffff',.82))):(dark?'#0f1115':'#ffffff');
+ const surface=colored?(dark?mixHex(p.main,'#18222d',.78):(p.lightSurface||mixHex(p.main,'#ffffff',.90))):(dark?'#191d24':'#ffffff');
+ const surface2=colored?(dark?mixHex(p.main,'#243240',.68):(p.lightSurface2||mixHex(p.main,'#eef3f8',.72))):(dark?'#242a33':'#f2f3f5');
+ const ink=dark?'#f1f3f6':(a.palette==='mono'?'#191b1f':'#17283a');
+ const muted=colored?(dark?mixHex(p.main,'#c4d0dc',.68):(a.palette==='mono'?'#666b73':mixHex(p.main,'#6f7d8d',.72))):(dark?'#afbbc7':'#667180');
+ const line=colored?(dark?mixHex(p.main,'#41505e',.52):(p.lightLine||mixHex(p.main,'#d5dfea',.70))):(dark?'#363c45':'#dfe3e8');
  for(const [k,v] of Object.entries({'--bg':bg,'--surface':surface,'--surface2':surface2,'--ink':ink,'--muted':muted,'--line':line}))root.style.setProperty(k,v);
  root.style.setProperty('--accent',accent);
- root.style.setProperty('--accentLight',dark?mixHex(p.main,colored?'#294055':'#343439',.65):p.light);
+ root.style.setProperty('--accentLight',dark?mixHex(p.main,colored?'#2D3F50':'#343439',.62):(p.light||p.lightBg||'#eef3f8'));
  root.style.setProperty('--button-bg',buttonBg);root.style.setProperty('--button-fg','#ffffff');
- root.style.setProperty('--primary-card',dark?mixHex(buttonBg,'#213447',.48):buttonBg);
- root.style.setProperty('--primary-card-sub',dark?'#dce4ed':'#f4f6f9');
- root.style.setProperty('--fab-bg',a.palette==='mono'?'#121212':buttonBg);
+ root.style.setProperty('--primary-card',dark?mixHex(buttonBg,'#223446',.34):mixHex(buttonBase,'#1f2a35',.12));
+ root.style.setProperty('--primary-card-sub',dark?'#dce5ee':'#eef3f7');
+ root.style.setProperty('--fab-bg',buttonBg);
  root.style.setProperty('--fab-fg','#ffffff');
- root.style.setProperty('--fab-border',a.palette==='mono'?'#ffffff50':'transparent');
+ root.style.setProperty('--fab-border',dark?'rgba(255,255,255,.14)':(a.palette==='mono'?'rgba(255,255,255,.08)':'rgba(255,255,255,.16)'));
+ root.style.setProperty('--fab-shadow',dark?'0 12px 26px rgba(0,0,0,.34)':'0 12px 26px rgba(20,32,50,.18)');
+ root.style.setProperty('--fab-shadow-hover',dark?'0 16px 30px rgba(0,0,0,.40)':'0 16px 30px rgba(20,32,50,.24)');
  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',bg);
 }
 function resetVisualIdentity(){
  const root=document.documentElement;root.dataset.theme='light';root.dataset.density='comfortable';root.dataset.icons='minimal';root.dataset.backgroundStyle='standard';
- for(const x of ['--bg','--surface','--surface2','--ink','--muted','--line','--accent','--accentLight','--button-bg','--button-fg','--primary-card','--primary-card-sub','--fab-bg','--fab-fg','--fab-border'])root.style.removeProperty(x);
+ for(const x of ['--bg','--surface','--surface2','--ink','--muted','--line','--accent','--accentLight','--button-bg','--button-fg','--primary-card','--primary-card-sub','--fab-bg','--fab-fg','--fab-border','--fab-shadow','--fab-shadow-hover'])root.style.removeProperty(x);
  document.querySelector('meta[name="theme-color"]')?.setAttribute('content','#1B3044');
 }
 function setAppearanceOption(field,value){
@@ -638,7 +644,7 @@ function settings(){
  const themeSwatches=Object.entries(PALETTES).map(([id,p])=>`<button class="palette-option ${opts.palette===id?'selected':''}" style="--swatch:${p.main}" onclick="setAppearanceOption('palette','${id}')" title="${E(p.label)}" aria-pressed="${opts.palette===id}"><span class="palette-blob">${opts.palette===id?I('check','sm'):''}</span><small>${E(p.label)}</small></button>`).join('');
  const iconModes=`<div class="option-pair"><button class="${opts.iconStyle==='minimal'?'chosen':''}" onclick="setAppearanceOption('iconStyle','minimal')">${I('sliders')}<span>Minimalista</span></button><button class="${opts.iconStyle==='emoji'?'chosen':''}" onclick="setAppearanceOption('iconStyle','emoji')"><span class="emoji-ico">✨</span><span>Emojis</span></button></div>`;
  const themeModes=`<div class="segmented appearance-segment">${[['light','Claro'],['dark','Escuro'],['auto','Automático']].map(([v,l])=>`<button class="${opts.mode===v?'active':''}" onclick="setAppearanceOption('mode','${v}')">${l}</button>`).join('')}</div>`;
- const backgroundModes=`<div class="segmented appearance-segment" role="group" aria-label="Fundo do aplicativo">${[['standard','Padrão · preto/branco'],['colored','Colorido']].map(([v,l])=>`<button class="${opts.backgroundStyle===v?'active':''}" aria-pressed="${opts.backgroundStyle===v}" onclick="setAppearanceOption('backgroundStyle','${v}')">${l}</button>`).join('')}</div>`;
+ const backgroundModes=`<div class="segmented appearance-segment" role="group" aria-label="Fundo do aplicativo">${[['standard','Padrão · neutro'],['colored','Colorido claro']].map(([v,l])=>`<button class="${opts.backgroundStyle===v?'active':''}" aria-pressed="${opts.backgroundStyle===v}" onclick="setAppearanceOption('backgroundStyle','${v}')">${l}</button>`).join('')}</div>`;
  const densityModes=`<div class="segmented appearance-segment">${[['comfortable','Confortável'],['compact','Compacto']].map(([v,l])=>`<button class="${opts.density===v?'active':''}" onclick="setAppearanceOption('density','${v}')">${l}</button>`).join('')}</div>`;
  const home=[...(opts.homeCards||DEFAULT_HOME),...DEFAULT_HOME.filter(id=>!(opts.homeCards||DEFAULT_HOME).includes(id))].map(id=>`<div class="personalize-row"><label class="personal-check"><input type="checkbox" ${opts.homeCards.includes(id)?'checked':''} onchange="updateAppearanceList('homeCards','${id}','toggle')"> ${HOME_NAMES[id]}</label><div class="row-actions"><button class="mini-action" title="Mover para cima" aria-label="Mover ${HOME_NAMES[id]} para cima" onclick="updateAppearanceList('homeCards','${id}','up')">${I('chevronleft','sm')}</button><button class="mini-action" title="Mover para baixo" aria-label="Mover ${HOME_NAMES[id]} para baixo" onclick="updateAppearanceList('homeCards','${id}','down')">${I('chevronright','sm')}</button></div></div>`).join('');
  const quick=PRIMARY_PAGES.concat(['sim','history','budgets','res','car','rel','recurr','div']).map(id=>{const n=NAV.find(x=>x[0]===id);return `<label class="shortcut-chip ${opts.quickTabs.includes(id)?'chosen':''}"><input type="checkbox" ${opts.quickTabs.includes(id)?'checked':''} onchange="updateAppearanceList('quickTabs','${id}','toggle')">${I(n[1],'sm')} ${E(n[2])}</label>`}).join('');
