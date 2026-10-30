@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="RAYO - Raio">
+ <rect width="512" height="512" rx="122" fill="#303236"/>
+ <rect x="9" y="9" width="494" height="494" rx="115" fill="none" stroke="#A7A8A5" stroke-opacity=".55" stroke-width="10"/>
+ <path d="M293 83 137 282h117l-39 153 164-236H268l25-116Z" fill="#F1EDE5"/>
+</svg>
