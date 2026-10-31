@@ -335,8 +335,8 @@ body.rayo-modal-lock{position:fixed!important;inset:var(--rayo-lock-top,0px) 0 a
 <aside aria-label="Navegação"><div class="brand"><span class="brand-mark"><svg class="rayo-official-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true"><rect width="512" height="512" rx="122" fill="#303236"/><rect x="9" y="9" width="494" height="494" rx="115" fill="none" stroke="#A7A8A5" stroke-opacity=".55" stroke-width="10"/><path d="M293 83 137 282h117l-39 153 164-236H268l25-116Z" fill="#F1EDE5"/></svg></span><span class="brand-name">rayo<span class="brand-dot">.</span></span></div><div id="sn"></div><div class="side-bottom" aria-hidden="true"></div></aside>
 <main><header class="main-head"><div class="head-title"><div class="eyebrow" id="eyebrow"></div><h1 id="ti">Visão geral</h1></div><div class="month-control"><button class="mini-action" aria-label="Mês anterior" onclick="moveMonth(-1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><input type="month" id="ym" aria-label="Mês selecionado"><button class="mini-action" aria-label="Próximo mês" onclick="moveMonth(1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button></div><button class="btn add-icon-btn" id="quickHeader" onclick="openAddMenu()" aria-label="Novo lançamento" title="Novo lançamento"><svg class="ico lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="head-user"><span class="user-badge" id="userBadge">U</span><span id="sessionName" class="user-name" style="font-weight:650"></span><span class="cloud-status" id="cloudStatus" role="status" aria-live="polite" title="Problemas de sincronização" hidden></span><button class="mini-action" title="Meu perfil" onclick="openMyProfile()"><svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button></div></header><div id="v"></div></main>
 <nav id="bn" class="bottom" aria-label="Navegação inferior"></nav><div id="m" class="modal" role="dialog" aria-modal="true" aria-hidden="true"><div id="mb" class="modal-panel"></div></div><script>const KEY="mcf_v1"; // Os dados anteriores continuam guardados no navegador como backup.
-const APP_VERSION="rayo-oficial-v1.0.1-20261031";
-const RAYO_VERSION="v1.0.1";
+const APP_VERSION="rayo-oficial-v1.1.0-20261031";
+const RAYO_VERSION="v1.1.0";
 const def=()=>({rec:[],fix:[],var:[],car:[],cmp:[],div:[],bol:[],res:[],budgets:[],favs:[],reserveHistory:[],settings:{}});
 const normalizeS=data=>{
  const a=Object.assign(def(),data&&typeof data==='object'?data:{});
@@ -845,7 +845,7 @@ function cardsPage(){return `<div class="page-stack rayo-credit-page">${card('Me
 function debts(){const left=S.div.reduce((s,d)=>s+Math.max(0,(Number(d.total)||0)-(Number(d.pagas)||0))*(Number(d.parcela)||0),0);return `<div class="stat-strip">${statCount('Dívidas cadastradas',S.div.length,'receipt')}${stat('Restante informado',left,'wallet')}${stat('Parcela mensal',S.div.reduce((s,d)=>s+(Number(d.parcela)||0),0),'calendar')}</div>${card('Acompanhamento',S.div.length?S.div.map(d=>{const pct=Math.min(100,Math.max(0,Number(d.pagas||0)/Math.max(1,Number(d.total)||1)*100));return swipeWrap(`<div class="budget-line"><div class="values"><strong>${E(d.nome)}</strong><small>${Number(d.pagas)||0} / ${Number(d.total)||0} parcelas</small></div><div class="progress"><span style="width:${pct}%"></span></div><div class="settings-row"><span class="muted">Parcela ${R(d.parcela)}</span><div><button class="mini-action" onclick="openGeneric('div','${d.id}')">${I('edit','sm')}</button> <button class="mini-action swipe-original-delete" onclick="deleteEntry('div','${d.id}','${ym}-01')">${I('trash','sm')}</button></div></div></div>`,`deleteEntry('div','${d.id}','${ym}-01')`)}).join(''):`<div class="empty">${I('receipt')}<div>Nenhuma dívida registrada.</div></div>`,`<button class="btn tiny" onclick="openGeneric('div')">${I('plus','sm')} Nova dívida</button>`)}`}
 function reports(){const year=ym.slice(0,4),arr=Array.from({length:12},(_,i)=>{const y=year+'-'+String(i+1).padStart(2,'0'),t=monthSummary(y);return{name:MN[i],...t}}),max=Math.max(1,...arr.map(x=>Math.max(x.received,x.paid)));const totalIn=arr.reduce((s,a)=>s+a.received,0),totalOut=arr.reduce((s,a)=>s+a.paid,0),t=monthSummary(ym),byCat={};t.out.forEach(x=>byCat[x.cat]=(byCat[x.cat]||0)+x.valor);const f=financialBalance(ym);
  const closing=card('Fechamento de '+monthLabel(ym),`<div class="settings-row"><span class="muted">Ganhos recebidos</span><strong>${R(t.received)}</strong></div><div class="settings-row"><span class="muted">Gastos pagos</span><strong>${R(t.paid)}</strong></div><div class="settings-row"><span class="muted">Ganhos previstos</span><strong>${R(t.forecast)}</strong></div><div class="settings-row"><span class="muted">Despesas pendentes</span><strong>${R(t.pending)}</strong></div><div class="settings-row"><span class="muted">Reserva informada</span><strong>${R(goalTotal())}</strong></div><div class="settings-row"><span>Projeção do mês</span><strong>${R(f.projected)}</strong></div>`);
- return `<div class="stat-strip">${stat('Recebido em '+year,totalIn,'trendup')}${stat('Pago em '+year,totalOut,'trenddown')}${stat('Resultado em '+year,totalIn-totalOut,'wallet')}</div>${closing}<div class="columns">${card('Evolução mensal',arr.map(x=>`<div class="budget-line"><div class="values"><strong>${x.name}</strong><small>${R(x.received)} / ${R(x.paid)}</small></div><div style="display:grid;gap:4px"><div class="progress"><span style="background:var(--good);width:${x.received/max*100}%"></span></div><div class="progress"><span style="background:var(--bad);width:${x.paid/max*100}%"></span></div></div></div>`).join(''))}${card('Despesas por categoria',Object.keys(byCat).length?Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([cat,val])=>`<div class="budget-line"><div class="values"><strong>${E(cat)}</strong><small>${R(val)}</small></div><div class="progress"><span style="width:${val/Math.max(...Object.values(byCat))*100}%"></span></div></div>`).join(''):`<div class="empty">Ainda não há dados para comparar.</div>`,`<button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Exportar CSV</button>`)}</div>`}
+ return `<div class="stat-strip">${stat('Recebido em '+year,totalIn,'trendup')}${stat('Pago em '+year,totalOut,'trenddown')}${stat('Resultado em '+year,totalIn-totalOut,'wallet')}</div>${closing}<div class="columns">${card('Evolução mensal',arr.map(x=>`<div class="budget-line"><div class="values"><strong>${x.name}</strong><small>${R(x.received)} / ${R(x.paid)}</small></div><div style="display:grid;gap:4px"><div class="progress"><span style="background:var(--good);width:${x.received/max*100}%"></span></div><div class="progress"><span style="background:var(--bad);width:${x.paid/max*100}%"></span></div></div></div>`).join(''))}${card('Despesas por categoria',Object.keys(byCat).length?Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([cat,val])=>`<div class="budget-line"><div class="values"><strong>${E(cat)}</strong><small>${R(val)}</small></div><div class="progress"><span style="width:${val/Math.max(...Object.values(byCat))*100}%"></span></div></div>`).join(''):`<div class="empty">Ainda não há dados para comparar.</div>`,`<div class="row-actions" style="gap:7px"><button class="btn tiny" onclick="exportExcel()">${I('download','sm')} Excel organizado</button><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} CSV simples</button></div>`)}</div>`}
 function settings(){
  const opts=appearance(),custom=S.settings.customCategories||{},kindNames={rec:'Ganhos',fix:'Gastos fixos',var:'Gastos variáveis'};
  const themeSwatches=Object.entries(PALETTES).map(([id,p])=>`<button class="palette-option ${opts.palette===id?'selected':''}" style="--swatch:${p.main}" onclick="setAppearanceOption('palette','${id}')" title="${E(p.label)}" aria-pressed="${opts.palette===id}"><span class="palette-blob">${opts.palette===id?I('check','sm'):''}</span><small>${E(p.label)}</small></button>`).join('');
@@ -867,7 +867,7 @@ function settings(){
  ${card('Menu lateral',`<p class="quiet">Marque o que deseja mostrar no computador. Todas as abas seguem disponíveis em “Mais”.</p><div class="shortcut-grid">${hide}</div>`)}
  ${card('Conta',`<div class="settings-row"><span class="muted">Usuário</span><strong>${E(authDisplayName)}</strong></div><div class="row-actions" style="justify-content:flex-start;margin-top:12px"><button class="btn light" onclick="openMyProfile()">${I('user','sm')} Perfil e nuvem</button><button class="btn light" onclick="logoutUser()">${I('logout','sm')} Sair</button></div>`)}
  ${card('Saldo inicial',`<div class="settings-row"><span class="muted">Valor</span><strong>${S.settings.startBalance===undefined?'Não informado':R(S.settings.startBalance)}</strong></div><div class="settings-row"><span class="muted">A partir de</span><strong>${S.settings.baseMonth?E(monthLabel(S.settings.baseMonth)):'—'}</strong></div>`,`<button class="btn tiny" onclick="openInitialBalance()">${I('edit','sm')} Editar</button>`)}
- ${card('Dados e segurança',`<div class="settings-row"><span>Backup JSON</span><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Exportar CSV</span><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Limpar registros deste perfil</span><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}
+ ${card('Dados e segurança',`<div class="settings-row"><span>Backup JSON</span><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Planilha Excel organizada <small style="display:block;color:var(--muted)">13 abas, filtros, resumo anual e valores formatados</small></span><button class="btn tiny" onclick="exportExcel()">${I('download','sm')} Baixar XLSX</button></div><div class="settings-row"><span>CSV simples <small style="display:block;color:var(--muted)">Dados básicos em uma única tabela</small></span><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Baixar CSV</button></div><div class="settings-row"><span>Limpar registros deste perfil</span><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}
  ${card('Favoritos',S.favs.length?S.favs.map(f=>swipeWrap(`<div class="settings-row"><div><strong>${E(f.name||f.cat)}</strong><br><small>${E(f.cat)} · ${R(f.valor)}</small></div><button class="mini-action swipe-original-delete" onclick="removeFavorite('${f.id}')">${I('trash','sm')}</button></div>`,`removeFavorite('${f.id}')`)).join(''):'<p class="muted">Nenhum favorito cadastrado.</p>')}
  ${card('Instalar no celular',`<p class="quiet">iPhone: Safari → Compartilhar → Adicionar à Tela de Início. Android: menu do navegador → Instalar.</p>`)}
  ${card('Sobre esta versão',`<p class="quiet">RAYO oficial · ${RAYO_VERSION}. Versão unificada com as melhorias do laboratório.</p>`)}
@@ -1632,6 +1632,145 @@ function setTheme(theme){setAppearanceOption('mode',theme)}
 function backupDados(){const data={versao:2,exportadoEm:new Date().toISOString(),perfil:authUser,dados:S};downloadFile('backup-meu-controle-'+authUser+'.json',JSON.stringify(data,null,2),'application/json')}
 function downloadFile(name,contents,type){const blob=new Blob([contents],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 function exportCSV(){const rows=[['Tipo','Descrição','Valor','Data','Categoria','Recorrência']];for(const kind of ['rec','fix','var'])for(const i of S[kind])rows.push([kind==='rec'?'Ganho':kind==='fix'?'Gasto fixo':'Gasto variável',i.desc,i.valor,i.data,i.cat,i.freq||'Única']);for(const b of S.bol||[])for(const p of b.parcelas||[])rows.push(['Boleto',b.nome||'Boleto',p.valor,p.vencimento,b.cat||'Outros',`Parcela ${p.numero}/${b.parcelas.length} · ${p.pago?'Pago':'Pendente'}`]);for(const i of S.cmp)rows.push(['Compra no cartão',i.desc,i.valor,i.data,'Cartão',i.parc+'x']);for(const i of S.res)rows.push(['Reserva',i.nome,i.atual,'','Meta: '+i.meta,'']);const cell=v=>{let x=String(v??'');if(/^\s*[=+@\-]/.test(x))x="'"+x;return '"'+x.replace(/"/g,'""')+'"'};downloadFile('meu-controle-financeiro.csv','\ufeff'+rows.map(r=>r.map(cell).join(';')).join('\n'),'text/csv;charset=utf-8')}
+/* RAYO Oficial v1.1.0 — exportação Excel nativa, sem bibliotecas externas.
+   Todas as abas são geradas a partir da conta autenticada em memória.
+   CSV simples e backup JSON permanecem disponíveis em ações separadas. */
+const RX_MIME='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+const rxMoney=v=>({type:'money',value:Number.isFinite(Number(v))?Number(v):0});
+const rxNumber=v=>({type:'number',value:Number.isFinite(Number(v))?Number(v):0});
+const rxDate=v=>({type:'date',value:String(v||'')});
+const rxPercent=v=>({type:'percent',value:Number.isFinite(Number(v))?Number(v):0});
+const rxFormula=(f,computed,format='money')=>({type:'formula',formula:f,value:Number.isFinite(Number(computed))?Number(computed):0,format});
+const rxArr=a=>Array.isArray(a)?a:[];
+function rayoExportSheets(){
+ const year=/^\d{4}$/.test(String(ym||'').slice(0,4))?String(ym).slice(0,4):String(new Date().getFullYear());
+ const mo=String(ym||'').slice(0,7);
+ const stamp=new Date().toLocaleString('pt-BR');
+ const who=String(authDisplayName||authUser||'Perfil');
+ const sheets=[];
+ function add(name,headers,rows,opts={}){sheets.push({name,headers,rows,widths:opts.widths||headers.map(x=>Math.max(15,Math.min(36,String(x).length+6))),totals:opts.totals||[],note:opts.note||'',year,stamp,who});}
+ const months=[],cash=[];
+ for(let m=1;m<=12;m++){
+  const key=year+'-'+String(m).padStart(2,'0'),t=monthSummary(key);
+  const rr=months.length+5;
+  months.push([rxDate(key+'-01'),rxMoney(t.received),rxMoney(t.forecast),rxMoney(t.paid),rxMoney(t.pending),rxFormula('B'+rr+'-D'+rr,t.received-t.paid),rxFormula('B'+rr+'+C'+rr+'-D'+rr+'-E'+rr,t.projection)]);
+  for(const x of moneyItems(key))cash.push([rxDate(x.date),x.type==='in'?'Ganho':x.kind==='fat'?'Fatura do cartão':x.kind==='bol'?'Boleto':x.kind==='div'?'Dívida':x.kind==='fix'?'Despesa fixa':'Despesa variável',x.desc||'',x.cat||'',rxMoney(x.valor),x.paid?'Pago / recebido':'Pendente',x.source==='entry'?'Lançamento':x.kind==='fat'?'Fatura':x.kind==='bol'?'Boleto':'Dívida',freqName[x.freq]||x.freq||'Única',key]);
+ }
+ add('Resumo',['Mês','Recebido','A receber','Pago','A pagar','Resultado','Projeção'],months,{widths:[18,20,20,20,20,20,20],totals:[2,3,4,5,6,7],note:'Valores por mês calculados pelo próprio RAYO; compras são contabilizadas pelas faturas, sem duplicidade.'});
+ add('Movimentações',['Data','Tipo','Descrição','Categoria','Valor (R$)','Situação','Origem','Recorrência','Mês ref.'],cash.sort((a,b)=>String(a[0]?.value).localeCompare(String(b[0]?.value))),{widths:[16,22,37,25,19,22,19,18,15],totals:[5],note:'Movimentações calculadas do ano '+year+'. Compras parceladas entram apenas por suas faturas.'});
+ const tx={rec:'Ganhos',fix:'Despesas Fixas',var:'Despesas Variáveis'};
+ for(const kind of ['rec','fix','var']){
+  const rows=rxArr(S[kind]).map(x=>[rxDate(x.data),x.desc||'',x.cat||'',rxMoney(x.valor),freqName[x.freq]||'Única',x.method||'',x.endDate?rxDate(x.endDate):'',x.paused?'Pausado':x.statusMode==='auto'?'Automático':'Manual',x.id||'']);
+  add(tx[kind],['Data inicial','Descrição','Categoria','Valor (R$)','Frequência','Pagamento','Data final','Situação','ID'],rows,{widths:[17,36,25,20,17,18,17,19,22],totals:[4],note:'Registros originais. Itens recorrentes aparecem uma vez nesta aba; ocorrências do ano estão em Movimentações.'});
+ }
+ const cars=rxArr(S.car),byCard=new Map(cars.map(c=>[c.id,c]));
+ add('Cartões',['Cartão','Instituição','Limite (R$)','Fechamento (dia)','Vencimento (dia)','ID'],cars.map(c=>[c.nome||'',c.banco||'',rxMoney(c.limite),rxNumber(c.fech),rxNumber(c.venc),c.id||'']),{widths:[28,25,22,20,20,22],totals:[3],note:'Limites cadastrados, não devem ser somados como saldo disponível.'});
+ const purchases=rxArr(S.cmp).map((x,i)=>{const n=Math.max(1,Number(x.parc)||1),row=i+5;return [rxDate(x.data),byCard.get(x.cid)?.nome||'Cartão não encontrado',x.desc||'Compra',x.cat||'Cartão',rxMoney(x.valor),rxNumber(n),rxFormula('IF(F'+row+'>0,E'+row+'/F'+row+',0)',Number(x.valor||0)/n),x.origin==='quick-credit'?'Lançamento rápido':'Cartão',x.id||''];});
+ add('Compras Parceladas',['Data da compra','Cartão','Descrição','Categoria','Valor total (R$)','Nº de parcelas','Parcela (R$)','Origem','ID'],purchases,{widths:[20,28,36,22,22,19,21,21,22],totals:[5],note:'Compras são informativas. Para evitar dupla contagem, os gastos entram nas Movimentações somente pelas faturas.'});
+ const invoices=[];
+ for(const c of cars){const f=fat(c);for(let m=1;m<=12;m++){
+  const key=year+'-'+String(m).padStart(2,'0'),total=Number(f[mi(key)]||0);
+  if(total<=0)continue;
+  const due=Math.min(28,Math.max(1,Number(c.venc)||1));
+  invoices.push([rxDate(key+'-01'),c.nome||'',rxDate(key+'-'+String(due).padStart(2,'0')),rxMoney(total),c.pm?.[key]?'Paga':'Pendente',c.id||'']);
+ }}
+ add('Faturas',['Mês da fatura','Cartão','Vencimento','Valor (R$)','Situação','Cartão ID'],invoices,{widths:[20,29,18,21,19,25],totals:[4],note:'Faturas com valor no ano '+year+'. Pagamento de fatura não duplica compra.'});
+ const bills=[];for(const b of rxArr(S.bol)){const ps=rxArr(b.parcelas);for(const p of ps)bills.push([b.nome||'Boleto',b.cat||'Outros',rxNumber(p.numero||1),rxNumber(ps.length),rxDate(p.vencimento),rxMoney(p.valor),p.pago?'Pago':'Pendente',p.pagoEm?rxDate(p.pagoEm):'',rxMoney(b.valorTotal||ps.reduce((a,v)=>a+Number(v.valor||0),0)),b.obs||'',b.id||'']);}
+ add('Boletos',['Boleto','Categoria','Parcela','Total parcelas','Vencimento','Valor (R$)','Situação','Pago em','Total boleto (R$)','Observações','ID'],bills,{widths:[32,24,14,18,18,21,17,18,23,35,22],totals:[6],note:'Cada parcela em sua própria linha. A coluna total do boleto é apenas referência e não deve ser somada.'});
+ const debts=rxArr(S.div).map((d,i)=>{const row=i+5,remaining=Math.max(0,Number(d.total||0)-Number(d.pagas||0));return [d.nome||'',d.inst||'',rxMoney(d.orig),rxMoney(d.parcela),rxNumber(d.total),rxNumber(d.pagas),rxFormula('MAX(0,E'+row+'-F'+row+')',remaining,'number'),rxFormula('G'+row+'*D'+row,remaining*Number(d.parcela||0)),rxPercent(Number(d.juros||0)/100),rxDate(d.data),d.id||''];});
+ add('Dívidas',['Dívida','Instituição','Valor original (R$)','Parcela (R$)','Total parcelas','Parcelas pagas','Restantes','Saldo previsto (R$)','Juros mês (%)','1º vencimento','ID'],debts,{widths:[31,27,25,22,18,20,15,27,20,20,22],totals:[8],note:'Saldo previsto é parcelas restantes × valor da parcela; não inclui eventual recálculo bancário de juros.'});
+ const goals=rxArr(S.res).map((x,i)=>{const row=i+5,t=Number(x.meta||0),a=Number(x.atual||0);return [x.nome||'',rxMoney(t),rxMoney(a),rxFormula('MAX(0,B'+row+'-C'+row+')',Math.max(0,t-a)),rxMoney(x.contrib),rxFormula('IF(B'+row+'>0,C'+row+'/B'+row+',0)',t?a/t:0,'percent'),x.obj||'',x.id||''];});
+ add('Metas',['Meta','Objetivo (R$)','Reservado (R$)','Falta (R$)','Contribuição mensal','Progresso (%)','Observação','ID'],goals,{widths:[30,23,24,21,25,19,37,22],totals:[2,3,4,5],note:'Reservas são controle manual e não geram movimentações bancárias automaticamente.'});
+ const actual=monthSummary(mo).out, bRows=rxArr(S.budgets).map((x,i)=>{const row=i+5,used=actual.filter(v=>v.cat===x.cat).reduce((a,v)=>a+Number(v.valor||0),0);return [x.cat||'',rxMoney(x.valor),rxMoney(used),rxFormula('B'+row+'-C'+row,Number(x.valor||0)-used),mo];});
+ add('Orçamentos',['Categoria','Limite mensal (R$)','Gasto no mês (R$)','Disponível (R$)','Mês ref.'],bRows,{widths:[30,24,25,25,19],totals:[2,3,4],note:'Comparação de limites com gastos previstos e pagos de '+mo+'.'});
+ const goalsById=new Map(rxArr(S.res).map(x=>[x.id,x.nome]));
+ const reserves=rxArr(S.reserveHistory).map(h=>[rxDate(h.data),goalsById.get(h.goalId)||'Meta não encontrada',Number(h.valor||0)>=0?'Depósito':'Retirada',rxMoney(h.valor),h.id||'']);
+ add('Mov. Reservas',['Data','Meta','Tipo','Valor (R$)','ID'],reserves,{widths:[18,35,20,20,24],totals:[4],note:'Depósitos são positivos; retiradas, negativas. Não equivalem a transferências bancárias.'});
+ return sheets;
+}
+function rayoXml(value){return String(value??'').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;')}
+function rxCol(n){let x='';while(n){n--;x=String.fromCharCode(65+n%26)+x;n=Math.floor(n/26)}return x}
+function rxExcelDate(raw){if(!/^\d{4}-\d{2}-\d{2}$/.test(String(raw)))return null;const [y,m,d]=raw.split('-').map(Number),a=new Date(Date.UTC(y,m-1,d));if(a.getUTCFullYear()!==y||a.getUTCMonth()!==m-1||a.getUTCDate()!==d)return null;return (a.getTime()-Date.UTC(1899,11,30))/86400000}
+function rayoXlsxStyles(){return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="3"><numFmt numFmtId="164" formatCode="&quot;R$&quot; #,##0.00;[Red](&quot;R$&quot; #,##0.00)"/><numFmt numFmtId="165" formatCode="0.0%"/><numFmt numFmtId="166" formatCode="dd/mm/yyyy"/></numFmts><fonts count="5"><font><sz val="11"/><color rgb="FF25374A"/><name val="Aptos"/></font><font><b/><sz val="17"/><color rgb="FFFFFFFF"/><name val="Aptos Display"/></font><font><sz val="10"/><color rgb="FF45677A"/><name val="Aptos"/></font><font><b/><sz val="10"/><color rgb="FFFFFFFF"/><name val="Aptos"/></font><font><b/><sz val="11"/><color rgb="FF114F56"/><name val="Aptos"/></font></fonts><fills count="6"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF18364B"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FF246077"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF0F6F8"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFDCEDEA"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left/><right/><top/><bottom style="hair"><color rgb="FFD7E4E8"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="18"><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="0" fontId="3" fillId="3" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="0" fontId="0" fillId="4" borderId="1" xfId="0" applyFill="1"/><xf numFmtId="164" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1"/><xf numFmtId="164" fontId="0" fillId="4" borderId="1" xfId="0" applyNumberFormat="1" applyFill="1"/><xf numFmtId="166" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1"/><xf numFmtId="166" fontId="0" fillId="4" borderId="1" xfId="0" applyNumberFormat="1" applyFill="1"/><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0"/><xf numFmtId="0" fontId="0" fillId="4" borderId="1" xfId="0" applyFill="1"/><xf numFmtId="0" fontId="4" fillId="5" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="164" fontId="4" fillId="5" borderId="0" xfId="0" applyFont="1" applyFill="1" applyNumberFormat="1"/><xf numFmtId="165" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1"/><xf numFmtId="165" fontId="0" fillId="4" borderId="1" xfId="0" applyNumberFormat="1" applyFill="1"/><xf numFmtId="164" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1"/><xf numFmtId="164" fontId="0" fillId="4" borderId="1" xfId="0" applyNumberFormat="1" applyFill="1"/><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`}
+function rayoXlsxSheet(s){
+ const last=rxCol(s.headers.length),maxRow=Math.max(5,s.rows.length+4),totalRow=s.rows.length+6;
+ const one=(ref,value,style)=>`<c r="${ref}" s="${style}" t="inlineStr"><is><t xml:space="preserve">${rayoXml(value)}</t></is></c>`;
+ const number=(ref,v,style,formula='')=>`<c r="${ref}" s="${style}">${formula?'<f>'+rayoXml(formula)+'</f>':''}<v>${Number.isFinite(Number(v))?Number(v):0}</v></c>`;
+ let xml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetPr><tabColor rgb="FF246077"/></sheetPr><dimension ref="A1:${last}${s.rows.length?totalRow:5}"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="4" topLeftCell="A5" activePane="bottomLeft" state="frozen"/><selection pane="bottomLeft" activeCell="A5" sqref="A5"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="20"/><cols>`;
+ s.widths.forEach((w,i)=>xml+=`<col min="${i+1}" max="${i+1}" width="${Math.max(12,Math.min(44,w))}" customWidth="1"/>`);
+ xml+='</cols><sheetData>';
+ xml+=`<row r="1" ht="35" customHeight="1">${one('A1','RAYO  /  '+s.name.toUpperCase(),1)}</row>`;
+ xml+=`<row r="2" ht="25" customHeight="1">${one('A2','Perfil: '+s.who+'    •    Exportado: '+s.stamp+'    •    Ano de referência: '+s.year,2)}</row>`;
+ if(s.note)xml+=`<row r="3" ht="29" customHeight="1">${one('A3',s.note,17)}</row>`;
+ xml+=`<row r="4" ht="27" customHeight="1">${s.headers.map((t,i)=>one(rxCol(i+1)+'4',t,3)).join('')}</row>`;
+ if(!s.rows.length){xml+=`<row r="5" ht="30" customHeight="1">${one('A5','Nenhum registro cadastrado nesta seção.',17)}</row>`}
+ else for(let i=0;i<s.rows.length;i++){
+  const rowNum=i+5,bg=i%2===1,row=s.rows[i];
+  xml+=`<row r="${rowNum}" ht="23" customHeight="1">`;
+  for(let j=0;j<s.headers.length;j++){
+   const v=row[j],ref=rxCol(j+1)+rowNum;
+   if(v&&typeof v==='object'&&v.type){
+    if(v.type==='formula'){xml+=number(ref,v.value,v.format==='percent'?(bg?14:13):bg?16:15,v.formula);continue}
+    if(v.type==='money'){xml+=number(ref,v.value,bg?6:5);continue}
+    if(v.type==='percent'){xml+=number(ref,v.value,bg?14:13);continue}
+    if(v.type==='number'){xml+=number(ref,v.value,bg?10:9);continue}
+    if(v.type==='date'){const n=rxExcelDate(v.value);xml+=n===null?one(ref,v.value,bg?4:0):number(ref,n,bg?8:7);continue}
+   }
+   xml+=one(ref,v??'',bg?4:0);
+  }
+  xml+='</row>';
+ }
+ if(s.rows.length&&s.totals.length){
+  xml+=`<row r="${totalRow}" ht="27" customHeight="1">${one('A'+totalRow,'TOTAL',11)}`;
+  for(let j=2;j<=s.headers.length;j++){
+   if(s.totals.includes(j)){
+    const col=rxCol(j),sum=s.rows.reduce((a,row)=>a+(Number(row[j-1]?.value)||0),0);
+    xml+=number(col+totalRow,sum,12,'SUM('+col+'5:'+col+maxRow+')');
+   }else xml+=one(rxCol(j)+totalRow,'',11);
+  }
+  xml+='</row>';
+ }
+ xml+='</sheetData>';
+ xml+=`<autoFilter ref="A4:${last}${maxRow}"/>`;
+ xml+=`<mergeCells count="${s.note?3:2}"><mergeCell ref="A1:${last}1"/><mergeCell ref="A2:${last}2"/>${s.note?`<mergeCell ref="A3:${last}3"/>`:''}</mergeCells>`;
+ xml+='</worksheet>';
+ return xml;
+}
+function rayoZip(entries){
+ const utf=new TextEncoder(), now=new Date(),dosTime=(now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1),dosDate=((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate();
+ const crcTable=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;crcTable[n]=c>>>0}
+ const crc32=b=>{let c=0xFFFFFFFF;for(const x of b)c=crcTable[(c^x)&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0};
+ const chunks=[],central=[];let position=0,centralSize=0;
+ const put=(b,o,v,width)=>{const d=new DataView(b.buffer,b.byteOffset,b.byteLength);if(width===2)d.setUint16(o,v,true);else d.setUint32(o,v>>>0,true)};
+ for(const e of entries){const file=utf.encode(e.name),body=utf.encode(e.content),hash=crc32(body),head=new Uint8Array(30+file.length),c=new Uint8Array(46+file.length);
+  put(head,0,0x04034b50,4);put(head,4,20,2);put(head,6,0x0800,2);put(head,8,0,2);put(head,10,dosTime,2);put(head,12,dosDate,2);put(head,14,hash,4);put(head,18,body.length,4);put(head,22,body.length,4);put(head,26,file.length,2);head.set(file,30);
+  put(c,0,0x02014b50,4);put(c,4,20,2);put(c,6,20,2);put(c,8,0x0800,2);put(c,10,0,2);put(c,12,dosTime,2);put(c,14,dosDate,2);put(c,16,hash,4);put(c,20,body.length,4);put(c,24,body.length,4);put(c,28,file.length,2);put(c,42,position,4);c.set(file,46);
+  chunks.push(head,body);central.push(c);position+=head.length+body.length;centralSize+=c.length;
+ }
+ const end=new Uint8Array(22);put(end,0,0x06054b50,4);put(end,8,entries.length,2);put(end,10,entries.length,2);put(end,12,centralSize,4);put(end,16,position,4);
+ const result=new Uint8Array(position+centralSize+end.length);let at=0;for(const part of [...chunks,...central,end]){result.set(part,at);at+=part.length}return result;
+}
+function rayoCreateXlsx(sheets){
+ const top=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`,namespaces='http://schemas.openxmlformats.org/spreadsheetml/2006/main';
+ const contentTypes=top+`<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/>${sheets.map((_,i)=>`<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('')}</Types>`;
+ const workbook=top+`<workbook xmlns="${namespaces}" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><bookViews><workbookView activeTab="0"/></bookViews><sheets>${sheets.map((s,i)=>`<sheet name="${rayoXml(s.name)}" sheetId="${i+1}" r:id="rId${i+1}"/>`).join('')}</sheets><calcPr calcId="0" fullCalcOnLoad="1" forceFullCalc="1"/></workbook>`;
+ const rels=top+`<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i+1}.xml"/>`).join('')}<Relationship Id="rId${sheets.length+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+ const rootRels=top+`<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>`;
+ const core=top+`<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:creator>RAYO</dc:creator><cp:lastModifiedBy>RAYO</cp:lastModifiedBy><dcterms:created xsi:type="dcterms:W3CDTF">${new Date().toISOString()}</dcterms:created></cp:coreProperties>`;
+ const app=top+`<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"><Application>RAYO</Application><HeadingPairs><vt:vector size="2" baseType="variant"><vt:variant><vt:lpstr>Worksheets</vt:lpstr></vt:variant><vt:variant><vt:i4>${sheets.length}</vt:i4></vt:variant></vt:vector></HeadingPairs><TitlesOfParts><vt:vector size="${sheets.length}" baseType="lpstr">${sheets.map(s=>`<vt:lpstr>${rayoXml(s.name)}</vt:lpstr>`).join('')}</vt:vector></TitlesOfParts></Properties>`;
+ const files=[{name:'[Content_Types].xml',content:contentTypes},{name:'_rels/.rels',content:rootRels},{name:'docProps/core.xml',content:core},{name:'docProps/app.xml',content:app},{name:'xl/workbook.xml',content:workbook},{name:'xl/_rels/workbook.xml.rels',content:rels},{name:'xl/styles.xml',content:rayoXlsxStyles()}];
+ sheets.forEach((s,i)=>files.push({name:'xl/worksheets/sheet'+(i+1)+'.xml',content:rayoXlsxSheet(s)}));
+ return rayoZip(files);
+}
+function exportExcel(){
+ try{
+  const sheets=rayoExportSheets(),bytes=rayoCreateXlsx(sheets);
+  const profile=String(authUser||'perfil').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,34)||'perfil';
+  const y=String(ym||today).slice(0,4),stamp=new Date().toISOString().slice(0,10);
+  downloadFile('RAYO-Planilha-'+profile+'-'+y+'-'+stamp+'.xlsx',bytes,RX_MIME);
+ }catch(error){console.error('Falha na exportação Excel:',error);alert('Não foi possível gerar o Excel. Você pode baixar o CSV simples ou o backup JSON.');}
+}
+
 function startUI(){resetVisualIdentity();setInterval(()=>{const newDay=localDate(new Date());if(newDay!==today){today=newDay;if(authToken)go()}},60000);setInterval(refreshFromCloud,30000);window.addEventListener('focus',refreshFromCloud);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFromCloud()});$('#ym').onchange=e=>e.target.value&&setMonth(e.target.value);$('#m').onclick=e=>{if(e.target.id==='m')close_()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#m').classList.contains('open'))close_()});window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(authToken&&appearance().mode==='auto')applyAppearance()});authBoot()}
 startUI();
 </script></body></html>
