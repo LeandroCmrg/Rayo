@@ -330,17 +330,184 @@ body.rayo-modal-lock{position:fixed!important;inset:var(--rayo-lock-top,0px) 0 a
  .rayo-credit-card .rayo-credit-purchase{grid-template-columns:34px minmax(0,1fr) 32px 32px;gap:7px}
  .rayo-credit-card .rayo-credit-purchase>.item-symbol{width:34px;height:34px}
 }
+/* RAYO OFICIAL 1.2.0 — refinamento visual: menos ruído, mais leitura e toque. */
+:root{--rayo-radius:19px;--rayo-space:18px}
+body{line-height:1.55;-webkit-font-smoothing:antialiased}
+main{padding-top:30px}
+.card{border-radius:var(--rayo-radius);box-shadow:0 7px 26px rgba(21,39,59,.035)}
+.main-head{margin-bottom:20px}
+.head-title h1{font-size:clamp(24px,3vw,30px);font-weight:800;letter-spacing:-.045em}
+.eyebrow{font-size:12px;font-weight:600}
+.nav-btn{transition:background .16s,color .16s}
+.btn{min-height:42px}
+.btn:focus-visible,.mini-action:focus-visible,.benefit-action:focus-visible,nav button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.tile{padding:20px;min-width:0}
+.tile strong{overflow-wrap:anywhere;white-space:normal;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:12px;font-weight:600}
+.tile .tiny-note{font-size:11px;line-height:1.5}
+.cards{gap:12px}
+.month-picker{position:relative;display:inline-flex;justify-content:center;align-items:center;width:136px;height:42px;background:var(--surface);border:1px solid var(--line);border-radius:13px;overflow:hidden;cursor:pointer}
+.month-picker:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.month-value{font-size:13px;color:var(--ink);font-weight:700;white-space:nowrap;pointer-events:none}
+.month-value:after{content:'⌄';font-size:15px;color:var(--muted);margin-left:10px}
+.month-picker input[type=month]{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;min-height:0;opacity:0;cursor:pointer;z-index:1;border:0;padding:0}
+.dashboard-tools{margin-bottom:8px}
+.dashboard-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.dashboard-shortcuts button{display:flex;gap:9px;align-items:center;min-width:0;padding:14px 13px;border:1px solid var(--line);background:var(--surface);border-radius:15px;color:var(--ink);text-align:left;font-weight:700;cursor:pointer}
+.dashboard-shortcuts button>.ico:first-child{color:var(--accent)}
+.dashboard-shortcuts button span{flex:1;min-width:0}
+.dashboard-shortcuts button>.ico:last-child{width:15px;height:15px;color:var(--muted)}
+.dashboard-shortcuts button:active{transform:scale(.99)}
+.dashboard-columns .list-row{align-items:center}
+.benefit-home-summary{display:flex;gap:13px;align-items:center;min-width:0}
+.benefit-home-mark{width:45px;height:45px;border-radius:14px;background:var(--accentLight);color:var(--accent);display:grid;place-items:center;flex:0 0 auto}
+.benefit-home-summary div{display:grid;gap:1px;min-width:0}
+.benefit-home-summary small{color:var(--muted);font-size:12px}
+.benefit-home-summary strong{font-size:21px;line-height:1.2;letter-spacing:-.025em;overflow-wrap:anywhere}
+body.no-month .month-control{display:none!important}
+.benefits-page{display:grid;gap:19px}
+.benefit-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.64fr);align-items:center;gap:22px;padding:26px 29px;border-radius:24px;background:var(--primary-card);color:#fff;overflow:hidden}
+.benefit-eyebrow{font-size:11px;letter-spacing:.07em;text-transform:uppercase;font-weight:750;opacity:.77}
+.benefit-hero h2{margin:7px 0;font-size:clamp(22px,3vw,31px);letter-spacing:-.04em;line-height:1.18}
+.benefit-hero p{font-size:13px;max-width:420px;line-height:1.5;margin:8px 0 0;color:var(--primary-card-sub)}
+.benefit-total{background:rgba(255,255,255,.105);border:1px solid rgba(255,255,255,.19);padding:19px 20px;border-radius:20px;min-width:0;display:grid;gap:4px}
+.benefit-total small{font-size:11px;color:#f3f6f8;opacity:.84}
+.benefit-total strong{font-size:clamp(24px,3.5vw,33px);line-height:1.25;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;letter-spacing:-.04em}
+.benefit-total span{font-size:11px;color:var(--primary-card-sub)}
+.benefit-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.benefit-stats>div{border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:18px;display:grid;gap:4px;min-width:0}
+.benefit-stats small{font-size:12px;color:var(--muted)}
+.benefit-stats strong{font-size:21px;font-variant-numeric:tabular-nums;letter-spacing:-.025em;overflow-wrap:anywhere}
+.benefit-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.benefit-section-head h2{font-size:19px;letter-spacing:-.03em;margin:0}
+.benefit-section-head p{font-size:12px;color:var(--muted);margin:3px 0 0}
+.benefit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.benefit-wallet{background:var(--surface);border:1px solid var(--line);border-radius:20px;min-width:0;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.benefit-wallet-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.benefit-wallet-topright{display:flex;align-items:center;gap:8px}
+.benefit-wallet-icon{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--benefit-color) 14%,var(--surface));color:var(--benefit-color)}
+.benefit-kind{font-size:10px;font-weight:800;letter-spacing:.045em;background:var(--surface2);padding:6px 9px;border-radius:99px;color:var(--muted)}
+.benefit-wallet-name{font-size:17px;line-height:1.2;font-weight:770;overflow-wrap:anywhere}
+.benefit-wallet-desc{font-size:11px;color:var(--muted);margin-top:5px;min-height:30px}
+.benefit-wallet-label{font-size:11px;color:var(--muted);margin-top:14px}
+.benefit-wallet-amount{font-size:clamp(23px,2.6vw,29px);font-weight:800;letter-spacing:-.045em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;line-height:1.25}
+.benefit-wallet-actions{display:flex;gap:7px;align-items:stretch;flex-wrap:wrap;margin-top:20px}
+.benefit-action{display:inline-flex;gap:6px;align-items:center;justify-content:center;background:var(--surface2);color:var(--ink);border:1px solid var(--line);min-height:42px;border-radius:12px;padding:9px 11px;font-size:12px;font-weight:700;flex:1 1 auto}
+.benefit-action.primary{background:var(--button-bg);color:var(--button-fg);border-color:transparent}
+.benefit-edit{border:1px solid var(--line);background:var(--surface);color:var(--muted);min-height:38px;min-width:38px;border-radius:12px;display:grid;place-items:center}
+.benefit-empty{border:1px dashed var(--line);border-radius:20px;min-height:230px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px 16px;background:var(--surface)}
+.benefit-empty>.ico{color:var(--accent)}
+.benefit-empty h3{font-size:17px;line-height:1.2;margin:0}
+.benefit-empty p{font-size:12px;color:var(--muted);max-width:310px;margin:0}
+.benefit-history-row{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}
+.benefit-history-row:last-child{border-bottom:0}
+.benefit-history-ico{height:37px;width:37px;flex:0 0 auto;display:grid;place-items:center;border-radius:12px;background:var(--badLight);color:var(--bad)}
+.benefit-history-ico.is-credit{background:var(--goodLight);color:var(--good)}
+.benefit-history-main{min-width:0;flex:1;display:grid;gap:1px}
+.benefit-history-main strong{font-size:13px;overflow-wrap:anywhere}
+.benefit-history-main small{font-size:11px;color:var(--muted)}
+.benefit-history-amount{font-weight:770;white-space:nowrap;font-size:12px;font-variant-numeric:tabular-nums}
+.benefit-history-delete{min-width:32px;height:33px}
+.benefit-disclaimer{font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 6px}
+.benefit-move-balance{border:1px solid var(--line);background:var(--surface2);border-radius:15px;padding:15px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.benefit-move-balance span{font-size:12px;color:var(--muted)}
+.benefit-move-balance strong{font-size:20px;overflow-wrap:anywhere}
+@media(max-width:850px){.benefit-grid{grid-template-columns:1fr}}
+@media(max-width:740px){
+ body{font-size:14px;line-height:1.55}
+ main{padding:20px 14px calc(112px + env(safe-area-inset-bottom,0px))}
+ .main-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'title user' 'month add';column-gap:12px;row-gap:14px;margin-bottom:19px;align-items:center}
+ .main-head .head-title{grid-area:title;min-width:0}
+ .main-head .head-title h1{font-size:25px;line-height:1.14;margin-top:2px}
+ .main-head .head-user{grid-area:user;justify-self:end}
+ .main-head .month-control{grid-area:month;justify-self:start;max-width:100%}
+ .main-head #quickHeader{grid-area:add;justify-self:end}
+ body.no-month .main-head{grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:'title user add'}
+ .card{padding:16px;border-radius:18px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-bottom:12px}
+ .cards>.tile:first-child{grid-column:1/-1;min-height:143px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;align-content:center}
+ .cards>.tile:first-child .tile-icon{grid-column:2;grid-row:1/4;margin:0;align-self:start}
+ .cards>.tile:first-child .sub,.cards>.tile:first-child strong,.cards>.tile:first-child .tiny-note{grid-column:1}
+ .cards>.tile:first-child strong{font-size:clamp(27px,7vw,34px);margin:8px 0 0}
+ .cards>.tile:last-child:nth-child(even):not(:first-child){grid-column:1/-1;min-height:100px}
+ .tile{padding:15px 14px;min-height:120px}
+ .tile .tile-icon{height:30px;width:30px;margin-bottom:12px}
+ .tile strong{font-size:clamp(17px,5vw,21px);line-height:1.22}
+ .tile .tiny-note{font-size:10px;margin-top:7px}
+ .tile .sub{font-size:11px}
+ .dashboard-shortcuts{gap:8px;margin-bottom:13px}
+ .dashboard-shortcuts button{padding:13px 4px;flex-direction:column;gap:6px;min-height:70px;text-align:center;justify-content:center;font-size:11px}
+ .dashboard-shortcuts button span{flex:none}
+ .dashboard-shortcuts button>.ico:last-child{display:none}
+ .dashboard-shortcuts button>.ico:first-child{width:21px;height:21px}
+ .dashboard-columns{gap:13px}
+ .subhead h2,.subhead h3{font-size:15px}
+ .list-row{gap:10px;padding:13px 0}
+ .item-symbol{width:36px;height:36px;border-radius:11px}
+ .item-middle strong{font-size:12px}
+ .item-middle small{font-size:10px;line-height:1.45}
+ .item-amount{font-size:12px}
+ .item-amount small{font-size:10px}
+ .row-actions .mini-action{min-height:36px;min-width:36px}
+ .btn,.mini-action,.nav-btn{touch-action:manipulation}
+ nav.bottom{display:grid!important;grid-template-columns:minmax(0,1fr) 57px minmax(0,1fr)!important;padding:7px 9px calc(9px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);box-shadow:0 -12px 35px rgba(8,20,33,.065);background:var(--surface)}
+ nav.bottom .nav-half{min-height:57px!important;gap:3px}
+ nav.bottom .nav-half button{min-height:53px!important;border-radius:12px;font-size:10px!important;font-weight:600;padding:7px 1px!important;gap:5px}
+ nav.bottom .nav-half button .ico{height:20px;width:20px}
+ nav.bottom .nav-half button.on{background:var(--accentLight);color:var(--accent);font-weight:760}
+ nav.bottom>button.btn.add-icon-btn.quick{height:49px!important;width:49px!important;min-width:49px!important;max-width:49px!important;border-radius:16px!important;background:var(--fab-bg)!important;color:var(--fab-fg)!important;box-shadow:0 5px 15px rgba(0,0,0,.12)!important;min-height:49px!important}
+ .modal-panel{max-height:calc(100dvh - 12px);padding:23px 18px calc(24px + env(safe-area-inset-bottom,0px));border-radius:25px 25px 0 0}
+ .modal-panel .field-grid{gap:13px}
+ .modal-footer{gap:9px}
+ .modal-footer .btn{min-height:46px}
+ .benefits-page{gap:14px}
+ .benefit-hero{grid-template-columns:1fr;gap:16px;border-radius:21px;padding:22px 19px}
+ .benefit-hero h2{font-size:24px;max-width:300px}
+ .benefit-hero p{font-size:12px}
+ .benefit-total{padding:16px 17px;border-radius:17px}
+ .benefit-total strong{font-size:29px}
+ .benefit-stats{gap:9px}
+ .benefit-stats>div{padding:14px;min-height:83px}
+ .benefit-stats strong{font-size:clamp(16px,4.8vw,20px)}
+ .benefit-stats small{font-size:11px}
+ .benefit-section-head{align-items:stretch}
+ .benefit-new{font-size:12px;flex-shrink:0}
+ .benefit-wallet{padding:18px}
+ .month-picker{width:136px}
+ .benefit-wallet-actions{gap:7px}
+ .benefit-action{font-size:12px}
+ .benefit-history-row{gap:9px}
+ .benefit-history-ico{height:33px;width:33px}
+ .benefit-history-amount{font-size:11px}
+ .benefit-history-delete{min-width:30px;padding:0 6px}
+ .settings-page{gap:13px}
+ .palette-grid{gap:7px}
+ .toolbar select{min-width:0}
+}
+@media(max-width:390px){
+ main{padding-left:12px;padding-right:12px}
+ .main-head .head-title h1{font-size:22px}
+ .cards>.tile:first-child strong{font-size:26px}
+ .tile strong{font-size:17px}
+ .benefit-section-head .benefit-new{width:100%}
+ .month-picker{width:126px}
+ .benefit-action{flex:1 1 calc(50% - 5px);padding:8px 6px;font-size:11px}
+ .benefit-edit{min-width:40px}
+ nav.bottom .nav-half button{font-size:9px!important}
+}
+@media(prefers-reduced-motion:reduce){.btn,.dashboard-shortcuts button,.nav-btn{transition:none!important}html{scroll-behavior:auto}}
+
 </style></head><body class="auth-locked">
 <section id="loginScreen" class="login-screen" aria-label="Login"><div class="login-box"><div class="login-mark"><svg class="rayo-official-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true"><rect width="512" height="512" rx="122" fill="#303236"/><rect x="9" y="9" width="494" height="494" rx="115" fill="none" stroke="#A7A8A5" stroke-opacity=".55" stroke-width="10"/><path d="M293 83 137 282h117l-39 153 164-236H268l25-116Z" fill="#F1EDE5"/></svg></div><h1>rayo<span class="brand-dot">.</span></h1><p>Suas finanças, sem complicar.</p><form id="loginForm"><label for="loginWho">Usuário</label><input id="loginWho" type="text" minlength="3" maxlength="32" autocomplete="username" placeholder="Ex.: Rayane Camargo" required><label for="loginPassword">Senha</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" required><button class="btn" id="loginButton" type="submit">Entrar</button><p class="auth-switch">Ainda não tem uma conta? <button type="button" class="auth-link" onclick="switchAuthView('register')">Criar minha conta</button></p></form><form id="registerForm" hidden><p class="register-lede">Seu espaço financeiro privado, com dados salvos na nuvem.</p><label for="registerWho">Seu nome de usuário</label><input id="registerWho" type="text" minlength="3" maxlength="32" autocomplete="username" placeholder="Ex.: Rayane Camargo" required><small class="form-hint">3 a 32 caracteres. Aceita espaços entre nomes, letras, números, ponto, hífen e _.</small><label for="registerPassword">Crie uma senha</label><input id="registerPassword" type="password" minlength="8" maxlength="128" autocomplete="new-password" placeholder="Pelo menos 8 caracteres" required oninput="checkPasswordConfirmation('registerPassword','registerConfirmation','registerMatch')"><label for="registerConfirmation">Confirme sua senha</label><input id="registerConfirmation" type="password" minlength="8" maxlength="128" autocomplete="new-password" placeholder="Digite a senha novamente" required oninput="checkPasswordConfirmation('registerPassword','registerConfirmation','registerMatch')"><p class="pw-hint" id="registerMatch" aria-live="polite">As duas senhas devem ser iguais.</p><button class="btn" type="submit" id="registerButton">Criar minha conta</button><p class="auth-switch">Já tem uma conta? <button class="auth-link" type="button" onclick="switchAuthView('login')">Fazer login</button></p></form><div id="loginMessage" aria-live="polite"></div></div></section>
 <aside aria-label="Navegação"><div class="brand"><span class="brand-mark"><svg class="rayo-official-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true"><rect width="512" height="512" rx="122" fill="#303236"/><rect x="9" y="9" width="494" height="494" rx="115" fill="none" stroke="#A7A8A5" stroke-opacity=".55" stroke-width="10"/><path d="M293 83 137 282h117l-39 153 164-236H268l25-116Z" fill="#F1EDE5"/></svg></span><span class="brand-name">rayo<span class="brand-dot">.</span></span></div><div id="sn"></div><div class="side-bottom" aria-hidden="true"></div></aside>
-<main><header class="main-head"><div class="head-title"><div class="eyebrow" id="eyebrow"></div><h1 id="ti">Visão geral</h1></div><div class="month-control"><button class="mini-action" aria-label="Mês anterior" onclick="moveMonth(-1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><input type="month" id="ym" aria-label="Mês selecionado"><button class="mini-action" aria-label="Próximo mês" onclick="moveMonth(1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button></div><button class="btn add-icon-btn" id="quickHeader" onclick="openAddMenu()" aria-label="Novo lançamento" title="Novo lançamento"><svg class="ico lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="head-user"><span class="user-badge" id="userBadge">U</span><span id="sessionName" class="user-name" style="font-weight:650"></span><span class="cloud-status" id="cloudStatus" role="status" aria-live="polite" title="Problemas de sincronização" hidden></span><button class="mini-action" title="Meu perfil" onclick="openMyProfile()"><svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button></div></header><div id="v"></div></main>
+<main><header class="main-head"><div class="head-title"><div class="eyebrow" id="eyebrow"></div><h1 id="ti">Visão geral</h1></div><div class="month-control"><button class="mini-action" aria-label="Mês anterior" onclick="moveMonth(-1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="month-picker"><span class="month-value" id="ymText" aria-hidden="true">Mês</span><input type="month" id="ym" aria-label="Mês selecionado"></span><button class="mini-action" aria-label="Próximo mês" onclick="moveMonth(1)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button></div><button class="btn add-icon-btn" id="quickHeader" onclick="openAddMenu()" aria-label="Novo lançamento" title="Novo lançamento"><svg class="ico lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="head-user"><span class="user-badge" id="userBadge">U</span><span id="sessionName" class="user-name" style="font-weight:650"></span><span class="cloud-status" id="cloudStatus" role="status" aria-live="polite" title="Problemas de sincronização" hidden></span><button class="mini-action" title="Meu perfil" onclick="openMyProfile()"><svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button></div></header><div id="v"></div></main>
 <nav id="bn" class="bottom" aria-label="Navegação inferior"></nav><div id="m" class="modal" role="dialog" aria-modal="true" aria-hidden="true"><div id="mb" class="modal-panel"></div></div><script>const KEY="mcf_v1"; // Os dados anteriores continuam guardados no navegador como backup.
-const APP_VERSION="rayo-oficial-v1.1.0-20261031";
-const RAYO_VERSION="v1.1.0";
-const def=()=>({rec:[],fix:[],var:[],car:[],cmp:[],div:[],bol:[],res:[],budgets:[],favs:[],reserveHistory:[],settings:{}});
+const APP_VERSION="rayo-oficial-v1.2.0-20261111";
+const RAYO_VERSION="v1.2.0";
+const def=()=>({rec:[],fix:[],var:[],car:[],cmp:[],div:[],bol:[],res:[],budgets:[],favs:[],reserveHistory:[],benefits:[],settings:{}});
 const normalizeS=data=>{
  const a=Object.assign(def(),data&&typeof data==='object'?data:{});
- for(const k of ['rec','fix','var','car','cmp','div','bol','res','budgets','favs','reserveHistory'])if(!Array.isArray(a[k]))a[k]=[];
+ for(const k of ['rec','fix','var','car','cmp','div','bol','res','budgets','favs','reserveHistory','benefits'])if(!Array.isArray(a[k]))a[k]=[];
  if(!a.settings||typeof a.settings!=='object')a.settings={};
  return a;
 };
@@ -584,7 +751,7 @@ async function authBoot(){
 
 
 function resetAllUserData(){
- if(!confirm('Tem certeza que deseja zerar todos os dados deste perfil? Esta ação limpa ganhos, gastos, cartões, dívidas, metas, orçamentos e favoritos.'))return;
+ if(!confirm('Tem certeza que deseja zerar todos os dados deste perfil? Esta ação limpa ganhos, gastos, benefícios, cartões, dívidas, metas, orçamentos e favoritos.'))return;
  const keepSettings={appearance:S.settings?.appearance,customCategories:S.settings?.customCategories};
  S=freshState();S.settings={...keepSettings};
  saveConflict=false;
@@ -633,8 +800,8 @@ const PALETTES={
 };
 const DEFAULT_HOME=['saldo','ganhos','gastos','projecao'];
 const HOME_NAMES={saldo:'Disponível',ganhos:'Ganhos',gastos:'Gastos',projecao:'Projeção'};
-const DEFAULT_SHORTCUTS=['dash','spend','calendar'];
-const PRIMARY_PAGES=['dash','rec','spend','calendar'];
+const DEFAULT_SHORTCUTS=['dash','spend','benefits'];
+const PRIMARY_PAGES=['dash','rec','spend','calendar','benefits'];
 const APPEARANCE_DEFAULTS={palette:'azul',mode:'light',backgroundStyle:'colored',iconStyle:'minimal',density:'comfortable',privacy:false,homeCards:DEFAULT_HOME,hiddenSections:[],quickTabs:DEFAULT_SHORTCUTS};
 function appearance(){return {...APPEARANCE_DEFAULTS,...(S.settings?.appearance||{})}}
 function themeIsDark(){const m=appearance().mode;return m==='dark'||(m==='auto'&&window.matchMedia?.('(prefers-color-scheme: dark)').matches)}
@@ -689,7 +856,7 @@ function updateAppearanceList(field,value,action){
 }
 function restoreAppearance(){if(!confirm('Restaurar a aparência padrão deste usuário? Seus lançamentos não serão alterados.'))return;S.settings={...S.settings,appearance:{...APPEARANCE_DEFAULTS,homeCards:[...DEFAULT_HOME],quickTabs:[...DEFAULT_SHORTCUTS],hiddenSections:[]}};applyAppearance();save();go()}
 function getCats(kind){return [...CATS[kind],...((S.settings?.customCategories?.[kind]||[]).map(x=>x.name).filter(x=>!CATS[kind].includes(x)))];}
-const EMOJI_GLYPHS={camera:'📷',home:'🏠',trendup:'💰',trenddown:'🛍️',calendar:'📅',wallet:'💳',repeat:'🔁',target:'🎯',chart:'📊',piggy:'🐷',credit:'💳',receipt:'🧾',search:'🔎',settings:'⚙️',dots:'•••',store:'🛒',car:'🚗',food:'🍽️',star:'⭐',shield:'🛡️',users:'👥',calculator:'🧮',palette:'🎨',clock:'🕒',checkcircle:'✅',arrowup:'↗️',arrowdown:'↙️'};
+const EMOJI_GLYPHS={gift:'🎁',camera:'📷',home:'🏠',trendup:'💰',trenddown:'🛍️',calendar:'📅',wallet:'💳',repeat:'🔁',target:'🎯',chart:'📊',piggy:'🐷',credit:'💳',receipt:'🧾',search:'🔎',settings:'⚙️',dots:'•••',store:'🛒',car:'🚗',food:'🍽️',star:'⭐',shield:'🛡️',users:'👥',calculator:'🧮',palette:'🎨',clock:'🕒',checkcircle:'✅',arrowup:'↗️',arrowdown:'↙️'};
 const CATEGORY_EMOJI={'Salário':'💰','Mercado':'🛒','Transporte':'🚗','Farmácia':'💊','Alimentação':'🍽️','Lazer':'🎟️','Aluguel':'🏠','Assinatura':'🎧','Internet':'🌐','Energia':'💡'};
 function categoryEmoji(cat,kind){const custom=S.settings?.customCategories?.[kind]?.find(x=>x.name===cat);return custom?.emoji||CATEGORY_EMOJI[cat]||''}
 function categoryColor(cat,kind){const custom=S.settings?.customCategories?.[kind]?.find(x=>x.name===cat);return /^#[0-9a-fA-F]{6}$/.test(custom?.color||'')?custom.color:null}
@@ -704,15 +871,15 @@ function removeCategory(kind,index){
  if(!confirm('Remover esta categoria da lista? Os lançamentos antigos continuarão com o nome original.'))return;
  const all={...(S.settings.customCategories||{})};all[kind]=(all[kind]||[]).filter((x,i)=>i!==index);S.settings={...S.settings,customCategories:all};save();go();
 }
-const GLYPHS={camera:'<rect x=2 y=7 width=20 height=14 rx=2/><path d="M7 7l2-4h6l2 4"/><circle cx=12 cy=14 r=4/>',calculator:'<rect x=5 y=2 width=14 height=20 rx=3 /><path d="M8 6h8M8 11h2m4 0h2M8 15h2m4 0h2M8 19h2m4 0h2"/>',palette:'<circle cx=12 cy=12 r=9 /><circle cx=7 cy=10 r=1 /><circle cx=12 cy=7 r=1 /><circle cx=17 cy=11 r=1 /><path d="M14 20c-2-2-1-4 1-4h2"/>',eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx=12 cy=12 r=3 />',eyeoff:'<path d="m3 3 18 18M10 5c6-2 11 7 11 7s-2 3-5 5M5 8c-2 2-3 4-3 4s4 7 10 7c1 0 2 0 3-1"/>',home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',wallet:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M16 12h5M3 9h18"/>',trendup:'<path d="m3 17 7-7 4 4 7-7"/><path d="M15 7h6v6"/>',trenddown:'<path d="m3 7 7 7 4-4 7 7"/><path d="M15 17h6v-6"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',chart:'<path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/>',plus:'<path d="M12 5v14M5 12h14"/>',check:'<path d="m4 12 5 5L20 6"/>',checkcircle:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',circle:'<circle cx="12" cy="12" r="9"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',edit:'<path d="M12 20h9"/><path d="M16 4a2 2 0 0 1 4 4L9 19l-5 1 1-5z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/><path d="M10 10v7M14 10v7"/>',copy:'<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/>',chevronleft:'<path d="m15 18-6-6 6-6"/>',chevronright:'<path d="m9 18 6-6-6-6"/>',down:'<path d="m6 9 6 6 6-6"/>',arrowup:'<path d="M12 19V5M5 12l7-7 7 7"/>',arrowdown:'<path d="M12 5v14M5 12l7 7 7-7"/>',credit:'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/>',piggy:'<path d="M6 8c-3 1-4 5-2 8l-1 3h4l1-2h8l1 2h3v-5a6 6 0 0 0-5-8H9l-2-2-2 3"/><path d="M14 10h.01"/>',settings:'<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/><path d="m19 13 2 1-2 4-2-1-2 2v2H9v-2l-2-2-2 1-2-4 2-1v-2l-2-1 2-4 2 1 2-2V3h6v2l2 2 2-1 2 4-2 1z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',users:'<path d="M16 20a7 7 0 0 0-8-7 7 7 0 0 0-5 7"/><circle cx="10" cy="7" r="4"/><path d="M17 3a4 4 0 0 1 0 8M20 20a7 7 0 0 0-4-6"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',store:'<path d="M3 10h18v11H3zM2 10l3-7h14l3 7"/><path d="M9 21v-8h6v8"/>',car:'<path d="m4 14 2-7h12l2 7M4 14h16v5H4zM7 19v2M17 19v2"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/>',food:'<path d="M4 3v8M7 3v8M10 3v8M7 11v10M17 3v18M17 3c-6 3-6 9 0 11"/>',star:'<path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>',pause:'<path d="M8 5v14M16 5v14"/>',play:'<path d="m7 4 13 8-13 8z"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',close:'<path d="M5 5l14 14M19 5 5 19"/>',filter:'<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',receipt:'<path d="M5 3h14v18l-3-2-4 2-4-2-3 2z"/><path d="M8 8h8M8 12h6"/>',shield:'<path d="m12 2 9 4v6c0 6-4 9-9 10-5-1-9-4-9-10V6z"/><path d="m8 12 3 3 5-6"/>',sliders:'<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/>'};
+const GLYPHS={gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8H7.5a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8Zm0 0h4.5a2.5 2.5 0 0 0 0-5C14 3 12 8 12 8Z"/>',camera:'<rect x=2 y=7 width=20 height=14 rx=2/><path d="M7 7l2-4h6l2 4"/><circle cx=12 cy=14 r=4/>',calculator:'<rect x=5 y=2 width=14 height=20 rx=3 /><path d="M8 6h8M8 11h2m4 0h2M8 15h2m4 0h2M8 19h2m4 0h2"/>',palette:'<circle cx=12 cy=12 r=9 /><circle cx=7 cy=10 r=1 /><circle cx=12 cy=7 r=1 /><circle cx=17 cy=11 r=1 /><path d="M14 20c-2-2-1-4 1-4h2"/>',eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx=12 cy=12 r=3 />',eyeoff:'<path d="m3 3 18 18M10 5c6-2 11 7 11 7s-2 3-5 5M5 8c-2 2-3 4-3 4s4 7 10 7c1 0 2 0 3-1"/>',home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',wallet:'<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M16 12h5M3 9h18"/>',trendup:'<path d="m3 17 7-7 4 4 7-7"/><path d="M15 7h6v6"/>',trenddown:'<path d="m3 7 7 7 4-4 7 7"/><path d="M15 17h6v-6"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',repeat:'<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',chart:'<path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/>',plus:'<path d="M12 5v14M5 12h14"/>',check:'<path d="m4 12 5 5L20 6"/>',checkcircle:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',circle:'<circle cx="12" cy="12" r="9"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',edit:'<path d="M12 20h9"/><path d="M16 4a2 2 0 0 1 4 4L9 19l-5 1 1-5z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/><path d="M10 10v7M14 10v7"/>',copy:'<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/>',chevronleft:'<path d="m15 18-6-6 6-6"/>',chevronright:'<path d="m9 18 6-6-6-6"/>',down:'<path d="m6 9 6 6 6-6"/>',arrowup:'<path d="M12 19V5M5 12l7-7 7 7"/>',arrowdown:'<path d="M12 5v14M5 12l7 7 7-7"/>',credit:'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/>',piggy:'<path d="M6 8c-3 1-4 5-2 8l-1 3h4l1-2h8l1 2h3v-5a6 6 0 0 0-5-8H9l-2-2-2 3"/><path d="M14 10h.01"/>',settings:'<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/><path d="m19 13 2 1-2 4-2-1-2 2v2H9v-2l-2-2-2 1-2-4 2-1v-2l-2-1 2-4 2 1 2-2V3h6v2l2 2 2-1 2 4-2 1z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',users:'<path d="M16 20a7 7 0 0 0-8-7 7 7 0 0 0-5 7"/><circle cx="10" cy="7" r="4"/><path d="M17 3a4 4 0 0 1 0 8M20 20a7 7 0 0 0-4-6"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',store:'<path d="M3 10h18v11H3zM2 10l3-7h14l3 7"/><path d="M9 21v-8h6v8"/>',car:'<path d="m4 14 2-7h12l2 7M4 14h16v5H4zM7 19v2M17 19v2"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/>',food:'<path d="M4 3v8M7 3v8M10 3v8M7 11v10M17 3v18M17 3c-6 3-6 9 0 11"/>',star:'<path d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>',pause:'<path d="M8 5v14M16 5v14"/>',play:'<path d="m7 4 13 8-13 8z"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',close:'<path d="M5 5l14 14M19 5 5 19"/>',filter:'<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',receipt:'<path d="M5 3h14v18l-3-2-4 2-4-2-3 2z"/><path d="M8 8h8M8 12h6"/>',shield:'<path d="m12 2 9 4v6c0 6-4 9-9 10-5-1-9-4-9-10V6z"/><path d="m8 12 3 3 5-6"/>',sliders:'<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/>'};
 function I(name,cls=''){
  const action=['plus','check','edit','trash','copy','pause','play','close','chevronleft','chevronright','down','download','filter','sliders','logout','info','user'];
  if(appearance().iconStyle==='emoji'&&!action.includes(name)&&EMOJI_GLYPHS[name])return `<span class="emoji-ico ${cls}" aria-hidden="true">${EMOJI_GLYPHS[name]}</span>`;
  return `<svg class="ico ${cls}" viewBox="0 0 24 24" aria-hidden="true">${GLYPHS[name]||GLYPHS.circle}</svg>`;
 }
 let ym=loc(now),tab='dash',calendarSelected=today,expenseFilter='all',expenseSearch='',expenseStatus='all',gainStatus='all',historySearch='',historyKind='all',historyStatus='all';
-const NAV=[['dash','home','Início'],['rec','trendup','Ganhos'],['spend','trenddown','Gastos'],['calendar','calendar','Calendário'],['history','search','Histórico'],['recurr','repeat','Recorrências'],['budgets','target','Orçamentos'],['res','piggy','Metas e reserva'],['car','credit','Cartões'],['div','receipt','Dívidas'],['bol','receipt','Boletos'],['rel','chart','Relatórios'],['sim','calculator','Simulador'],['settings','settings','Ajustes']];
-const T={dash:'Visão geral',rec:'Meus ganhos',spend:'Meus gastos',calendar:'Calendário financeiro',history:'Pesquisar lançamentos',recurr:'Recorrências',budgets:'Meus orçamentos',res:'Metas e reserva',car:'Cartões',div:'Dívidas',bol:'Boletos',rel:'Relatórios',sim:'Calculadora',settings:'Ajustes'};
+const NAV=[['dash','home','Início'],['rec','trendup','Ganhos'],['spend','trenddown','Gastos'],['calendar','calendar','Calendário'],['benefits','gift','Benefícios'],['history','search','Histórico'],['recurr','repeat','Recorrências'],['budgets','target','Orçamentos'],['res','piggy','Metas e reserva'],['car','credit','Cartões'],['div','receipt','Dívidas'],['bol','receipt','Boletos'],['rel','chart','Relatórios'],['sim','calculator','Simulador'],['settings','settings','Ajustes']];
+const T={dash:'Visão geral',rec:'Meus ganhos',spend:'Meus gastos',calendar:'Calendário financeiro',benefits:'Meus benefícios',history:'Pesquisar lançamentos',recurr:'Recorrências',budgets:'Meus orçamentos',res:'Metas e reserva',car:'Cartões',div:'Dívidas',bol:'Boletos',rel:'Relatórios',sim:'Calculadora',settings:'Ajustes'};
 const has=(o,k)=>Object.prototype.hasOwnProperty.call(o||{},k);
 const utcDate=s=>new Date(s+'T12:00:00Z');
 const validDate=s=>/^\d{4}-\d\d-\d\d$/.test(String(s||''))&&!Number.isNaN(Date.parse(s+'T12:00:00Z'));
@@ -781,7 +948,7 @@ function openMoreMenu(){
  const list=NAV.filter(n=>n[0]!=='dash');
  open_(`${modalHeader('Mais opções','Todas as áreas do RAYO')}<div class="mobile-more-grid">${list.map(n=>`<button class="more-menu-item ${tab===n[0]?'current':''}" onclick="close_();openPage('${n[0]}')">${I(n[1])}<span>${E(n[2])}</span></button>`).join('')}</div>`);
 }
-function go(){today=localDate(new Date());if(!authToken)return;nav();$('#ti').textContent=T[tab]||'RAYO';$('#eyebrow').textContent=tab==='dash'?`Olá, ${authDisplayName}`:monthLabel(ym);$('#ym').value=ym;$('#userBadge').textContent=(authDisplayName||'U').slice(0,1).toUpperCase();$('#v').innerHTML=V[tab]();$('#quickHeader').style.display='inline-flex';}
+function go(){today=localDate(new Date());if(!authToken)return;nav();$('#ti').textContent=T[tab]||'RAYO';document.body.classList.toggle('no-month',tab==='benefits');$('#eyebrow').textContent=tab==='dash'?`Olá, ${authDisplayName}`:tab==='benefits'?'Seus saldos em um só lugar':monthLabel(ym);$('#ym').value=ym;$('#ymText').textContent=`${MN[Number(ym.slice(5,7))-1]||''} ${ym.slice(0,4)}`;$('#userBadge').textContent=(authDisplayName||'U').slice(0,1).toUpperCase();$('#v').innerHTML=V[tab]();$('#quickHeader').style.display='inline-flex';}
 function card(title,body,right=''){return `<section class="card"><div class="subhead"><h2>${title}</h2>${right}</div>${body}</section>`}
 function stat(label,value,ico,cl='',caption=''){return `<div class="card tile ${cl==='main'?'main-tile':''}"><div class="tile-icon">${I(ico)}</div><div class="sub">${E(label)}</div><strong>${R(value)}</strong>${caption?`<div class="tiny-note">${E(caption)}</div>`:''}</div>`}
 function statCount(label,value,ico){return `<div class="card tile"><div class="tile-icon">${I(ico)}</div><div class="sub">${E(label)}</div><strong>${Math.max(0,Number(value)||0)}</strong></div>`}
@@ -801,13 +968,19 @@ function swipeDeleteAction(x){
 function miniList(x,{actions=true,compact=false}={}){const html=`<div class="list-row"><span class="item-symbol" style="${categoryColor(x.cat,x.kind)?'--cat-tint:'+categoryColor(x.cat,x.kind)+';':''}">${appearance().iconStyle==='emoji'&&categoryEmoji(x.cat,x.kind)?`<span class="emoji-ico" aria-hidden="true">${E(categoryEmoji(x.cat,x.kind))}</span>`:I(x.type==='in'?'arrowdown':x.cat==='Cartões'?'credit':x.kind==='fix'?'repeat':x.cat==='Transporte'?'car':x.cat==='Mercado'?'store':'arrowup')}</span><span class="item-middle"><strong>${E(x.desc||x.cat)}</strong><small>${E(x.cat)} · ${D(x.date)}${x.item?.method?' · '+E(x.item.method):''}${x.freq&&x.freq!=='unica'?' · '+freqName[x.freq]:''}</small></span><div class="item-amount ${x.type==='in'?'good':''}">${x.type==='in'?'+':'−'} ${R(x.valor)}<small>${badge(x)}</small></div>${actions?`<div class="row-actions"><button class="mini-action is-primary" title="${x.paid?'Desfazer confirmação':'Confirmar'}" onclick="togglePaid('${x.kind}','${x.id}','${x.date}')">${I(x.paid?'checkcircle':'check','sm')} ${x.paid?'Desfazer':x.type==='in'?'Receber':'Pagar'}</button>${x.source==='entry'?`<button class="mini-action" title="Repetir lançamento" onclick="repeatEntry('${x.kind}','${x.id}')">${I('copy','sm')}</button><button class="mini-action" title="Editar lançamento" onclick="editEntry('${x.kind}','${x.id}')">${I('edit','sm')}</button><button class="mini-action swipe-original-delete" title="Excluir lançamento" onclick="deleteEntry('${x.kind}','${x.id}','${x.date}')">${I('trash','sm')}</button>`:''}</div>`:''}</div>`;return actions?swipeWrap(html,swipeDeleteAction(x)):html;}
 function miniBudget(b,y){const spent=monthSummary(y).out.filter(x=>x.cat===b.cat).reduce((s,x)=>s+x.valor,0),pct=Math.min(100,Math.max(0,spent/(Number(b.valor)||1)*100));return `<div class="budget-line"><div class="values"><strong>${E(b.cat)}</strong><small>${R(spent)} / ${R(b.valor)}</small></div><div class="progress"><span class="${spent>Number(b.valor)?'exceeded':pct>=85?'warning':''}" style="width:${pct}%"></span></div><div class="quiet" style="margin-top:5px">${spent>Number(b.valor)?'Acima do limite em '+R(spent-b.valor):'Restam '+R(b.valor-spent)}</div></div>`}
 function favorites(){if(!S.favs.length)return `<p class="muted" style="font-size:12px;margin:0">Seus lançamentos favoritos aparecerão aqui.</p>`;return `<div class="favs">${S.favs.map(f=>`<button class="fav" onclick="openQuick('${f.kind}',null,'${f.id}')">${I(f.kind==='rec'?'trendup':f.cat==='Mercado'?'store':f.kind==='fix'?'repeat':'wallet')}<span>${E(f.name||f.cat)}</span></button>`).join('')}</div>`}
-function dashboard(){const t=monthSummary(ym),f=financialBalance(ym),reserv=goalTotal(),upcoming=t.out.filter(x=>!x.paid).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,4),latest=t.a.filter(x=>x.paid&&x.date<=today&&(x.source!=='entry'||x.item?.statusMode!=='auto'||has(x.item?.pm,x.item?.freq==='semanal'?x.date:x.date.slice(0,7)))).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
- const reserved=f.configured?`<div class="divider"></div><div class="settings-row"><span class="muted">Separado em metas</span><strong>${R(reserv)}</strong></div><div class="settings-row"><span>Estimativa livre após reservas</span><strong>${R(f.available-reserv)}</strong></div>`:'';
- const tiles={saldo:stat(f.configured?'Saldo estimado':'Resultado registrado',f.available,'wallet','main',f.configured?'Saldo inicial + movimentações':'Informe saldo inicial para maior precisão'),ganhos:stat('Ganhos lançados',t.received,'trendup','',`A receber: ${R(t.forecast)}`),gastos:stat('Gastos lançados',t.paid,'trenddown','',`Pendentes: ${R(t.pending)}`),projecao:stat('Projeção do mês',f.projected,'chart','','Inclui previstos')};
+function dashboard(){const t=monthSummary(ym),f=financialBalance(ym),upcoming=t.out.filter(x=>!x.paid).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3),latest=t.a.filter(x=>x.paid&&x.date<=today&&(x.source!=='entry'||x.item?.statusMode!=='auto'||has(x.item?.pm,x.item?.freq==='semanal'?x.date:x.date.slice(0,7)))).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
+ const tiles={saldo:stat(f.configured?'Saldo estimado':'Resultado registrado',f.available,'wallet','main',f.configured?'Saldo inicial + movimentações':'Configure seu saldo inicial em Ajustes'),ganhos:stat('Ganhos recebidos',t.received,'trendup','',`A receber: ${R(t.forecast)}`),gastos:stat('Gastos pagos',t.paid,'trenddown','',`Pendentes: ${R(t.pending)}`),projecao:stat('Projeção do mês',f.projected,'chart','','Inclui os valores previstos')};
  const show=(appearance().homeCards||DEFAULT_HOME).filter(k=>tiles[k]);
- return `<div class="dashboard-tools"><button class="mini-action" onclick="setAppearanceOption('privacy',null)" title="${appearance().privacy?'Mostrar':'Ocultar'} valores" aria-label="${appearance().privacy?'Mostrar':'Ocultar'} valores">${I(appearance().privacy?'eyeoff':'eye','sm')}</button><button class="mini-action" onclick="openPage('settings')" title="Personalizar início" aria-label="Personalizar início">${I('sliders','sm')}</button></div><div class="cards">${show.map(k=>tiles[k]).join('')}</div>
- <div class="columns"><div class="stack">${card('Favoritos',favorites(),`<button class="btn light tiny square-action" onclick="openQuick()" aria-label="Novo lançamento" title="Novo lançamento">${I('plus','sm')}</button>`)}${card('Movimentações recentes',latest.length?latest.map(x=>miniList(x,{actions:false})).join(''):`<div class="empty">${I('receipt')}<div>Nenhuma movimentação confirmada neste mês.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('spend')">Ver tudo ${I('chevronright','sm')}</button>`)}${card('Fechamento do mês',`<div class="settings-row"><span class="muted">Ganhos lançados</span><strong class="good">${R(t.received)}</strong></div><div class="settings-row"><span class="muted">Gastos lançados</span><strong class="bad">${R(t.paid)}</strong></div><div class="settings-row"><span>Resultado registrado</span><strong>${R(t.net)}</strong></div><div class="settings-row"><span class="muted">Valores ainda pendentes</span><strong>${R(t.forecast+t.pending)}</strong></div>`,`<button class="btn ghost tiny" onclick="openPage('rel')">Relatórios ${I('chevronright','sm')}</button>`)}${card('Saldo e planejamento',`<div class="settings-row"><span class="muted">Lançado: entradas − saídas</span><strong>${R(t.net)}</strong></div><div class="settings-row"><span class="muted">Previsto a receber</span><strong class="good">+ ${R(t.forecast)}</strong></div><div class="settings-row"><span class="muted">Contas a pagar</span><strong class="bad">− ${R(t.pending)}</strong></div><div class="settings-row"><span>Projeção final</span><strong>${R(f.projected)}</strong></div>${reserved}`,`<button class="btn light tiny" onclick="openInitialBalance()">${I('sliders','sm')} Saldo inicial</button>`)}</div>
- <div class="stack">${card('Pendências e próximos vencimentos',upcoming.length?upcoming.map(x=>miniList(x,{actions:false})).join(''):`<div class="empty">${I('checkcircle')}<div>Nenhum compromisso futuro pendente.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('calendar')">Calendário ${I('chevronright','sm')}</button>`)}${card('Orçamentos',S.budgets.length?S.budgets.slice(0,4).map(x=>miniBudget(x,ym)).join(''):`<div class="empty">${I('target')}<div>Organize limites por categoria.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('budgets')">Gerenciar ${I('chevronright','sm')}</button>`)}${card('Minhas metas',S.res.length?S.res.slice(0,2).map(goalCard).join(''):`<div class="empty">${I('piggy')}<div>Crie sua primeira meta de economia.</div></div>`,`<button class="btn ghost tiny" onclick="openPage('res')">Ver metas ${I('chevronright','sm')}</button>`)}</div></div>`;
+ return `<div class="dashboard-tools"><button class="mini-action" onclick="setAppearanceOption('privacy',null)" title="${appearance().privacy?'Mostrar':'Ocultar'} valores" aria-label="${appearance().privacy?'Mostrar':'Ocultar'} valores">${I(appearance().privacy?'eyeoff':'eye','sm')}</button><button class="mini-action" onclick="openPage('settings')" title="Personalizar início" aria-label="Personalizar início">${I('sliders','sm')}</button></div>
+ <div class="cards">${show.map(k=>tiles[k]).join('')}</div>
+ <div class="dashboard-shortcuts"><button onclick="openPage('benefits')">${I('gift')}<span>Benefícios</span>${I('chevronright','sm')}</button><button onclick="openPage('calendar')">${I('calendar')}<span>Calendário</span>${I('chevronright','sm')}</button><button onclick="openPage('rel')">${I('chart')}<span>Relatórios</span>${I('chevronright','sm')}</button></div>
+ <div class="columns dashboard-columns"><div class="stack">
+ ${card('Últimas movimentações',latest.length?latest.map(x=>miniList(x,{actions:false})).join(''):`<div class="empty">Ainda não há movimentações confirmadas neste mês.</div>`,`<button class="btn ghost tiny" onclick="openPage('history')">Ver histórico ${I('chevronright','sm')}</button>`)}
+ ${card('Seus benefícios',benefitHomeSummary(),`<button class="btn ghost tiny" onclick="openPage('benefits')">Abrir ${I('chevronright','sm')}</button>`)}
+ </div><div class="stack">
+ ${card('Próximos pagamentos',upcoming.length?upcoming.map(x=>miniList(x,{actions:false})).join(''):`<div class="empty">Nenhuma conta pendente neste mês.</div>`,`<button class="btn ghost tiny" onclick="openPage('spend')">Ver gastos ${I('chevronright','sm')}</button>`)}
+ ${card('Lançamentos favoritos',favorites(),`<button class="btn light tiny square-action" onclick="openQuick()" aria-label="Novo lançamento" title="Novo lançamento">${I('plus','sm')}</button>`)}
+ </div></div>`;
 }
 function gains(){
  const t=monthSummary(ym),list=t.income.filter(x=>gainStatus==='all'||(gainStatus==='paid'?x.paid:!x.paid));
@@ -867,10 +1040,10 @@ function settings(){
  ${card('Menu lateral',`<p class="quiet">Marque o que deseja mostrar no computador. Todas as abas seguem disponíveis em “Mais”.</p><div class="shortcut-grid">${hide}</div>`)}
  ${card('Conta',`<div class="settings-row"><span class="muted">Usuário</span><strong>${E(authDisplayName)}</strong></div><div class="row-actions" style="justify-content:flex-start;margin-top:12px"><button class="btn light" onclick="openMyProfile()">${I('user','sm')} Perfil e nuvem</button><button class="btn light" onclick="logoutUser()">${I('logout','sm')} Sair</button></div>`)}
  ${card('Saldo inicial',`<div class="settings-row"><span class="muted">Valor</span><strong>${S.settings.startBalance===undefined?'Não informado':R(S.settings.startBalance)}</strong></div><div class="settings-row"><span class="muted">A partir de</span><strong>${S.settings.baseMonth?E(monthLabel(S.settings.baseMonth)):'—'}</strong></div>`,`<button class="btn tiny" onclick="openInitialBalance()">${I('edit','sm')} Editar</button>`)}
- ${card('Dados e segurança',`<div class="settings-row"><span>Backup JSON</span><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Planilha Excel organizada <small style="display:block;color:var(--muted)">13 abas, filtros, resumo anual e valores formatados</small></span><button class="btn tiny" onclick="exportExcel()">${I('download','sm')} Baixar XLSX</button></div><div class="settings-row"><span>CSV simples <small style="display:block;color:var(--muted)">Dados básicos em uma única tabela</small></span><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Baixar CSV</button></div><div class="settings-row"><span>Limpar registros deste perfil</span><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}
+ ${card('Dados e segurança',`<div class="settings-row"><span>Backup JSON</span><button class="btn light tiny" onclick="backupDados()">${I('download','sm')} Baixar</button></div><div class="settings-row"><span>Planilha Excel organizada <small style="display:block;color:var(--muted)">15 abas, filtros, resumo anual e valores formatados</small></span><button class="btn tiny" onclick="exportExcel()">${I('download','sm')} Baixar XLSX</button></div><div class="settings-row"><span>CSV simples <small style="display:block;color:var(--muted)">Dados básicos em uma única tabela</small></span><button class="btn light tiny" onclick="exportCSV()">${I('download','sm')} Baixar CSV</button></div><div class="settings-row"><span>Limpar registros deste perfil</span><button class="btn d tiny" onclick="resetAllUserData()">${I('trash','sm')} Limpar</button></div>`)}
  ${card('Favoritos',S.favs.length?S.favs.map(f=>swipeWrap(`<div class="settings-row"><div><strong>${E(f.name||f.cat)}</strong><br><small>${E(f.cat)} · ${R(f.valor)}</small></div><button class="mini-action swipe-original-delete" onclick="removeFavorite('${f.id}')">${I('trash','sm')}</button></div>`,`removeFavorite('${f.id}')`)).join(''):'<p class="muted">Nenhum favorito cadastrado.</p>')}
  ${card('Instalar no celular',`<p class="quiet">iPhone: Safari → Compartilhar → Adicionar à Tela de Início. Android: menu do navegador → Instalar.</p>`)}
- ${card('Sobre esta versão',`<p class="quiet">RAYO oficial · ${RAYO_VERSION}. Versão unificada com as melhorias do laboratório.</p>`)}
+ ${card('Sobre esta versão',`<p class="quiet">RAYO oficial · ${RAYO_VERSION}. Benefícios e interface adaptada ao celular.</p>`)}
  </div>`;
 }
 
@@ -1071,7 +1244,36 @@ function boletoPage(){
  <p class="mini-summary">Cada parcela aparece no calendário, nos gastos e no planejamento mensal. Só é considerada paga quando você confirma.</p>`;
 }
 
-const V={bol:boletoPage,dash:dashboard,rec:gains,spend:expenses,calendar,history,recurr:recurrence,budgets,res:goals,car:cardsPage,div:debts,rel:reports,sim:simulator,settings};
+/* RAYO OFICIAL 1.2.0 — Benefícios (saldos manuais de VA, VR, mobilidade e afins).
+   Persistidos em /state, dentro da conta individual. NÃO são movimentações bancárias. */
+const BENEFIT_TYPES={va:{label:'Vale-alimentação',short:'VA',color:'#2E8B78'},vr:{label:'Vale-refeição',short:'VR',color:'#C67B4B'},mobility:{label:'Mobilidade',short:'VT',color:'#597BBA'},culture:{label:'Cultura e lazer',short:'Cultura',color:'#846AC4'},other:{label:'Outros benefícios',short:'Benefício',color:'#71808A'}};
+const benefitList=()=>Array.isArray(S.benefits)?S.benefits:[];
+const benefitType=t=>BENEFIT_TYPES[t]||BENEFIT_TYPES.other;
+function benefitEntries(b){return Array.isArray(b?.entries)?b.entries:[]}
+function benefitBalance(b){const cents=Math.round(Number(b?.opening||0)*100)+benefitEntries(b).reduce((a,x)=>a+(x.kind==='credit'?1:-1)*Math.round(Number(x.amount||0)*100),0);return cents/100}
+function benefitTotals(){const b=benefitList(),month=loc(new Date());let loaded=0,spent=0;for(const item of b)for(const x of benefitEntries(item)){if(String(x.date||'').startsWith(month)){if(x.kind==='credit')loaded+=Number(x.amount||0);else spent+=Number(x.amount||0);}}return {count:b.length,balance:Math.round(b.reduce((t,x)=>t+benefitBalance(x),0)*100)/100,loaded:Math.round(loaded*100)/100,spent:Math.round(spent*100)/100}}
+function benefitHomeSummary(){const b=benefitTotals();return `<div class="benefit-home-summary"><span class="benefit-home-mark">${I('gift')}</span><div><small>${b.count?`${b.count} ${b.count===1?'benefício':'benefícios'} cadastrado${b.count===1?'':'s'}`:'VA, VR e outros saldos'}</small><strong>${b.count?R(b.balance):'Tudo em um só lugar'}</strong></div></div><p class="quiet" style="margin:10px 0 0">Controle separado do saldo bancário. Atualização manual.</p>`}
+function benefitsPage(){const items=benefitList(),total=benefitTotals();const wallets=items.map(b=>{const type=benefitType(b.type),balance=benefitBalance(b);return `<article class="benefit-wallet" style="--benefit-color:${type.color}"><div class="benefit-wallet-top"><span class="benefit-wallet-icon">${I('gift')}</span><div class="benefit-wallet-topright"><span class="benefit-kind">${E(type.short)}</span><button type="button" class="benefit-edit" onclick="openBenefitEditor('${E(b.id)}')" aria-label="Editar ${E(b.name)}" title="Editar benefício">${I('edit','sm')}</button></div></div><div class="benefit-wallet-name">${E(b.name||type.label)}</div><div class="benefit-wallet-desc">${E(b.provider||type.label)}${b.last4?' · Final '+E(b.last4):''}</div><small class="benefit-wallet-label">Saldo informado</small><strong class="benefit-wallet-amount">${R(balance)}</strong><div class="benefit-wallet-actions"><button type="button" class="benefit-action primary" onclick="openBenefitMove('${E(b.id)}','debit')">${I('arrowup','sm')} Registrar uso</button><button type="button" class="benefit-action" onclick="openBenefitMove('${E(b.id)}','credit')">${I('plus','sm')} Adicionar saldo</button></div></article>`}).join('');
+const transactions=items.flatMap(b=>benefitEntries(b).map(x=>({...x,benefitName:b.name||benefitType(b.type).label,benefitId:b.id}))).sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||String(b.id).localeCompare(String(a.id))).slice(0,20);
+return `<div class="benefits-page"><section class="benefit-hero"><div><span class="benefit-eyebrow">Sua carteira de benefícios</span><h2>Mais controle, menos contas.</h2><p>Veja o que ainda tem em cada benefício, sem misturar com o dinheiro da conta.</p></div><div class="benefit-total"><small>Saldo total dos benefícios</small><strong>${R(total.balance)}</strong><span>${total.count} ${total.count===1?'benefício cadastrado':'benefícios cadastrados'}</span></div></section>
+<div class="benefit-stats"><div><small>Adicionado neste mês</small><strong class="good">${R(total.loaded)}</strong></div><div><small>Utilizado neste mês</small><strong>${R(total.spent)}</strong></div></div>
+<div class="benefit-section-head"><div><h2>Meus benefícios</h2><p>Alimentação, refeição e outros cartões.</p></div><button class="btn benefit-new" onclick="openBenefitEditor()">${I('plus','sm')} Adicionar benefício</button></div>
+${items.length?`<div class="benefit-grid">${wallets}</div>`:`<div class="benefit-empty">${I('gift','lg')}<h3>Vamos cadastrar seu primeiro benefício?</h3><p>Adicione seu VA, VR ou outro cartão e acompanhe o saldo disponível.</p><button class="btn" onclick="openBenefitEditor()">${I('plus','sm')} Cadastrar benefício</button></div>`}
+${items.length?`<section class="card benefit-history"><div class="subhead"><h2>Últimas movimentações</h2><span class="quiet">Até 20 registros</span></div>${transactions.length?transactions.map(x=>`<div class="benefit-history-row"><span class="benefit-history-ico ${x.kind==='credit'?'is-credit':'is-debit'}">${I(x.kind==='credit'?'arrowdown':'arrowup','sm')}</span><div class="benefit-history-main"><strong>${E(x.desc|| (x.kind==='credit'?'Crédito de benefício':'Uso do benefício'))}</strong><small>${E(x.benefitName)} · ${D(x.date)}</small></div><div class="benefit-history-amount ${x.kind==='credit'?'good':''}">${x.kind==='credit'?'+':'−'} ${R(x.amount)}</div><button class="mini-action benefit-history-delete" onclick="deleteBenefitMove('${E(x.benefitId)}','${E(x.id)}')" aria-label="Excluir movimentação" title="Excluir movimentação">${I('trash','sm')}</button></div>`).join(''):`<div class="empty">Seu histórico de uso aparecerá aqui.</div>`}</section>`:''}
+<p class="benefit-disclaimer">Os valores são informados por você. O RAYO não consulta o saldo real da operadora nem altera seu saldo bancário ou seus lançamentos financeiros.</p></div>`;
+}
+function openBenefitEditor(id=''){const b=benefitList().find(x=>x.id===id),types=Object.entries(BENEFIT_TYPES);open_(`${modalHeader(b?'Editar benefício':'Novo benefício','Cadastre um cartão ou saldo de benefício.')}
+<div class="field-grid"><div class="field">${FIELD('Tipo de benefício',`<select id="benefitType">${selectOpts(types.map(([k,v])=>[k,v.label]),b?.type||'va')}</select>`)}</div><div class="field">${FIELD('Nome do benefício',`<input id="benefitName" maxlength="50" value="${E(b?.name||'')}" placeholder="Ex.: Meu VA">`)}</div><div class="field">${FIELD('Operadora (opcional)',`<input id="benefitProvider" maxlength="50" value="${E(b?.provider||'')}" placeholder="Ex.: Alelo, Ticket, Flash">`)}</div><div class="field">${FIELD('Últimos 4 dígitos (opcional)',`<input id="benefitLast4" inputmode="numeric" pattern="[0-9]{0,4}" maxlength="4" value="${E(b?.last4||'')}" placeholder="1234">`)}</div><div class="field full">${FIELD('Saldo inicial (R$)',`<input id="benefitOpening" type="number" inputmode="decimal" min="0" step="0.01" value="${E(b?.opening??0)}" aria-describedby="benefitOpenHelp">`)}<small class="hint" id="benefitOpenHelp">${b?'Alterar o saldo inicial recalcula o saldo atual sem apagar o histórico.':'Quanto havia no cartão ao começar este controle.'}</small></div></div>
+<div class="modal-footer">${b?`<button class="btn d" style="margin-right:auto" onclick="deleteBenefit('${E(b.id)}')">Excluir</button>`:''}<button class="btn light" onclick="close_()">Cancelar</button><button class="btn" onclick="saveBenefit('${E(id)}')">Salvar</button></div>`);}
+function saveBenefit(id=''){const type=$('#benefitType')?.value,name=$('#benefitName')?.value.trim(),provider=$('#benefitProvider')?.value.trim(),last4=$('#benefitLast4')?.value.trim(),opening=moneyValue($('#benefitOpening'));
+if(!BENEFIT_TYPES[type]||!name||name.length>50)return er('Informe um nome de benefício válido.');if(!/^\d{0,4}$/.test(last4))return er('O final do cartão deve conter até 4 números.');if(!Number.isFinite(opening)||opening<0||opening>999999999)return er('Informe um saldo inicial válido.');
+const b=benefitList().find(x=>x.id===id),v={type,name,provider,last4,opening:Math.round(opening*100)/100};if(b){if(benefitBalance({...b,...v})<0)return er('Este saldo inicial deixaria o benefício com valor negativo.');Object.assign(b,v);}else S.benefits.push({id:uid(),...v,entries:[]});save();close_();go();}
+function deleteBenefit(id){const b=benefitList().find(x=>x.id===id);if(!b||!confirm(`Excluir "${b.name}" e todo o histórico deste benefício?`))return;S.benefits=S.benefits.filter(x=>x.id!==id);save();close_();go()}
+function openBenefitMove(id,kind){const b=benefitList().find(x=>x.id===id);if(!b||!['credit','debit'].includes(kind))return;const debit=kind==='debit';open_(`${modalHeader(debit?'Registrar uso':'Adicionar saldo',b.name)}<div class="benefit-move-balance"><span>Saldo atual</span><strong>${R(benefitBalance(b))}</strong></div><div class="field-grid"><div class="field full">${FIELD('Valor (R$)',`<input id="benefitMoveAmount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0,00" autofocus>`)}</div><div class="field">${FIELD('Data',`<input id="benefitMoveDate" type="date" value="${today}">`)}</div><div class="field">${FIELD('Descrição (opcional)',`<input id="benefitMoveDesc" maxlength="75" placeholder="${debit?'Ex.: Almoço':'Ex.: Recarga do mês'}">`)}</div></div><p class="mini-summary">Este registro atualiza apenas o controle do benefício. Não cria um gasto ou ganho na conta bancária.</p><div class="modal-footer"><button class="btn light" onclick="close_()">Cancelar</button><button class="btn" onclick="saveBenefitMove('${E(id)}','${kind}')">${debit?'Registrar uso':'Adicionar saldo'}</button></div>`);}
+function saveBenefitMove(id,kind){const b=benefitList().find(x=>x.id===id),amount=moneyValue($('#benefitMoveAmount')),date=$('#benefitMoveDate')?.value,desc=$('#benefitMoveDesc')?.value.trim();if(!b||!['credit','debit'].includes(kind))return er('Benefício inválido.');if(!Number.isFinite(amount)||amount<=0||amount>999999999||!validDate(date))return er('Confira o valor e a data.');const cents=Math.round(amount*100);if(cents<1)return er('O valor deve ser de pelo menos R$ 0,01.');if(kind==='debit'&&cents>Math.round(benefitBalance(b)*100))return er('O valor utilizado é maior que o saldo disponível.');if(!Array.isArray(b.entries))b.entries=[];b.entries.push({id:uid(),kind,amount:cents/100,date,desc});save();close_();go();}
+function deleteBenefitMove(benefitId,id){const b=benefitList().find(x=>x.id===benefitId),x=benefitEntries(b).find(v=>v.id===id);if(!b||!x)return;if(!confirm('Excluir esta movimentação do benefício?'))return;if(x.kind==='credit'&&benefitBalance(b)-Number(x.amount||0)<-0.001)return alert('Não é possível excluir esta recarga: o saldo ficaria negativo. Exclua primeiro os usos relacionados.');b.entries=b.entries.filter(v=>v.id!==id);save();go();}
+
+const V={bol:boletoPage,dash:dashboard,benefits:benefitsPage,rec:gains,spend:expenses,calendar,history,recurr:recurrence,budgets,res:goals,car:cardsPage,div:debts,rel:reports,sim:simulator,settings};
 let rayoModalScrollY=0;
 function open_(html){
  today=localDate(new Date());
@@ -1686,6 +1888,11 @@ function rayoExportSheets(){
  const goalsById=new Map(rxArr(S.res).map(x=>[x.id,x.nome]));
  const reserves=rxArr(S.reserveHistory).map(h=>[rxDate(h.data),goalsById.get(h.goalId)||'Meta não encontrada',Number(h.valor||0)>=0?'Depósito':'Retirada',rxMoney(h.valor),h.id||'']);
  add('Mov. Reservas',['Data','Meta','Tipo','Valor (R$)','ID'],reserves,{widths:[18,35,20,20,24],totals:[4],note:'Depósitos são positivos; retiradas, negativas. Não equivalem a transferências bancárias.'});
+ const wallets=rxArr(S.benefits);
+ const walletRows=wallets.map(b=>[b.name||'',benefitType(b.type).label,b.provider||'',b.last4||'',rxMoney(b.opening),rxMoney(benefitBalance(b)),rxNumber(benefitEntries(b).length),b.id||'']);
+ add('Benefícios',['Benefício','Tipo','Operadora','Final cartão','Saldo inicial (R$)','Saldo atual (R$)','Movimentações','ID'],walletRows,{widths:[29,26,26,18,22,24,18,23],totals:[5,6],note:'Saldos informados manualmente; não compõem o saldo bancário.'});
+ const walletMoves=wallets.flatMap(b=>benefitEntries(b).map(x=>[rxDate(x.date),b.name||'',benefitType(b.type).label,x.kind==='credit'?'Recarga':'Uso',rxMoney(x.kind==='credit'?Number(x.amount):-Number(x.amount)),x.desc||'',x.id||''])).sort((a,b)=>String(a[0]?.value).localeCompare(String(b[0]?.value)));
+ add('Mov. Benefícios',['Data','Benefício','Tipo de benefício','Movimentação','Valor (R$)','Descrição','ID'],walletMoves,{widths:[19,30,25,22,21,38,24],totals:[5],note:'Créditos positivos e usos negativos. Não representam movimentos bancários.'});
  return sheets;
 }
 function rayoXml(value){return String(value??'').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;')}
